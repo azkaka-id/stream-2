@@ -1,0 +1,13 @@
+{
+  "name": "shuttleflash-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ShuttleFlash live stream page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
