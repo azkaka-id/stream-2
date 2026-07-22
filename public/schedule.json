@@ -2,46 +2,46 @@
   "title": "Today's Matches (WIB)",
   "matches": [
     {
-    "code": "🏸 MD",
-    "discipline": "Ganda Putra",
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
     "court": "Court 1",
-    "match": "Match 5",
-    "team1": "🇮🇩 Sabar Karyaman Gutama / Moh. Reza Pahlevi Isfahani",
-    "team2": "🇲🇾 Aaron Chia / Soh Wooi Yik",
-    "seed": "[6]",
-    "time": "11.10 WIB",
-    "localTime": "12.10 JST"
-  },
-  {
-    "code": "🏸 WS",
-    "discipline": "Tunggal Putri",
-    "court": "Court 2",
-    "match": "Match 1",
-    "team1": "🇮🇩 Putri Kusuma Wardani",
-    "team2": "🇨🇳 Han Qian Xi",
-    "seed": "[6]",
+    "match": "Match 2",
+    "team1": "🇮🇩 Alwi Farhan",
+    "team2": "🇮🇳 Ayush Shetty",
+    "seed": "",
     "time": "Selesai",
     "localTime": "Finished"
   },
   {
-    "code": "🏸 XD",
-    "discipline": "Ganda Campuran",
-    "court": "Court 3",
-    "match": "Match 5",
-    "team1": "🇮🇩 Rehan Naufal Kusharjanto / Gloria Emanuelle Widjaja",
-    "team2": "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Alexander Dunn / Julie Macpherson",
-    "seed": "",
-    "time": "11.15 WIB",
-    "localTime": "12.15 JST"
+    "code": "🏸 WD",
+    "discipline": "Ganda Putri",
+    "court": "Court 1",
+    "match": "Match 4",
+    "team1": "🇮🇩 Rachel Allessya Rose / Febi Setianingrum",
+    "team2": "🇨🇳 Jia Yi Fan / Zhang Shu Xian",
+    "seed": "[2]",
+    "time": "Selesai",
+    "localTime": "Finished"
   },
   {
     "code": "🏸 MD",
     "discipline": "Ganda Putra",
-    "court": "Court 1",
-    "match": "Match 10",
-    "team1": "🇮🇩 Raymond Indra / Nikolaus Joaquin",
-    "team2": "🇹🇼 Lee Fang-Chih / Lee Fang-Jen",
-    "seed": "",
+    "court": "Court 2",
+    "match": "Match 6",
+    "team1": "🇮🇩 Fajar Alfian / Muhammad Shohibul Fikri",
+    "team2": "🇨🇳 Huang Di / Liu Yang",
+    "seed": "[2]",
+    "time": "13.05 WIB",
+    "localTime": "14.05 JST"
+  },
+  {
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
+    "court": "Court 3",
+    "match": "Match 11",
+    "team1": "🇮🇩 Jonatan Christie",
+    "team2": "🇯🇵 Yudai Okimoto",
+    "seed": "[4]",
     "time": "15.20 WIB",
     "localTime": "16.20 JST"
   },
@@ -49,12 +49,23 @@
     "code": "🏸 WD",
     "discipline": "Ganda Putri",
     "court": "Court 3",
-    "match": "Match 10",
-    "team1": "🇯🇵 Sayaka Hirota / Ayako Sakuramoto",
-    "team2": "🇮🇩 Amallia Cahaya Pratiwi / Siti Fadia Silva Ramadhanti",
-    "seed": "",
-    "time": "14.30 WIB",
-    "localTime": "15.30 JST"
+    "match": "Match 12",
+    "team1": "🇮🇩 Febriana Dwipuji Kusuma / Meilysa Trias Puspitasari",
+    "team2": "🇰🇷 Kim Hye Jeong / Kong Hee Yong",
+    "seed": "[6]",
+    "time": "16.10 WIB",
+    "localTime": "17.10 JST"
+  },
+  {
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
+    "court": "Court 3",
+    "match": "Match 14",
+    "team1": "🇮🇩 Amri Syahnawi / Nita Violina Marwah",
+    "team2": "🇹🇭 Dechapol Puavaranukroh / Supissara Paewsampran",
+    "seed": "[4]",
+    "time": "17.50 WIB",
+    "localTime": "18.50 JST"
   }
   ]
 }

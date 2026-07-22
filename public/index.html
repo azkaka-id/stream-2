@@ -726,9 +726,13 @@
 
     <!-- ... [Semua kode HTML dan CSS di atas tetap sama] ... -->
     <script>
-    // === KONFIGURASI URL BACKEND ===
-    // Ubah URL ini sesuai dengan domain hosting backend Anda setelah dideploy!
-    const BACKEND_URL = ""; 
+    // === KONFIGURASI URL STREAM (Ubah link m3u8 asli di sini) ===
+    const COURTS = {
+        court1: "https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4271153287374061_AiHD.m3u8?txSecret=157f8b26dd0f594b817166d24ed0d6ae&txTime=6A613D60",
+        court2: "https://53b1f59b603742f3fe43bc97dbe7ad63.v.smtcdns.net/play.cbalive.weibisai.com/live/4271153417454061_AiHD.m3u8?txSecret=05f6acde1187b82eefd76eb0598bdc12&txTime=6A613D60",
+        court3: "https://576572429726c2abb81829f2b3d1d81c.v.smtcdns.net/play.cbalive.weibisai.com/live/4271153525847061_AiHD.m3u8?txSecret=4322cda400b57348c9cc2825cf89a935&txTime=6A613D60",
+        court4: "" // Masukkan link court 4 jika ada
+    };
 
     let hls;
     const hlsOptions = {
@@ -816,8 +820,8 @@
         const scheduleTitle = document.getElementById('scheduleTitle');
         const matchList = document.getElementById('matchList');
         try {
-            // Fetch schedule.json dari root folder
-            const response = await fetch(`/schedule.json`, {
+            // Fetch schedule.json secara relatif (berguna untuk GitHub Pages dll)
+            const response = await fetch(`schedule.json`, {
                 cache: 'no-store'
             });
             if (!response.ok) {
@@ -841,15 +845,12 @@
     }
 
     async function getStreamUrl(court) {
-        // Fetch mengarah ke Vercel Serverless Function
-        const response = await fetch(`/api/stream?court=${court}`, {
-            cache: 'no-store'
-        });
-        if (!response.ok) {
+        // Langsung mengambil link dari variabel COURTS di atas
+        const url = COURTS[court];
+        if (!url) {
             throw new Error('STREAM BELUM TERSEDIA');
         }
-        const data = await response.json();
-        return data.url;
+        return url;
     }
 
     async function loadVideo(court) {
