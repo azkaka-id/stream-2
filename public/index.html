@@ -728,7 +728,7 @@
     <script>
     // === KONFIGURASI URL BACKEND ===
     // Ubah URL ini sesuai dengan domain hosting backend Anda setelah dideploy!
-    const BACKEND_URL = "http://localhost:3000"; 
+    const BACKEND_URL = ""; 
 
     let hls;
     const hlsOptions = {
@@ -816,8 +816,8 @@
         const scheduleTitle = document.getElementById('scheduleTitle');
         const matchList = document.getElementById('matchList');
         try {
-            // Fetch mengarah ke Backend URL
-            const response = await fetch(`${BACKEND_URL}/schedule.json`, {
+            // Fetch schedule.json dari root folder
+            const response = await fetch(`/schedule.json`, {
                 cache: 'no-store'
             });
             if (!response.ok) {
@@ -841,8 +841,8 @@
     }
 
     async function getStreamUrl(court) {
-        // Fetch mengarah ke Backend URL
-        const response = await fetch(`${BACKEND_URL}/api/stream/${court}`, {
+        // Fetch mengarah ke Vercel Serverless Function
+        const response = await fetch(`/api/stream?court=${court}`, {
             cache: 'no-store'
         });
         if (!response.ok) {
