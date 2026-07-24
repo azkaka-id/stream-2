@@ -2,81 +2,48 @@
   "title": "Today's Matches (WIB)",
   "matches": [
     {
-      "code": "🏸 MD",
-      "discipline": "Ganda Putra",
+      "code": "🏸 WS",
+      "discipline": "Tunggal Putri",
       "court": "Court 1",
       "match": "Match 7",
-      "team1": "🇯🇵 Takumi Nomura / Yuichi Shimogami",
-      "team2": "🇮🇩 Fajar Alfian / Muhammad Shohibul Fikri",
-      "seed": "[2]",
-      "time": "13.05 WIB",
-      "localTime": "14.05 JST"
-    },
-    {
-      "code": "🏸 MS",
-      "discipline": "Tunggal Putra",
-      "court": "Court 1",
-      "match": "Match 9",
-      "team1": "🇸🇬 Loh Kean Yew",
-      "team2": "🇮🇩 Jonatan Christie",
-      "seed": "[4]",
-      "time": "14.45 WIB",
-      "localTime": "15.45 JST"
-    },
-    {
-      "code": "🏸 MD",
-      "discipline": "Ganda Putra",
-      "court": "Court 2",
-      "match": "Match 2",
-      "team1": "🇮🇩 Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani",
-      "team2": "🏴 Ben Lane / Sean Vendy",
+      "team1": "🇮🇩 Putri Kusuma Wardani",
+      "team2": "🇯🇵 Tomoka Miyazaki",
       "seed": "[6]",
-      "time": "Selesai",
-      "localTime": "Finished"
-    },
-    {
-      "code": "🏸 XD",
-      "discipline": "Ganda Campuran",
-      "court": "Court 2",
-      "match": "Match 7",
-      "team1": "🇩🇰 Mathias Christiansen / Alexandra Bøje",
-      "team2": "🇮🇩 Rehan Kusharjanto / Gloria Emanuelle Widjaja",
-      "seed": "[3]",
-      "time": "13.10 WIB",
-      "localTime": "14.10 JST"
+      "time": "16.50 WIB",
+      "localTime": "17.50 JST"
     },
     {
       "code": "🏸 WD",
       "discipline": "Ganda Putri",
-      "court": "Court 2",
+      "court": "Court 1",
       "match": "Match 9",
-      "team1": "🇺🇸 Lauren Lam / Allison Lee",
+      "team1": "🇨🇳 Li Yijing / Luo Xumin",
       "team2": "🇮🇩 Rachel Allessya Rose / Febi Setianingrum",
-      "seed": "",
-      "time": "14.50 WIB",
-      "localTime": "15.50 JST"
+      "seed": "[8]",
+      "time": "18.30 WIB",
+      "localTime": "19.30 JST"
+    },
+    {
+      "code": "🏸 MS",
+      "discipline": "Tunggal Putra",
+      "court": "Court 2",
+      "match": "Match 3",
+      "team1": "🇨🇦 Victor Lai",
+      "team2": "🇮🇩 Jonatan Christie",
+      "seed": "[4]",
+      "time": "10.40 WIB",
+      "localTime": "11.40 JST"
     },
     {
       "code": "🏸 MD",
       "discipline": "Ganda Putra",
       "court": "Court 2",
-      "match": "Match 11",
-      "team1": "🇨🇳 Chen Boyang / Liu Yi",
-      "team2": "🇮🇩 Raymond Indra / Nikolaus Joaquin",
-      "seed": "[7]",
-      "time": "16.30 WIB",
-      "localTime": "17.30 JST"
-    },
-    {
-      "code": "🏸 WS",
-      "discipline": "Tunggal Putri",
-      "court": "Court 2",
-      "match": "Match 12",
-      "team1": "🇮🇩 Putri Kusuma Wardani",
-      "team2": "🇹🇭 Busanan Ongbamrungphan",
-      "seed": "[6]",
-      "time": "17.20 WIB",
-      "localTime": "18.20 JST"
+      "match": "Match 8",
+      "team1": "🇰🇷 Kang Min Hyuk / Ki Dong Ju",
+      "team2": "🇮🇩 Fajar Alfian / Muhammad Shohibul Fikri",
+      "seed": "[2]",
+      "time": "18.30 WIB",
+      "localTime": "19.30 JST"
     }
   ]
 }
