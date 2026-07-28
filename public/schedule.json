@@ -1,51 +1,49 @@
 {
   "title": "Today's Matches (WIB)",
   "matches": [
-    [
-      {
-        "code": "🏸 WS",
-        "discipline": "Tunggal Putri",
-        "court": "Court 3",
-        "match": "Match 5",
-        "team1": "🇮🇩 Ni Kadek N. Pratiwi",
-        "team2": "🇹🇼 Lee Yu-Hsuan",
-        "seed": "-",
-        "time": "11.20 WIB",
-        "localTime": "12.20 CST"
-      },
-      {
-        "code": "🏸 XD",
-        "discipline": "Ganda Campuran",
-        "court": "Court 2",
-        "match": "Match 17",
-        "team1": "🇮🇩 Verrel Yustin Mulia / Bernadine A. Wardana",
-        "team2": "🇮🇩 Marwan Faza / Aisyah S. P. Pranata",
-        "seed": "vs [7]",
-        "time": "19.20 WIB",
-        "localTime": "20.20 CST"
-      },
-      {
-        "code": "🏸 XD",
-        "discipline": "Ganda Campuran",
-        "court": "Court 3",
-        "match": "Match 18",
-        "team1": "🇮🇩 Dejan Ferdinansyah / Apriyani Rahayu",
-        "team2": "🇯🇵 Haruki Kawabe / Kokona Ishikawa",
-        "seed": "-",
-        "time": "21.00 WIB",
-        "localTime": "22.00 CST"
-      },
-      {
-        "code": "🏸 XD",
-        "discipline": "Ganda Campuran",
-        "court": "Court 4",
-        "match": "Match 17",
-        "team1": "🇮🇩 Renaldi Samosir / Masita Mahmudin",
-        "team2": "🇲🇾 Chen Tang Jie / Clarissa San",
-        "seed": "-",
-        "time": "18.30 WIB",
-        "localTime": "19.30 CST"
-      }
-    ]
+    {
+      "code": "🏸 WS",
+      "discipline": "Tunggal Putri",
+      "court": "Court 3",
+      "match": "Match 5",
+      "team1": "🇮🇩 Ni Kadek N. Pratiwi",
+      "team2": "🇹🇼 Lee Yu-Hsuan",
+      "seed": "-",
+      "time": "11.20 WIB",
+      "localTime": "12.20 CST"
+    },
+    {
+      "code": "🏸 XD",
+      "discipline": "Ganda Campuran",
+      "court": "Court 2",
+      "match": "Match 17",
+      "team1": "🇮🇩 Verrel Yustin Mulia / Bernadine A. Wardana",
+      "team2": "🇮🇩 Marwan Faza / Aisyah S. P. Pranata",
+      "seed": "vs [7]",
+      "time": "19.20 WIB",
+      "localTime": "20.20 CST"
+    },
+    {
+      "code": "🏸 XD",
+      "discipline": "Ganda Campuran",
+      "court": "Court 3",
+      "match": "Match 18",
+      "team1": "🇮🇩 Dejan Ferdinansyah / Apriyani Rahayu",
+      "team2": "🇯🇵 Haruki Kawabe / Kokona Ishikawa",
+      "seed": "-",
+      "time": "21.00 WIB",
+      "localTime": "22.00 CST"
+    },
+    {
+      "code": "🏸 XD",
+      "discipline": "Ganda Campuran",
+      "court": "Court 4",
+      "match": "Match 17",
+      "team1": "🇮🇩 Renaldi Samosir / Masita Mahmudin",
+      "team2": "🇲🇾 Chen Tang Jie / Clarissa San",
+      "seed": "-",
+      "time": "18.30 WIB",
+      "localTime": "19.30 CST"
+    }
   ]
 }
