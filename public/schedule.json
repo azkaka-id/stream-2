@@ -2,48 +2,125 @@
   "title": "Today's Matches (WIB)",
   "matches": [
     {
+      "code": "🏸 MS",
+      "discipline": "Tunggal Putra",
+      "court": "Court 1",
+      "match": "Match 7",
+      "team1": "🇮🇩 Anthony Sinisuka Ginting",
+      "team2": "🇹🇼 Lin Chun-Yi",
+      "seed": "(2)",
+      "time": "13.00 WIB",
+      "localTime": "14.00 CST"
+    },
+    {
+      "code": "🏸 MS",
+      "discipline": "Tunggal Putra",
+      "court": "Court 1",
+      "match": "Match 9",
+      "team1": "🇹🇼 Wang Tzu-Wei",
+      "team2": "🇮🇩 Muhammad Yusuf",
+      "seed": "-",
+      "time": "12.30 WIB",
+      "localTime": "13.30 CST"
+    },
+    {
+      "code": "🏸 MS",
+      "discipline": "Tunggal Putra",
+      "court": "Court 2",
+      "match": "Match 4",
+      "team1": "🇮🇳 Rounak Chouhan",
+      "team2": "🇮🇩 Richie Duta Richardo",
+      "seed": "-",
+      "time": "10.30 WIB",
+      "localTime": "11.30 CST"
+    },
+    {
+      "code": "🏸 WS",
+      "discipline": "Tunggal Putri",
+      "court": "Court 2",
+      "match": "Match 10",
+      "team1": "🇮🇩 Ni Kadek N. Pratiwi",
+      "team2": "🇮🇳 R. Santhosh Ramraj",
+      "seed": "-",
+      "time": "13.20 WIB",
+      "localTime": "14.20 CST"
+    },
+    {
+      "code": "🏸 MD",
+      "discipline": "Ganda Putra",
+      "court": "Court 2",
+      "match": "Match 14",
+      "team1": "🇮🇩 Leo Rolly Carnando / Daniel Marthin",
+      "team2": "🇹🇼 Zhe He / Huang Jui-Hsuan",
+      "seed": "(8)",
+      "time": "16.40 WIB",
+      "localTime": "17.40 CST"
+    },
+    {
+      "code": "🏸 MD",
+      "discipline": "Ganda Putra",
+      "court": "Court 2",
+      "match": "Match 16",
+      "team1": "🇮🇩 Ali Faathir Rayhan / Devin Artha Wahyudi",
+      "team2": "🇲🇾 J. Arif / Kang Khai Xing",
+      "seed": "-",
+      "time": "18.20 WIB",
+      "localTime": "19.20 CST"
+    },
+    {
+      "code": "🏸 MS",
+      "discipline": "Tunggal Putra",
+      "court": "Court 3",
+      "match": "Match 1",
+      "team1": "🇮🇩 Moh. Zaki Ubaidillah",
+      "team2": "🇲🇾 Justin Hoh",
+      "seed": "(5)",
+      "time": "08.00 WIB",
+      "localTime": "09.00 CST"
+    },
+    {
       "code": "🏸 WS",
       "discipline": "Tunggal Putri",
       "court": "Court 3",
-      "match": "Match 5",
-      "team1": "🇮🇩 Ni Kadek N. Pratiwi",
-      "team2": "🇹🇼 Lee Yu-Hsuan",
-      "seed": "-",
-      "time": "11.20 WIB",
-      "localTime": "12.20 CST"
-    },
-    {
-      "code": "🏸 XD",
-      "discipline": "Ganda Campuran",
-      "court": "Court 2",
-      "match": "Match 17",
-      "team1": "🇮🇩 Verrel Yustin Mulia / Bernadine A. Wardana",
-      "team2": "🇮🇩 Marwan Faza / Aisyah S. P. Pranata",
-      "seed": "vs [7]",
-      "time": "19.20 WIB",
-      "localTime": "20.20 CST"
+      "match": "Match 2",
+      "team1": "🇮🇩 Thalita Ramadhani Wiryawan",
+      "team2": "🇺🇸 Beiwen Zhang",
+      "seed": "(7)",
+      "time": "08.50 WIB",
+      "localTime": "09.50 CST"
     },
     {
       "code": "🏸 XD",
       "discipline": "Ganda Campuran",
       "court": "Court 3",
-      "match": "Match 18",
-      "team1": "🇮🇩 Dejan Ferdinansyah / Apriyani Rahayu",
-      "team2": "🇯🇵 Haruki Kawabe / Kokona Ishikawa",
+      "match": "Match 3",
+      "team1": "🇮🇩 Rehan Kusharjanto / Gloria Emanuelle Widjaja",
+      "team2": "🇹🇼 Lin Shih / Sung Yu-Hsuan",
       "seed": "-",
-      "time": "21.00 WIB",
-      "localTime": "22.00 CST"
+      "time": "09.40 WIB",
+      "localTime": "10.40 CST"
     },
     {
-      "code": "🏸 XD",
-      "discipline": "Ganda Campuran",
-      "court": "Court 4",
-      "match": "Match 17",
-      "team1": "🇮🇩 Renaldi Samosir / Masita Mahmudin",
-      "team2": "🇲🇾 Chen Tang Jie / Clarissa San",
+      "code": "🏸 WD",
+      "discipline": "Ganda Putri",
+      "court": "Court 3",
+      "match": "Match 8",
+      "team1": "🇹🇼 Lin Chih-Chun / Yang Chu Yun",
+      "team2": "🇮🇩 Isyana Syahira Meida / Rinjani Kwinara Nastine",
       "seed": "-",
-      "time": "18.30 WIB",
-      "localTime": "19.30 CST"
+      "time": "13.50 WIB",
+      "localTime": "14.50 CST"
+    },
+    {
+      "code": "🏸 MD",
+      "discipline": "Ganda Putra",
+      "court": "Court 4",
+      "match": "Match 12",
+      "team1": "🇮🇩 Muhammad Rian Ardianto / Daniel Marvino",
+      "team2": "🇹🇭 Charoenkitamorn / Thongsa-Nga",
+      "seed": "-",
+      "time": "15.00 WIB",
+      "localTime": "16.00 CST"
     }
   ]
 }
