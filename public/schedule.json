@@ -1,6 +1,7 @@
 {
   "title": "Today's Matches (WIB)",
   "matches": [
+    [
     {
       "code": "🏸 MD",
       "discipline": "Ganda Putra",
@@ -111,5 +112,6 @@
       "time": "18.35 WIB",
       "localTime": "19.35 CST"
     }
+  ]
   ]
 }
