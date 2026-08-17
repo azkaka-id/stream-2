@@ -1,10 +1,39 @@
 // Membungkus seluruh aplikasi ke dalam IIFE agar fungsi internal tidak terbaca dari global console
-(function() {
+(function () {
+    // Fungsi untuk mendeteksi apakah pengguna menggunakan perangkat Mobile (Android/iOS)
+    function isMobileDevice() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Deteksi perangkat iOS (iPhone, iPad, iPod) atau Android
+        const isIOS = /android|iphone|ipad|ipod/i.test(ua.toLowerCase());
+
+        // Deteksi tambahan untuk iPadOS (karena terkadang terbaca sebagai Mac desktop)
+        const isMacTablet = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+
+        return isIOS || isMacTablet;
+    }
+
+    // Jika BUKAN perangkat mobile (artinya dibuka dari Laptop/Komputer)
+    if (!isMobileDevice()) {
+        // Hentikan eksekusi atau kosongkan halaman/tampilkan pesan blokir
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusEl = document.getElementById('status');
+            if (statusEl) {
+                statusEl.textContent = "AKSES KHUSUS PERANGKAT MOBILE (ANDROID & IOS)";
+            }
+            const videoEl = document.getElementById('video');
+            if (videoEl) {
+                videoEl.remove(); // Menghapus elemen video agar bersih dari DOM komputer
+            }
+        });
+        return; // Menghentikan seluruh skrip agar link stream tidak pernah direquest ke server
+    }
+
     const STREAM_URLS = {
         court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290176550656061_AiSD.m3u8?txSecret=97c2c903187594b01492f8be519d5cc5&txTime=6A83A080",
         court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290177061139061_AiSD.m3u8?txSecret=1fea2dc37f7b5194ff3d060d1d4e4c3f&txTime=6A83A080",
-        court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229844621061_AiSD.m3u8?txSecret=195735e7271d48ebf51f8bef42d97fda&txTime=6A7260E0",
-        court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229983503061_AiSD.m3u8?txSecret=326e94bb16d41530e0b8a46ee75c4ca0&txTime=6A7260E0"
+        court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290177309367061_AiSD.m3u8?txSecret=3881b479fe61d9f8391c0baa0d911606&txTime=6A83A080",
+        court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290177467831061_AiSD.m3u8?txSecret=fc528330bc523062c22f7612d8495854&txTime=6A83A080"
     };
 
     let hls;
@@ -21,7 +50,7 @@
     }
 
     function setActiveButton(court) {
-        document.querySelectorAll('.court-btn').forEach(function(button) {
+        document.querySelectorAll('.court-btn').forEach(function (button) {
             button.classList.toggle('active', button.dataset.court === court);
         });
     }
@@ -104,7 +133,7 @@
                 showScheduleMessage('Belum ada jadwal pertandingan.');
                 return;
             }
-            matches.forEach(function(match) {
+            matches.forEach(function (match) {
                 matchList.appendChild(createMatchItem(match));
             });
         } catch (error) {
@@ -130,25 +159,25 @@
         }
         video.removeAttribute('src');
         video.load();
-        video.onplaying = function() { setStatus(''); };
-        video.oncanplay = function() { setStatus(''); };
-        
+        video.onplaying = function () { setStatus(''); };
+        video.oncanplay = function () { setStatus(''); };
+
         try {
             const videoSrc = await getStreamUrl(court);
             if (Hls.isSupported()) {
                 hls = new Hls(hlsOptions);
                 hls.loadSource(videoSrc);
                 hls.attachMedia(video);
-                
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
                     setStatus('');
-                    video.play().catch(function(e) { console.clear(); });
+                    video.play().catch(function (e) { console.clear(); });
                 });
-                
-                hls.on(Hls.Events.LEVEL_LOADED, function() { setStatus(''); });
-                hls.on(Hls.Events.FRAG_LOADED, function() { setStatus(''); });
-                
-                hls.on(Hls.Events.ERROR, function(event, data) {
+
+                hls.on(Hls.Events.LEVEL_LOADED, function () { setStatus(''); });
+                hls.on(Hls.Events.FRAG_LOADED, function () { setStatus(''); });
+
+                hls.on(Hls.Events.ERROR, function (event, data) {
                     if (!data.fatal) return;
                     if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
                         if (video.paused || video.readyState < 3) {
@@ -167,9 +196,9 @@
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = videoSrc;
-                video.addEventListener('loadedmetadata', function() {
+                video.addEventListener('loadedmetadata', function () {
                     setStatus('');
-                    video.play().catch(function(e) { console.clear(); });
+                    video.play().catch(function (e) { console.clear(); });
                 }, { once: true });
             } else {
                 setStatus('BROWSER TIDAK MENDUKUNG HLS');
@@ -197,7 +226,7 @@
     // Proteksi 1: Deteksi loop dengan debugger. Jika DevTools terbuka, waktu eksekusi melambat
     setInterval(function () {
         const start = new Date().getTime();
-        debugger; 
+        debugger;
         const end = new Date().getTime();
         if (end - start > 100) {
             hancurkanVideo();
@@ -205,9 +234,9 @@
     }, 1000);
 
     // Proteksi 2: Deteksi perubahan resolusi viewport drastis akibat dok DevTools terlepas
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         const threshold = 160;
-        if (window.outerWidth - window.innerWidth > threshold || 
+        if (window.outerWidth - window.innerWidth > threshold ||
             window.outerHeight - window.innerHeight > threshold) {
             hancurkanVideo();
         }
@@ -229,13 +258,13 @@
     });
 
     // Inisialisasi Event Listener Klien
-    document.getElementById('btnSaweria').addEventListener('click', function() {
+    document.getElementById('btnSaweria').addEventListener('click', function () {
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
 
     document.querySelectorAll('.court-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             loadVideo(this.dataset.court);
         });
     });

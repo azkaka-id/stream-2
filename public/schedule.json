@@ -1,49 +1,49 @@
 {
   "title": "Monday, 17 August 2026 (WIB)",
   "matches": [
-    {
-      "code": "WS",
-      "discipline": "R64 - Tunggal Putri",
-      "court": "Court 2",
-      "match": "Match 2",
-      "team1": "🇮🇩 Putri K. Wardani",
-      "team2": "🇵🇭 De Guzman M. Joy",
-      "seed": "(6)",
-      "time": "Mulai 10.30 WIB",
-      "localTime": ""
-    },
-    {
-      "code": "MS",
-      "discipline": "R64 - Tunggal Putra",
-      "court": "Court 2",
-      "match": "Match 3",
-      "team1": "🇮🇩 Alwi Farhan",
-      "team2": "🇰🇷 Yoo Tae Bin",
-      "seed": "(11)",
-      "time": "Setelah Match 2",
-      "localTime": ""
-    },
-    {
-      "code": "WD",
-      "discipline": "R48 - Ganda Putri",
-      "court": "Court 4",
-      "match": "Match 11",
-      "team1": "🇮🇩 Isyana S. Meida / Rinjani K. Nastine",
-      "team2": "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Julie Macpherson / Ciara Torrance",
-      "seed": "",
-      "time": "Court mulai 10.40 WIB",
-      "localTime": ""
-    },
-    {
-      "code": "WS",
-      "discipline": "R64 - Tunggal Putri",
-      "court": "Court 4",
-      "match": "Match 16",
-      "team1": "🇮🇩 Thalita R. Wiryawan",
-      "team2": "🇵🇪 Ines L. Castillo",
-      "seed": "",
-      "time": "Setelah Match 11",
-      "localTime": ""
-    }
-  ]
+  {
+    "code": "🏸 WS",
+    "discipline": "Tunggal Putri",
+    "court": "Court 2",
+    "match": "Match 2",
+    "team1": "🇮🇩 Putri Kusuma Wardani",
+    "team2": "🇵🇭 Mikaela Joy De Guzman",
+    "seed": "[6]",
+    "time": "11.20 WIB",
+    "localTime": "09.50 IST"
+  },
+  {
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
+    "court": "Court 2",
+    "match": "Match 3",
+    "team1": "🇮🇩 Alwi Farhan",
+    "team2": "🇰🇷 Yoo Tae Bin",
+    "seed": "[11]",
+    "time": "12.10 WIB",
+    "localTime": "10.40 IST"
+  },
+  {
+    "code": "🏸 WD",
+    "discipline": "Ganda Putri",
+    "court": "Court 4",
+    "match": "Match 11",
+    "team1": "🇮🇩 Isyana Syahira Meida / Rinjani Kwinnara Nastine",
+    "team2": "🏴 Julie Macpherson / Ciara Torrance",
+    "seed": "",
+    "time": "17.40 WIB",
+    "localTime": "16.10 IST"
+  },
+  {
+    "code": "🏸 WS",
+    "discipline": "Tunggal Putri",
+    "court": "Court 4",
+    "match": "Match 16",
+    "team1": "🇮🇩 Thalita Ramadhani Wiryawan",
+    "team2": "🇵🇪 Ines Lucia Castillo",
+    "seed": "",
+    "time": "21.50 WIB",
+    "localTime": "20.20 IST"
+  }
+]
 }
