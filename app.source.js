@@ -1,8 +1,8 @@
 // Membungkus seluruh aplikasi ke dalam IIFE agar fungsi internal tidak terbaca dari global console
 (function() {
     const STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229574980061_AiSD.m3u8?txSecret=a354988f59eb8ebd59261648f471bde3&txTime=6A7260E0",
-        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229726511061_AiSD.m3u8?txSecret=430f11681d5354f7bb8cb97a4db628ee&txTime=6A7260E0",
+        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290176550656061_AiSD.m3u8?txSecret=97c2c903187594b01492f8be519d5cc5&txTime=6A83A080",
+        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290177061139061_AiSD.m3u8?txSecret=1fea2dc37f7b5194ff3d060d1d4e4c3f&txTime=6A83A080",
         court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229844621061_AiSD.m3u8?txSecret=195735e7271d48ebf51f8bef42d97fda&txTime=6A7260E0",
         court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4283229983503061_AiSD.m3u8?txSecret=326e94bb16d41530e0b8a46ee75c4ca0&txTime=6A7260E0"
     };
