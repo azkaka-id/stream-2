@@ -1,117 +1,49 @@
 {
-  "title": "Today's Matches (WIB)",
+  "title": "Monday, 17 August 2026 (WIB)",
   "matches": [
-    [
     {
-      "code": "🏸 MD",
-      "discipline": "Ganda Putra",
-      "court": "Court 1",
-      "match": "Match 10",
-      "team1": "🇮🇩 Muh Rian Ardianto / Daniel Edgar Marvino",
-      "team2": "🇹🇼 Lee Jhe Huei / Yang Po Hsuan",
-      "seed": "(2)",
-      "time": "18.30 WIB",
-      "localTime": "19.30 CST"
-    },
-    {
-      "code": "🏸 XD",
-      "discipline": "Ganda Campuran",
+      "code": "WS",
+      "discipline": "R64 - Tunggal Putri",
       "court": "Court 2",
-      "match": "Match 1",
-      "team1": "🇯🇵 Akira Koga / Natsu Saito",
-      "team2": "🇮🇩 Rehan N. Kusharjanto / Gloria E. Widjaja",
+      "match": "Match 2",
+      "team1": "🇮🇩 Putri K. Wardani",
+      "team2": "🇵🇭 De Guzman M. Joy",
       "seed": "(6)",
-      "time": "11.00 WIB",
-      "localTime": "12.00 CST"
+      "time": "Mulai 10.30 WIB",
+      "localTime": ""
     },
     {
-      "code": "🏸 WS",
-      "discipline": "Tunggal Putri",
+      "code": "MS",
+      "discipline": "R64 - Tunggal Putra",
       "court": "Court 2",
       "match": "Match 3",
-      "team1": "🇮🇳 Tanvi Sharma",
-      "team2": "🇮🇩 Thalita R. Wiryawan",
-      "seed": "",
-      "time": "12.40 WIB",
-      "localTime": "13.40 CST"
-    },
-    {
-      "code": "🏸 WS",
-      "discipline": "Tunggal Putri",
-      "court": "Court 2",
-      "match": "Match 4",
-      "team1": "🇮🇳 Devika Sihag",
-      "team2": "🇮🇩 Ni Kadek Dhinda A. Pratiwi",
-      "seed": "(8)",
-      "time": "13.30 WIB",
-      "localTime": "14.30 CST"
-    },
-    {
-      "code": "🏸 MS",
-      "discipline": "Tunggal Putra",
-      "court": "Court 3",
-      "match": "Match 4",
-      "team1": "🇮🇩 P. Bagas Shujiwo",
-      "team2": "🇲🇾 Justin Hoh",
-      "seed": "",
-      "time": "13.35 WIB",
-      "localTime": "14.35 CST"
-    },
-    {
-      "code": "🏸 XD",
-      "discipline": "Ganda Campuran",
-      "court": "Court 4",
-      "match": "Match 1",
-      "team1": "🇯🇵 Haruki Kawabe / Kokona Ishikawa",
-      "team2": "🇮🇩 Verrel Yustin Mulia / Bernadine A. Wardana",
-      "seed": "",
-      "time": "11.00 WIB",
-      "localTime": "12.00 CST"
-    },
-    {
-      "code": "🏸 MS",
-      "discipline": "Tunggal Putra",
-      "court": "Court 4",
-      "match": "Match 4",
-      "team1": "🇮🇩 Richie Duta Richardo",
+      "team1": "🇮🇩 Alwi Farhan",
       "team2": "🇰🇷 Yoo Tae Bin",
+      "seed": "(11)",
+      "time": "Setelah Match 2",
+      "localTime": ""
+    },
+    {
+      "code": "WD",
+      "discipline": "R48 - Ganda Putri",
+      "court": "Court 4",
+      "match": "Match 11",
+      "team1": "🇮🇩 Isyana S. Meida / Rinjani K. Nastine",
+      "team2": "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Julie Macpherson / Ciara Torrance",
       "seed": "",
-      "time": "13.35 WIB",
-      "localTime": "14.35 CST"
+      "time": "Court mulai 10.40 WIB",
+      "localTime": ""
     },
     {
-      "code": "🏸 MS",
-      "discipline": "Tunggal Putra",
+      "code": "WS",
+      "discipline": "R64 - Tunggal Putri",
       "court": "Court 4",
-      "match": "Match 6",
-      "team1": "🇯🇵 Yudai Okimoto",
-      "team2": "🇮🇩 Muhammad Yusuf",
-      "seed": "(4)",
-      "time": "15.15 WIB",
-      "localTime": "16.15 CST"
-    },
-    {
-      "code": "🏸 MD",
-      "discipline": "Ganda Putra",
-      "court": "Court 4",
-      "match": "Match 8",
-      "team1": "🇮🇩 Leo Rolly Carnando / Daniel Marthin",
-      "team2": "🇯🇵 Haruki Kawabe / Kenta Matsukawa",
-      "seed": "(8)",
-      "time": "16.55 WIB",
-      "localTime": "17.55 CST"
-    },
-    {
-      "code": "🏸 MD",
-      "discipline": "Ganda Putra",
-      "court": "Court 4",
-      "match": "Match 10",
-      "team1": "🇯🇵 Hiroki Okamura / Kyohei Yamashita",
-      "team2": "🇮🇩 Ali Faathir Rayhan / Devin Artha Wahyudi",
-      "seed": "(6)",
-      "time": "18.35 WIB",
-      "localTime": "19.35 CST"
+      "match": "Match 16",
+      "team1": "🇮🇩 Thalita R. Wiryawan",
+      "team2": "🇵🇪 Ines L. Castillo",
+      "seed": "",
+      "time": "Setelah Match 11",
+      "localTime": ""
     }
-  ]
   ]
 }
