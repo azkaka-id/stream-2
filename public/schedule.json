@@ -1,49 +1,49 @@
 {
-  "title": "Monday, 17 August 2026 (WIB)",
+  "title": "Tuesday, 18 August 2026 (WIB)",
   "matches": [
   {
-    "code": "🏸 WS",
-    "discipline": "Tunggal Putri",
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
+    "court": "Court 1",
+    "match": "Match 1",
+    "team1": "🇮🇩 Jonatan Christie",
+    "team2": "🇩🇪 Matthias Kicklitz",
+    "seed": "[3]",
+    "time": "10.30 WIB",
+    "localTime": "09.00 IST"
+  },
+  {
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
     "court": "Court 2",
     "match": "Match 2",
-    "team1": "🇮🇩 Putri Kusuma Wardani",
-    "team2": "🇵🇭 Mikaela Joy De Guzman",
-    "seed": "[6]",
+    "team1": "🇮🇩 Rehan Naufal Kusharjanto / Gloria Emanuelle Widjaja",
+    "team2": "🇲🇾 Wong Tien Ci / Lim Chiew Sien",
+    "seed": "",
     "time": "11.20 WIB",
     "localTime": "09.50 IST"
   },
   {
-    "code": "🏸 MS",
-    "discipline": "Tunggal Putra",
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
+    "court": "Court 4",
+    "match": "Match 7",
+    "team1": "🇮🇩 Bimo Prasetyo / Arlya Nabila Thesya Munggaran",
+    "team2": "🇫🇷 Julien Maio / Lea Palermo",
+    "seed": "",
+    "time": "15.40 WIB",
+    "localTime": "14.10 IST"
+  },
+  {
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
     "court": "Court 2",
-    "match": "Match 3",
-    "team1": "🇮🇩 Alwi Farhan",
-    "team2": "🇰🇷 Yoo Tae Bin",
-    "seed": "[11]",
-    "time": "12.10 WIB",
-    "localTime": "10.40 IST"
-  },
-  {
-    "code": "🏸 WD",
-    "discipline": "Ganda Putri",
-    "court": "Court 4",
-    "match": "Match 11",
-    "team1": "🇮🇩 Isyana Syahira Meida / Rinjani Kwinnara Nastine",
-    "team2": "🏴 Julie Macpherson / Ciara Torrance",
+    "match": "Match 9",
+    "team1": "🇮🇩 Marwan Faza / Aisyah Salsabila Putri Pranata",
+    "team2": "🇷🇸 Mihajlo Tomic / Andjela Vitman",
     "seed": "",
-    "time": "17.40 WIB",
-    "localTime": "16.10 IST"
-  },
-  {
-    "code": "🏸 WS",
-    "discipline": "Tunggal Putri",
-    "court": "Court 4",
-    "match": "Match 16",
-    "team1": "🇮🇩 Thalita Ramadhani Wiryawan",
-    "team2": "🇵🇪 Ines Lucia Castillo",
-    "seed": "",
-    "time": "21.50 WIB",
-    "localTime": "20.20 IST"
+    "time": "17.10 WIB",
+    "localTime": "15.40 IST"
   }
 ]
 }
