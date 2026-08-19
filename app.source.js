@@ -30,10 +30,10 @@
     }
 
     const STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266460986061_AiSD.m3u8?txSecret=fa8fee95d510c5e5dc0b41f1aff19f7f&txTime=6A864380",
-        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266666589061_AiSD.m3u8?txSecret=419a4885d1a356b36d3cb3ad4c3b6055&txTime=6A864380",
-        court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266816896061_AiSD.m3u8?txSecret=fff1b6499afa68432007593b7f5ac008&txTime=6A864380",
-        court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290267251105061_AiSD.m3u8?txSecret=5f6b9ef0e122116d7089e1099066022a&txTime=6A864380"
+        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266460986061_AiHD.m3u8?txSecret=9c83c4a30c2c5a4bb4fd40f94201a454&txTime=6A864380",
+        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266666589061_AiHD.m3u8?txSecret=5bcd720e7af98f7184a1b9fdf0629782&txTime=6A864380",
+        court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290266816896061_AiHD.m3u8?txSecret=38fce573c3110cc91586702f885ed07e&txTime=6A864380",
+        court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290267251105061_AiHD.m3u8?txSecret=7d3d68998595048e43e0f35dfdfaad5e&txTime=6A864380"
     };
 
     let hls;
