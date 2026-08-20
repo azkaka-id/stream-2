@@ -354,8 +354,23 @@ video {
     gap: 3px;
 }
 .court-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
     font-size: 15px;
     line-height: 1.2;
+}
+.quality-badge {
+    flex: 0 0 auto;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background-color: rgba(115, 217, 255, 0.16);
+    border: 1px solid rgba(115, 217, 255, 0.36);
+    color: var(--ticker-blue);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.1;
 }
 .court-meta {
     color: var(--text-muted);
@@ -363,6 +378,12 @@ video {
     font-weight: 700;
     letter-spacing: 0;
     text-transform: uppercase;
+}
+.court-btn-hd {
+    border-color: rgba(115, 217, 255, 0.22);
+}
+.court-btn-hd::before {
+    background: linear-gradient(135deg, rgba(115, 217, 255, 0.18), rgba(40, 209, 124, 0.07));
 }
 .court-status {
     width: 10px;
