@@ -34,13 +34,15 @@
         court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270557898061_AiHD.m3u8?txSecret=a51c1cd29d53e8feb2cbad6b01818526&txTime=6A87CD40",
         court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270672511061_AiHD.m3u8?txSecret=723ebccf3a27b3f0fb52c15363016c30&txTime=6A87CD40",
         court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270823711061_AiHD.m3u8?txSecret=da888055a8c121264f886034ade92263&txTime=6A87CD40",
-        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=B76FCA7A9D6D99353F1E67AA7FF00AED&ups_client_netip=216.243.116.77&ups_ts=1787205040&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Bbf59d648aea8e03893ef547eda06b915&cug=10&t=44a55994b83c9fa",
-        court2hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8216428&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=E5D809932F13C3B16CBBF24E2C1907FD&ups_client_netip=216.243.116.77&ups_ts=1787205294&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216428_8137685&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B82063a157897c2dda57102e15ed4665e&cug=10&t=4410f7ce2635c19",
-        court3hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court3HB_sjb5m.m3u8?title=8216429&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court3HB&ccode=live05030101&expire=21600&psid=C8586C3CED9B34401C435AE445CB4547&ups_client_netip=216.243.116.77&ups_ts=1787205383&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216429_8137686&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B0af61ce5a9a705f1346c610c22f9859a&cug=10&t=40d70f398c8b220",
+        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=EB37D18754EF54BE6AB138E899FE583C&ups_client_netip=216.243.116.77&ups_ts=1787238114&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Bce293b1f165c20d3cb7f9877d44dfcb8&cug=10&t=4160fb59cc84a06",
+        court2hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8216428&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=E4C86BE567B1561157BBD25348602B0E&ups_client_netip=216.243.116.77&ups_ts=1787238169&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216428_8137685&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4247f3e7673dae327f0f8548bfb5bb77&cug=10&t=4653f55b270ec7b",
+        court3hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court3HB_sjb5m.m3u8?title=8216429&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court3HB&ccode=live05030101&expire=21600&psid=DCAC09208B1215AA5F17FB052D90E2DC&ups_client_netip=216.243.116.77&ups_ts=1787238207&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216429_8137686&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B524421b4b958992dd532cd439bd75ff3&cug=10&t=4ab3561802662ed",
         court4hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court4HB_sjb5m.m3u8?title=8216430&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court4HB&ccode=live05030101&expire=21600&psid=C37847F92C0FDAB79D98CBEC07EF6553&ups_client_netip=216.243.116.77&ups_ts=1787205599&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216430_8137687&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B79c8222fb536465ae120e3b5fc21b851&cug=10&t=421fdbd71bc268a"
     };
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
+    const HD_PENDING_CODE_KEY = 'shuttleflash_pending_hd_code';
+    const HD_PENDING_SAWERIA_URL_KEY = 'shuttleflash_pending_saweria_url';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
 
     let hls;
@@ -96,10 +98,91 @@
         setSessionValue(getHdUnlockKey(court), '1');
     }
 
-    function redirectToSaweriaBeforeHd(court) {
+    function clearVideo(message) {
+        const video = document.getElementById('video');
+        if (hls) {
+            hls.destroy();
+            hls = null;
+        }
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+        setStatus(message);
+    }
+
+    function setHdConfirmVisible(isVisible) {
+        const confirm = document.getElementById('hdConfirm');
+        if (!confirm) return;
+        confirm.classList.toggle('show', isVisible);
+        confirm.setAttribute('aria-hidden', String(!isVisible));
+    }
+
+    function setHdAccessCode(code) {
+        const codeEl = document.getElementById('hdAccessCode');
+        if (codeEl) {
+            codeEl.textContent = code || '-';
+        }
+    }
+
+    async function readJsonResponse(response, fallbackMessage) {
+        const text = await response.text();
+        if (!text) {
+            throw new Error(fallbackMessage);
+        }
+        try {
+            return JSON.parse(text);
+        } catch (error) {
+            throw new Error(fallbackMessage);
+        }
+    }
+
+    function assertApiAvailable() {
+        if (window.location.protocol === 'file:') {
+            throw new Error('BUKA LEWAT URL VERCEL, BUKAN FILE INDEX.HTML');
+        }
+    }
+
+    async function createHdSession(court) {
+        assertApiAvailable();
+        const response = await fetch('/api/hd-session', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ court })
+        });
+        const data = await readJsonResponse(response, 'API HD BELUM AKTIF DI VERCEL');
+        if (!response.ok) {
+            throw new Error(data.error || 'GAGAL MEMBUAT AKSES HD');
+        }
+        return data;
+    }
+
+    async function checkHdAccess(court, code) {
+        assertApiAvailable();
+        const params = new URLSearchParams({ court, code });
+        const response = await fetch(`/api/hd-access?${params.toString()}`, { cache: 'no-store' });
+        const data = await readJsonResponse(response, 'API CEK SAWERIA BELUM AKTIF');
+        if (!response.ok) {
+            throw new Error(data.error || 'GAGAL CEK SAWERIA');
+        }
+        return Boolean(data.unlocked);
+    }
+
+    async function redirectToSaweriaBeforeHd(court) {
         setSessionValue(HD_PENDING_COURT_KEY, court);
-        setStatus('LOADING');
-        window.location.href = SAWERIA_URL;
+        setActiveButton(court);
+        clearVideo('MEMBUAT KODE SAWERIA');
+        try {
+            const session = await createHdSession(court);
+            setSessionValue(HD_PENDING_CODE_KEY, session.code);
+            setSessionValue(HD_PENDING_SAWERIA_URL_KEY, session.saweriaUrl || SAWERIA_URL);
+            setHdAccessCode(session.code);
+            setStatus('MASUKKAN KODE DI PESAN SAWERIA');
+            setHdConfirmVisible(true);
+        } catch (error) {
+            removeSessionValue(HD_PENDING_COURT_KEY);
+            setHdConfirmVisible(false);
+            setStatus(error.message);
+        }
     }
 
     function setActiveButton(court) {
@@ -204,6 +287,7 @@
 
     async function loadVideo(court) {
         const video = document.getElementById('video');
+        setHdConfirmVisible(false);
         setActiveButton(court);
         setStatus('MEMUAT');
         if (hls) {
@@ -261,38 +345,76 @@
         }
     }
 
-    function selectCourt(court) {
+    async function selectCourt(court) {
         if (isHdCourt(court) && !isHdUnlocked(court)) {
             redirectToSaweriaBeforeHd(court);
             return;
+        }
+        if (!isHdCourt(court)) {
+            removeSessionValue(HD_PENDING_COURT_KEY);
+            removeSessionValue(HD_PENDING_CODE_KEY);
+            removeSessionValue(HD_PENDING_SAWERIA_URL_KEY);
         }
         loadVideo(court);
     }
 
     function resumePendingHdCourt() {
         const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
+        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
         if (!pendingCourt || !STREAM_URLS[pendingCourt]) {
             return false;
         }
-        removeSessionValue(HD_PENDING_COURT_KEY);
-        unlockHdCourt(pendingCourt);
-        loadVideo(pendingCourt);
+        setActiveButton(pendingCourt);
+        setHdAccessCode(pendingCode);
+        clearVideo('CEK PEMBAYARAN SAWERIA UNTUK MEMBUKA HD');
+        setHdConfirmVisible(true);
         return true;
+    }
+
+    async function verifySaweriaPayment() {
+        const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
+        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
+        if (!pendingCourt || !pendingCode || !STREAM_URLS[pendingCourt]) {
+            setHdConfirmVisible(false);
+            loadVideo('court1');
+            return;
+        }
+        setStatus('MENGECEK SAWERIA');
+        try {
+            const isUnlocked = await checkHdAccess(pendingCourt, pendingCode);
+            if (!isUnlocked) {
+                setStatus('SAWERIA BELUM TERVERIFIKASI');
+                setHdConfirmVisible(true);
+                return;
+            }
+            removeSessionValue(HD_PENDING_COURT_KEY);
+            removeSessionValue(HD_PENDING_CODE_KEY);
+            removeSessionValue(HD_PENDING_SAWERIA_URL_KEY);
+            unlockHdCourt(pendingCourt);
+            loadVideo(pendingCourt);
+        } catch (error) {
+            setStatus(error.message);
+            setHdConfirmVisible(true);
+        }
+    }
+
+    async function openSaweriaPayment() {
+        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
+        if (pendingCode && navigator.clipboard) {
+            try {
+                await navigator.clipboard.writeText(pendingCode);
+            } catch (error) {
+                console.clear();
+            }
+        }
+        window.location.href = getSessionValue(HD_PENDING_SAWERIA_URL_KEY) || SAWERIA_URL;
     }
 
     // ============================================
     // MODUL BLOKIR & PEMUTUS ALIRAN VIDEO (ANTI-INSPECT)
     // ============================================
     function hancurkanVideo() {
-        const video = document.getElementById('video');
-        setStatus('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
-        if (hls) {
-            hls.destroy();
-            hls = null;
-        }
-        video.pause();
-        video.removeAttribute('src');
-        video.load();
+        clearVideo('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
     }
 
     // Proteksi 1: Deteksi loop dengan debugger. Jika DevTools terbuka, waktu eksekusi melambat
@@ -334,6 +456,8 @@
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
+    document.getElementById('btnOpenSaweria').addEventListener('click', openSaweriaPayment);
+    document.getElementById('btnCheckSaweria').addEventListener('click', verifySaweriaPayment);
 
     document.querySelectorAll('.court-btn').forEach(btn => {
         btn.addEventListener('click', function () {
