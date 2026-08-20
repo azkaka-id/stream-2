@@ -41,8 +41,6 @@
     };
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
-    const HD_PENDING_CODE_KEY = 'shuttleflash_pending_hd_code';
-    const HD_PENDING_SAWERIA_URL_KEY = 'shuttleflash_pending_saweria_url';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
 
     let hls;
@@ -98,91 +96,10 @@
         setSessionValue(getHdUnlockKey(court), '1');
     }
 
-    function clearVideo(message) {
-        const video = document.getElementById('video');
-        if (hls) {
-            hls.destroy();
-            hls = null;
-        }
-        video.pause();
-        video.removeAttribute('src');
-        video.load();
-        setStatus(message);
-    }
-
-    function setHdConfirmVisible(isVisible) {
-        const confirm = document.getElementById('hdConfirm');
-        if (!confirm) return;
-        confirm.classList.toggle('show', isVisible);
-        confirm.setAttribute('aria-hidden', String(!isVisible));
-    }
-
-    function setHdAccessCode(code) {
-        const codeEl = document.getElementById('hdAccessCode');
-        if (codeEl) {
-            codeEl.textContent = code || '-';
-        }
-    }
-
-    async function readJsonResponse(response, fallbackMessage) {
-        const text = await response.text();
-        if (!text) {
-            throw new Error(fallbackMessage);
-        }
-        try {
-            return JSON.parse(text);
-        } catch (error) {
-            throw new Error(fallbackMessage);
-        }
-    }
-
-    function assertApiAvailable() {
-        if (window.location.protocol === 'file:') {
-            throw new Error('BUKA LEWAT URL VERCEL, BUKAN FILE INDEX.HTML');
-        }
-    }
-
-    async function createHdSession(court) {
-        assertApiAvailable();
-        const response = await fetch('/api/hd-session', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ court })
-        });
-        const data = await readJsonResponse(response, 'API HD BELUM AKTIF DI VERCEL');
-        if (!response.ok) {
-            throw new Error(data.error || 'GAGAL MEMBUAT AKSES HD');
-        }
-        return data;
-    }
-
-    async function checkHdAccess(court, code) {
-        assertApiAvailable();
-        const params = new URLSearchParams({ court, code });
-        const response = await fetch(`/api/hd-access?${params.toString()}`, { cache: 'no-store' });
-        const data = await readJsonResponse(response, 'API CEK SAWERIA BELUM AKTIF');
-        if (!response.ok) {
-            throw new Error(data.error || 'GAGAL CEK SAWERIA');
-        }
-        return Boolean(data.unlocked);
-    }
-
-    async function redirectToSaweriaBeforeHd(court) {
+    function redirectToSaweriaBeforeHd(court) {
         setSessionValue(HD_PENDING_COURT_KEY, court);
-        setActiveButton(court);
-        clearVideo('MEMBUAT KODE SAWERIA');
-        try {
-            const session = await createHdSession(court);
-            setSessionValue(HD_PENDING_CODE_KEY, session.code);
-            setSessionValue(HD_PENDING_SAWERIA_URL_KEY, session.saweriaUrl || SAWERIA_URL);
-            setHdAccessCode(session.code);
-            setStatus('MASUKKAN KODE DI PESAN SAWERIA');
-            setHdConfirmVisible(true);
-        } catch (error) {
-            removeSessionValue(HD_PENDING_COURT_KEY);
-            setHdConfirmVisible(false);
-            setStatus(error.message);
-        }
+        setStatus('LOADING');
+        window.location.href = SAWERIA_URL;
     }
 
     function setActiveButton(court) {
@@ -287,7 +204,6 @@
 
     async function loadVideo(court) {
         const video = document.getElementById('video');
-        setHdConfirmVisible(false);
         setActiveButton(court);
         setStatus('MEMUAT');
         if (hls) {
@@ -345,76 +261,38 @@
         }
     }
 
-    async function selectCourt(court) {
+    function selectCourt(court) {
         if (isHdCourt(court) && !isHdUnlocked(court)) {
             redirectToSaweriaBeforeHd(court);
             return;
-        }
-        if (!isHdCourt(court)) {
-            removeSessionValue(HD_PENDING_COURT_KEY);
-            removeSessionValue(HD_PENDING_CODE_KEY);
-            removeSessionValue(HD_PENDING_SAWERIA_URL_KEY);
         }
         loadVideo(court);
     }
 
     function resumePendingHdCourt() {
         const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
-        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
         if (!pendingCourt || !STREAM_URLS[pendingCourt]) {
             return false;
         }
-        setActiveButton(pendingCourt);
-        setHdAccessCode(pendingCode);
-        clearVideo('CEK PEMBAYARAN SAWERIA UNTUK MEMBUKA HD');
-        setHdConfirmVisible(true);
+        removeSessionValue(HD_PENDING_COURT_KEY);
+        unlockHdCourt(pendingCourt);
+        loadVideo(pendingCourt);
         return true;
-    }
-
-    async function verifySaweriaPayment() {
-        const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
-        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
-        if (!pendingCourt || !pendingCode || !STREAM_URLS[pendingCourt]) {
-            setHdConfirmVisible(false);
-            loadVideo('court1');
-            return;
-        }
-        setStatus('MENGECEK SAWERIA');
-        try {
-            const isUnlocked = await checkHdAccess(pendingCourt, pendingCode);
-            if (!isUnlocked) {
-                setStatus('SAWERIA BELUM TERVERIFIKASI');
-                setHdConfirmVisible(true);
-                return;
-            }
-            removeSessionValue(HD_PENDING_COURT_KEY);
-            removeSessionValue(HD_PENDING_CODE_KEY);
-            removeSessionValue(HD_PENDING_SAWERIA_URL_KEY);
-            unlockHdCourt(pendingCourt);
-            loadVideo(pendingCourt);
-        } catch (error) {
-            setStatus(error.message);
-            setHdConfirmVisible(true);
-        }
-    }
-
-    async function openSaweriaPayment() {
-        const pendingCode = getSessionValue(HD_PENDING_CODE_KEY);
-        if (pendingCode && navigator.clipboard) {
-            try {
-                await navigator.clipboard.writeText(pendingCode);
-            } catch (error) {
-                console.clear();
-            }
-        }
-        window.location.href = getSessionValue(HD_PENDING_SAWERIA_URL_KEY) || SAWERIA_URL;
     }
 
     // ============================================
     // MODUL BLOKIR & PEMUTUS ALIRAN VIDEO (ANTI-INSPECT)
     // ============================================
     function hancurkanVideo() {
-        clearVideo('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
+        const video = document.getElementById('video');
+        setStatus('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
+        if (hls) {
+            hls.destroy();
+            hls = null;
+        }
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
     }
 
     // Proteksi 1: Deteksi loop dengan debugger. Jika DevTools terbuka, waktu eksekusi melambat
@@ -456,8 +334,6 @@
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
-    document.getElementById('btnOpenSaweria').addEventListener('click', openSaweriaPayment);
-    document.getElementById('btnCheckSaweria').addEventListener('click', verifySaweriaPayment);
 
     document.querySelectorAll('.court-btn').forEach(btn => {
         btn.addEventListener('click', function () {

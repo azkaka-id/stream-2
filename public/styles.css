@@ -124,69 +124,6 @@ video {
 #status:empty {
     display: none;
 }
-.hd-confirm {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: none;
-    align-items: end;
-    justify-content: center;
-    padding: 16px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.78));
-}
-.hd-confirm.show {
-    display: flex;
-}
-.hd-confirm-card {
-    width: min(100%, 430px);
-    padding: 14px;
-    border: 1px solid rgba(115, 217, 255, 0.28);
-    border-radius: 8px;
-    background-color: rgba(15, 17, 23, 0.92);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
-}
-.hd-confirm-label {
-    margin-bottom: 6px;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-.hd-confirm-code {
-    margin-bottom: 12px;
-    padding: 10px;
-    border: 1px dashed rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.07);
-    color: var(--support-gold);
-    font-size: 20px;
-    font-weight: 900;
-    text-align: center;
-}
-.hd-confirm-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-}
-.hd-confirm-btn {
-    min-height: 48px;
-    border: 1px solid rgba(115, 217, 255, 0.56);
-    border-radius: 8px;
-    background: linear-gradient(135deg, #79e1ff, #b6efff);
-    color: #052033;
-    font-size: 15px;
-    font-weight: 850;
-    cursor: pointer;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
-}
-.hd-check-btn {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-main);
-}
-.hd-confirm-btn:active {
-    transform: translateY(1px);
-}
 /* Support Panel */
 .support-panel {
     display: grid;
