@@ -13,31 +13,15 @@
         return isIOS || isMacTablet;
     }
 
-    // Jika BUKAN perangkat mobile (artinya dibuka dari Laptop/Komputer)
-    if (!isMobileDevice()) {
-        // Hentikan eksekusi atau kosongkan halaman/tampilkan pesan blokir
-        document.addEventListener("DOMContentLoaded", function () {
-            const statusEl = document.getElementById('status');
-            if (statusEl) {
-                statusEl.textContent = "AKSES KHUSUS PERANGKAT MOBILE (ANDROID & IOS)";
-            }
-            const videoEl = document.getElementById('video');
-            if (videoEl) {
-                videoEl.remove(); // Menghapus elemen video agar bersih dari DOM komputer
-            }
-        });
-        return; // Menghentikan seluruh skrip agar link stream tidak pernah direquest ke server
-    }
-
     const STREAM_URLS = {
         court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270400120061_AiHD.m3u8?txSecret=607bbbc579307252de0fbb447e32d831&txTime=6A87CD40",
         court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270557898061_AiHD.m3u8?txSecret=a51c1cd29d53e8feb2cbad6b01818526&txTime=6A87CD40",
-        court3: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270672511061_AiHD.m3u8?txSecret=723ebccf3a27b3f0fb52c15363016c30&txTime=6A87CD40",
-        court4: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270823711061_AiHD.m3u8?txSecret=da888055a8c121264f886034ade92263&txTime=6A87CD40",
+        court3: "",
+        court4: "",
         court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=EB37D18754EF54BE6AB138E899FE583C&ups_client_netip=216.243.116.77&ups_ts=1787238114&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Bce293b1f165c20d3cb7f9877d44dfcb8&cug=10&t=4160fb59cc84a06",
         court2hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8216428&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=E4C86BE567B1561157BBD25348602B0E&ups_client_netip=216.243.116.77&ups_ts=1787238169&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216428_8137685&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4247f3e7673dae327f0f8548bfb5bb77&cug=10&t=4653f55b270ec7b",
-        court3hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court3HB_sjb5m.m3u8?title=8216429&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court3HB&ccode=live05030101&expire=21600&psid=DCAC09208B1215AA5F17FB052D90E2DC&ups_client_netip=216.243.116.77&ups_ts=1787238207&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216429_8137686&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B524421b4b958992dd532cd439bd75ff3&cug=10&t=4ab3561802662ed",
-        court4hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court4HB_sjb5m.m3u8?title=8216430&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court4HB&ccode=live05030101&expire=21600&psid=C37847F92C0FDAB79D98CBEC07EF6553&ups_client_netip=216.243.116.77&ups_ts=1787205599&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216430_8137687&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B79c8222fb536465ae120e3b5fc21b851&cug=10&t=421fdbd71bc268a"
+        court3hd: "",
+        court4hd: ""
     };
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
@@ -82,6 +66,40 @@
 
     function isHdCourt(court) {
         return typeof court === 'string' && court.endsWith('hd');
+    }
+
+    function hasStreamUrl(court) {
+        return typeof STREAM_URLS[court] === 'string' && STREAM_URLS[court].trim() !== '';
+    }
+
+    function getFirstAvailableCourt() {
+        const firstButton = Array.from(document.querySelectorAll('.court-btn'))
+            .find(function (button) {
+                return hasStreamUrl(button.dataset.court);
+            });
+        return firstButton ? firstButton.dataset.court : null;
+    }
+
+    function syncCourtButtons() {
+        document.querySelectorAll('.court-btn').forEach(function (button) {
+            button.hidden = !hasStreamUrl(button.dataset.court);
+        });
+    }
+
+    // Jika BUKAN perangkat mobile, tombol court tetap disesuaikan tetapi video tidak dimuat.
+    if (!isMobileDevice()) {
+        document.addEventListener("DOMContentLoaded", function () {
+            syncCourtButtons();
+            const statusEl = document.getElementById('status');
+            if (statusEl) {
+                statusEl.textContent = "AKSES KHUSUS PERANGKAT MOBILE (ANDROID & IOS)";
+            }
+            const videoEl = document.getElementById('video');
+            if (videoEl) {
+                videoEl.remove();
+            }
+        });
+        return;
     }
 
     function getHdUnlockKey(court) {
@@ -195,7 +213,7 @@
     }
 
     async function getStreamUrl(court) {
-        const streamUrl = STREAM_URLS[court];
+        const streamUrl = hasStreamUrl(court) ? STREAM_URLS[court].trim() : '';
         if (!streamUrl) {
             throw new Error('STREAM BELUM TERSEDIA');
         }
@@ -271,7 +289,7 @@
 
     function resumePendingHdCourt() {
         const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
-        if (!pendingCourt || !STREAM_URLS[pendingCourt]) {
+        if (!pendingCourt || !hasStreamUrl(pendingCourt)) {
             return false;
         }
         removeSessionValue(HD_PENDING_COURT_KEY);
@@ -342,9 +360,15 @@
     });
 
     // Load awal program utama
+    syncCourtButtons();
     loadSchedule();
     window.addEventListener('pageshow', resumePendingHdCourt);
     if (!resumePendingHdCourt()) {
-        loadVideo('court1');
+        const firstCourt = getFirstAvailableCourt();
+        if (firstCourt) {
+            loadVideo(firstCourt);
+        } else {
+            setStatus('STREAM BELUM TERSEDIA');
+        }
     }
 })();
