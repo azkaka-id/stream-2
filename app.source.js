@@ -14,7 +14,7 @@
     }
 
     const STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290271663301061_AiSD.m3u8?txSecret=0304b0ab9e04fd332b3b61d9b5e336df&txTime=6A8A7040",
+        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290271663301061_AiHD.m3u8?txSecret=9dbcb9b12a22ab6664ffc697f80e3fc6&txTime=6A8A7040",
         court2: "",
         court3: "",
         court4: "",
