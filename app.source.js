@@ -14,12 +14,12 @@
     }
 
     const STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270400120061_AiHD.m3u8?txSecret=607bbbc579307252de0fbb447e32d831&txTime=6A87CD40",
-        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290270557898061_AiHD.m3u8?txSecret=a51c1cd29d53e8feb2cbad6b01818526&txTime=6A87CD40",
+        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290271663301061_AiSD.m3u8?txSecret=0304b0ab9e04fd332b3b61d9b5e336df&txTime=6A8A7040",
+        court2: "",
         court3: "",
         court4: "",
-        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=EB37D18754EF54BE6AB138E899FE583C&ups_client_netip=216.243.116.77&ups_ts=1787238114&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Bce293b1f165c20d3cb7f9877d44dfcb8&cug=10&t=4160fb59cc84a06",
-        court2hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8216428&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=E4C86BE567B1561157BBD25348602B0E&ups_client_netip=216.243.116.77&ups_ts=1787238169&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216428_8137685&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4247f3e7673dae327f0f8548bfb5bb77&cug=10&t=4653f55b270ec7b",
+        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=F080416D206D3D9E0686C3E86CF1CBDF&ups_client_netip=103.172.24.114&ups_ts=1787375005&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4675bd2b3244cb31bf079b182bde9dde&cug=10&t=7913ca338f2a190",
+        court2hd: "",
         court3hd: "",
         court4hd: ""
     };
