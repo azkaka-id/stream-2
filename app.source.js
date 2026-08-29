@@ -18,7 +18,7 @@
         court2: "",
         court3: "",
         court4: "",
-        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8216427&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=F080416D206D3D9E0686C3E86CF1CBDF&ups_client_netip=103.172.24.114&ups_ts=1787375005&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8216427_8137684&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4675bd2b3244cb31bf079b182bde9dde&cug=10&t=7913ca338f2a190",
+        court1hd: "https://mncmedia.malingtv.workers.dev/inews.m3u8",
         court2hd: "",
         court3hd: "",
         court4hd: ""
