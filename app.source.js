@@ -14,8 +14,8 @@
     }
 
     const STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4290271663301061_AiHD.m3u8?txSecret=9dbcb9b12a22ab6664ffc697f80e3fc6&txTime=6A8A7040",
-        court2: "",
+        court1: "https://www.youtube.com/live/IWszO89t0pM?si=aZnKEgUz-sDk5NJ-",
+        court2: "https://www.youtube.com/live/MX7r_J00vxs?si=54_RP5gCdAU85rxV",
         court3: "",
         court4: "",
         court1hd: "https://mncmedia.malingtv.workers.dev/inews.m3u8",
