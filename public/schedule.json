@@ -1,60 +1,16 @@
 {
-  "title": "Saturday, 29 August 2026 (WIB)",
+  "title": "Wednesday, 2 September 2026 (WIB)",
   "matches": [
   {
-    "code": "🏸 XD",
-    "discipline": "Ganda Campuran",
-    "court": "Court 1",
-    "match": "Match 1",
-    "team1": "🇮🇩 Dejan Ferdinansyah / Apriyani Rahayu",
-    "team2": "🇹🇼 Bo Yuan Chen / Yan Fei Chen",
-    "seed": "",
-    "time": "13.00 WIB",
-    "localTime": "13.00 WIB"
-  },
-  {
-    "code": "🏸 MS",
-    "discipline": "Tunggal Putra",
-    "court": "Court 1",
-    "match": "Match 3",
-    "team1": "🇮🇩 Richie Duta Richardo",
-    "team2": "🇲🇾 Tan Jia Jie",
-    "seed": "[2]",
-    "time": "14.10 WIB",
-    "localTime": "14.10 WIB"
-  },
-  {
-    "code": "🏸 MS",
-    "discipline": "Tunggal Putra",
-    "court": "Court 1",
-    "match": "Match 4",
-    "team1": "🇮🇩 Chico Aura Dwi Wardoyo",
-    "team2": "🇮🇳 Ginpaul Sonna",
-    "seed": "[10]",
-    "time": "14.45 WIB",
-    "localTime": "14.45 WIB"
-  },
-  {
     "code": "🏸 MD",
     "discipline": "Ganda Putra",
     "court": "Court 1",
-    "match": "Match 5",
-    "team1": "🇮🇩 Ikhsan Lintang Pramudya / Aquino Evano Keneddy Tangka",
-    "team2": "🇮🇩 Yeremia Erich Yoche Yacob Rambitan / Patra Harapan Rindorindo",
-    "seed": "[8]",
-    "time": "15.20 WIB",
-    "localTime": "15.20 WIB"
-  },
-  {
-    "code": "🏸 MD",
-    "discipline": "Ganda Putra",
-    "court": "Court 1",
-    "match": "Match 6",
-    "team1": "🇮🇩 Wahyu Agung Prasetyo / Pulung Ramadhan",
-    "team2": "🇮🇩 Muhammad Rian Ardianto / Daniel Edgar Marvino",
-    "seed": "[7]",
-    "time": "15.55 WIB",
-    "localTime": "15.55 WIB"
+    "match": "Match 9",
+    "team1": "🇮🇩 Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani",
+    "team2": "🇰🇷 Kang Min Hyuk / Ki Dong Ju",
+    "seed": "[6]",
+    "time": "15.45",
+    "localTime": "15.45"
   }
 ]
 }
