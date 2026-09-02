@@ -1,16 +1,49 @@
 {
-  "title": "Wednesday, 2 September 2026 (WIB)",
+  "title": "Thursday, 3 September 2026 (WIB)",
   "matches": [
+   {
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
+    "court": "Court 1",
+    "match": "Match 2",
+    "team1": "🇮🇩 Jonatan Christie",
+    "team2": "🇭🇰 Jason Gunawan",
+    "seed": "[1]",
+    "time": "09.50",
+    "localTime": "09.50"
+  },
   {
     "code": "🏸 MD",
     "discipline": "Ganda Putra",
     "court": "Court 1",
     "match": "Match 9",
+    "team1": "🇮🇩 Leo Rolly Carnando / Daniel Marthin",
+    "team2": "🇯🇵 Takumi Nomura / Yuichi Shimogami",
+    "seed": "",
+    "time": "15.40",
+    "localTime": "15.40"
+  },
+  {
+    "code": "🏸 MD",
+    "discipline": "Ganda Putra",
+    "court": "Court 3",
+    "match": "Match 13",
+    "team1": "🇮🇩 Ali Faathir Rayhan / Devin Artha Wahyudi",
+    "team2": "🇲🇾 Tee Kai Wun / Yap Roy King",
+    "seed": "",
+    "time": "18.00",
+    "localTime": "18.00"
+  },
+  {
+    "code": "🏸 MD",
+    "discipline": "Ganda Putra",
+    "court": "Court 1",
+    "match": "Match 13",
     "team1": "🇮🇩 Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani",
-    "team2": "🇰🇷 Kang Min Hyuk / Ki Dong Ju",
+    "team2": "🇩🇰 Daniel Lundgaard / Mads Vestergaard",
     "seed": "[6]",
-    "time": "15.45",
-    "localTime": "15.45"
+    "time": "19.00",
+    "localTime": "19.00"
   }
 ]
 }
