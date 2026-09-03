@@ -375,6 +375,11 @@ video {
     font-weight: 900;
     line-height: 1.1;
 }
+.alt-badge {
+    background-color: rgba(255, 191, 105, 0.16);
+    border-color: rgba(255, 191, 105, 0.4);
+    color: #ffbf69;
+}
 .court-meta {
     color: var(--text-muted);
     font-size: 11px;
@@ -387,6 +392,12 @@ video {
 }
 .court-btn-hd::before {
     background: linear-gradient(135deg, rgba(115, 217, 255, 0.18), rgba(40, 209, 124, 0.07));
+}
+.court-btn-alt {
+    border-color: rgba(255, 191, 105, 0.22);
+}
+.court-btn-alt::before {
+    background: linear-gradient(135deg, rgba(255, 191, 105, 0.17), rgba(40, 209, 124, 0.07));
 }
 .court-status {
     width: 10px;
