@@ -13,7 +13,7 @@
         return isIOS || isMacTablet;
     }
 
-    const STREAM_URLS = {
+    const BADMINTON_STREAM_URLS = {
         court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4305634513814061_AiSD.m3u8?txSecret=ba380fd58d2afdb7997623c74a436485&txTime=6A9B2340",
         court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4305634701489061_AiSD.m3u8?txSecret=5d5665a578ba57a03afd7d2bf86998aa&txTime=6A9B2340",
         court3: "",
@@ -27,9 +27,24 @@
         court3hd: "",
         court4hd: ""
     };
+    const FOOTBALL_STREAM_URLS = {
+        court1: "https://play4.mehufwx.com/live/73878724_b1d610b343580c056bd06b4b4592c5ea_720p.m3u8?auth_key=1789566700-0-0-07dc3ae61fd4c90258e705dc13dd06ce",
+        court2: "https://pul-tenm.gkykp.com/live/hd-en-1-4621351.m3u8?txSecret=279d25efbace756df687d3fa93b47aa3&txTime=6AAB9E78",
+        court3: "https://yallavoide.yalla-shoot-zhubo.com/sport/202_5702965_2.m3u8?auth_key=880393847-0-0-c14be46ad4ea2616ccfa45ba85197c2f",
+        court4: ""
+    };
+    const STREAM_URLS_BY_THEME = {
+        badminton: BADMINTON_STREAM_URLS,
+        football: FOOTBALL_STREAM_URLS
+    };
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
+    const THEME_STORAGE_KEY = 'shuttleflash_theme';
+    const SCHEDULE_FILES = {
+        badminton: 'schedule-badminton.json',
+        football: 'schedule-football.json'
+    };
 
     let hls;
     const hlsOptions = {
@@ -68,31 +83,130 @@
         }
     }
 
+    function getStoredTheme() {
+        try {
+            return localStorage.getItem(THEME_STORAGE_KEY);
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function storeTheme(theme) {
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, theme);
+        } catch (error) {
+            console.clear();
+        }
+    }
+
+    function applyTheme(theme) {
+        const selectedTheme = theme === 'football' ? 'football' : 'badminton';
+        document.body.classList.toggle('theme-football', selectedTheme === 'football');
+        document.querySelectorAll('.theme-btn').forEach(function (button) {
+            const isActive = button.dataset.theme === selectedTheme;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+        storeTheme(selectedTheme);
+        syncCourtButtons();
+        loadSchedule();
+    }
+
+    function initThemeSwitcher() {
+        applyTheme(getStoredTheme());
+        document.querySelectorAll('.theme-btn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                applyTheme(this.dataset.theme);
+            });
+        });
+    }
+
     function isHdCourt(court) {
         return typeof court === 'string' && court.endsWith('hd');
     }
 
+    function isAltCourt(court) {
+        return typeof court === 'string' && court.endsWith('alt');
+    }
+
+    function getCourtNumber(court) {
+        const match = String(court || '').match(/^court(\d+)/);
+        return match ? match[1] : '';
+    }
+
+    function isFootballTheme() {
+        return document.body.classList.contains('theme-football');
+    }
+
+    function getActiveTheme() {
+        return isFootballTheme() ? 'football' : 'badminton';
+    }
+
+    function getActiveStreamUrls() {
+        return STREAM_URLS_BY_THEME[getActiveTheme()] || BADMINTON_STREAM_URLS;
+    }
+
     function hasStreamUrl(court) {
-        return typeof STREAM_URLS[court] === 'string' && STREAM_URLS[court].trim() !== '';
+        const streamUrls = getActiveStreamUrls();
+        return typeof streamUrls[court] === 'string' && streamUrls[court].trim() !== '';
+    }
+
+    function isVisibleCourtForTheme(court) {
+        if (isFootballTheme() && (isHdCourt(court) || isAltCourt(court))) {
+            return false;
+        }
+        return hasStreamUrl(court);
     }
 
     function getFirstAvailableCourt() {
         const firstButton = Array.from(document.querySelectorAll('.court-btn'))
             .find(function (button) {
-                return hasStreamUrl(button.dataset.court);
+                return isVisibleCourtForTheme(button.dataset.court);
             });
         return firstButton ? firstButton.dataset.court : null;
     }
 
     function syncCourtButtons() {
         document.querySelectorAll('.court-btn').forEach(function (button) {
-            button.hidden = !hasStreamUrl(button.dataset.court);
+            const court = button.dataset.court;
+            const courtName = button.querySelector('.court-name');
+            const courtMeta = button.querySelector('.court-meta');
+            const courtNumber = getCourtNumber(court);
+
+            button.hidden = !isVisibleCourtForTheme(court);
+
+            if (courtName && !courtName.dataset.defaultText) {
+                courtName.dataset.defaultText = courtName.textContent.trim();
+            }
+            if (courtMeta && !courtMeta.dataset.defaultText) {
+                courtMeta.dataset.defaultText = courtMeta.textContent.trim();
+            }
+            if (!button.dataset.defaultLabel) {
+                button.dataset.defaultLabel = button.getAttribute('aria-label') || '';
+            }
+
+            if (isFootballTheme() && !isHdCourt(court) && !isAltCourt(court)) {
+                if (courtName) courtName.textContent = 'Live ' + courtNumber;
+                if (courtMeta) courtMeta.textContent = 'Football live';
+                button.setAttribute('aria-label', 'Pilih Live ' + courtNumber);
+            } else {
+                if (courtName && courtName.dataset.defaultText) {
+                    courtName.textContent = courtName.dataset.defaultText;
+                }
+                if (courtMeta && courtMeta.dataset.defaultText) {
+                    courtMeta.textContent = courtMeta.dataset.defaultText;
+                }
+                if (button.dataset.defaultLabel) {
+                    button.setAttribute('aria-label', button.dataset.defaultLabel);
+                }
+            }
         });
     }
 
     // Jika BUKAN perangkat mobile, tombol court tetap disesuaikan tetapi video tidak dimuat.
     if (!isMobileDevice()) {
         document.addEventListener("DOMContentLoaded", function () {
+            initThemeSwitcher();
             syncCourtButtons();
             const statusEl = document.getElementById('status');
             if (statusEl) {
@@ -197,8 +311,9 @@
     async function loadSchedule() {
         const scheduleTitle = document.getElementById('scheduleTitle');
         const matchList = document.getElementById('matchList');
+        const scheduleFile = SCHEDULE_FILES[getActiveTheme()] || SCHEDULE_FILES.badminton;
         try {
-            const response = await fetch(`schedule.json`, { cache: 'no-store' });
+            const response = await fetch(scheduleFile, { cache: 'no-store' });
             if (!response.ok) throw new Error('Jadwal belum tersedia');
             const schedule = await response.json();
             const matches = Array.isArray(schedule.matches) ? schedule.matches : [];
@@ -217,7 +332,8 @@
     }
 
     async function getStreamUrl(court) {
-        const streamUrl = hasStreamUrl(court) ? STREAM_URLS[court].trim() : '';
+        const streamUrls = getActiveStreamUrls();
+        const streamUrl = hasStreamUrl(court) ? streamUrls[court].trim() : '';
         if (!streamUrl) {
             throw new Error('STREAM BELUM TERSEDIA');
         }
@@ -352,6 +468,7 @@
     });
 
     // Inisialisasi Event Listener Klien
+    initThemeSwitcher();
     document.getElementById('btnSaweria').addEventListener('click', function () {
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
@@ -365,7 +482,6 @@
 
     // Load awal program utama
     syncCourtButtons();
-    loadSchedule();
     window.addEventListener('pageshow', resumePendingHdCourt);
     if (!resumePendingHdCourt()) {
         const firstCourt = getFirstAvailableCourt();
