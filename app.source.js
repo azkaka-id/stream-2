@@ -14,36 +14,27 @@
     }
 
     const BADMINTON_STREAM_URLS = {
-        court1: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4305634513814061_AiSD.m3u8?txSecret=ba380fd58d2afdb7997623c74a436485&txTime=6A9B2340",
-        court2: "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4305634701489061_AiSD.m3u8?txSecret=5d5665a578ba57a03afd7d2bf86998aa&txTime=6A9B2340",
+        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/968cb190-3f28-49a5-ab21-5ea444b2a242/HLS_ENC/index.m3u8",
+        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/f9f64e70-798f-4631-aaa1-873a943b1068/HLS_ENC/index.m3u8",
         court3: "",
         court4: "",
-        court1alt: "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel60.m3u8",
-        court2alt: "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel61.m3u8",
+        court1alt: "",
+        court2alt: "",
         court3alt: "",
         court4alt: "",
-        court1hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8217169&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=FB8C4DB9B16DADE821A0DA8D049750A6&ups_client_netip=103.172.25.136&ups_ts=1788488365&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8217169_8138341&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B5bfc3f033bdefda15d24a6110a1ea07a&cug=10&t=7081eaa747b36f4",
-        court2hd: "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8217180&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=2QPNIQdCIkACAZ1V0nstm3qc&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=390A6294606B9065B9BC7F8B37BB6D1E&ups_client_netip=103.172.25.136&ups_ts=1788488402&ups_userid=0&utid=2QPNIQdCIkACAZ1V0nstm3qc&vid=8217180_8138347&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B9f256729e483224f06d12dc2e127043b&cug=10&t=7358fc9ae7c41b1",
+        court1hd: "",
+        court2hd: "",
         court3hd: "",
         court4hd: ""
     };
-    const FOOTBALL_STREAM_URLS = {
-        court1: "https://play4.mehufwx.com/live/73878724_b1d610b343580c056bd06b4b4592c5ea_720p.m3u8?auth_key=1789566700-0-0-07dc3ae61fd4c90258e705dc13dd06ce",
-        court2: "https://pul-tenm.gkykp.com/live/hd-en-1-4621351.m3u8?txSecret=279d25efbace756df687d3fa93b47aa3&txTime=6AAB9E78",
-        court3: "https://yallavoide.yalla-shoot-zhubo.com/sport/202_5702965_2.m3u8?auth_key=880393847-0-0-c14be46ad4ea2616ccfa45ba85197c2f",
-        court4: ""
-    };
     const STREAM_URLS_BY_THEME = {
-        badminton: BADMINTON_STREAM_URLS,
-        football: FOOTBALL_STREAM_URLS
+        badminton: BADMINTON_STREAM_URLS
     };
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
-    const THEME_STORAGE_KEY = 'shuttleflash_theme';
     const SCHEDULE_FILES = {
-        badminton: 'schedule-badminton.json',
-        football: 'schedule-football.json'
+        badminton: 'schedule-badminton.json'
     };
 
     let hls;
@@ -83,42 +74,9 @@
         }
     }
 
-    function getStoredTheme() {
-        try {
-            return localStorage.getItem(THEME_STORAGE_KEY);
-        } catch (error) {
-            return null;
-        }
-    }
-
-    function storeTheme(theme) {
-        try {
-            localStorage.setItem(THEME_STORAGE_KEY, theme);
-        } catch (error) {
-            console.clear();
-        }
-    }
-
-    function applyTheme(theme) {
-        const selectedTheme = theme === 'football' ? 'football' : 'badminton';
-        document.body.classList.toggle('theme-football', selectedTheme === 'football');
-        document.querySelectorAll('.theme-btn').forEach(function (button) {
-            const isActive = button.dataset.theme === selectedTheme;
-            button.classList.toggle('active', isActive);
-            button.setAttribute('aria-pressed', String(isActive));
-        });
-        storeTheme(selectedTheme);
+    function initThemeSwitcher() {
         syncCourtButtons();
         loadSchedule();
-    }
-
-    function initThemeSwitcher() {
-        applyTheme(getStoredTheme());
-        document.querySelectorAll('.theme-btn').forEach(function (button) {
-            button.addEventListener('click', function () {
-                applyTheme(this.dataset.theme);
-            });
-        });
     }
 
     function isHdCourt(court) {
@@ -134,12 +92,8 @@
         return match ? match[1] : '';
     }
 
-    function isFootballTheme() {
-        return document.body.classList.contains('theme-football');
-    }
-
     function getActiveTheme() {
-        return isFootballTheme() ? 'football' : 'badminton';
+        return 'badminton';
     }
 
     function getActiveStreamUrls() {
@@ -152,9 +106,6 @@
     }
 
     function isVisibleCourtForTheme(court) {
-        if (isFootballTheme() && (isHdCourt(court) || isAltCourt(court))) {
-            return false;
-        }
         return hasStreamUrl(court);
     }
 
@@ -185,20 +136,14 @@
                 button.dataset.defaultLabel = button.getAttribute('aria-label') || '';
             }
 
-            if (isFootballTheme() && !isHdCourt(court) && !isAltCourt(court)) {
-                if (courtName) courtName.textContent = 'Live ' + courtNumber;
-                if (courtMeta) courtMeta.textContent = 'Football live';
-                button.setAttribute('aria-label', 'Pilih Live ' + courtNumber);
-            } else {
-                if (courtName && courtName.dataset.defaultText) {
-                    courtName.textContent = courtName.dataset.defaultText;
-                }
-                if (courtMeta && courtMeta.dataset.defaultText) {
-                    courtMeta.textContent = courtMeta.dataset.defaultText;
-                }
-                if (button.dataset.defaultLabel) {
-                    button.setAttribute('aria-label', button.dataset.defaultLabel);
-                }
+            if (courtName && courtName.dataset.defaultText) {
+                courtName.textContent = courtName.dataset.defaultText;
+            }
+            if (courtMeta && courtMeta.dataset.defaultText) {
+                courtMeta.textContent = courtMeta.dataset.defaultText;
+            }
+            if (button.dataset.defaultLabel) {
+                button.setAttribute('aria-label', button.dataset.defaultLabel);
             }
         });
     }

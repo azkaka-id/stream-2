@@ -2,15 +2,84 @@
   "title": "Friday, 4 September 2026 (WIB)",
   "matches": [
     {
-      "code": "MD",
-      "discipline": "Ganda Putra",
+      "code": "WT",
+      "discipline": "Women's Team",
+      "round": "QF",
       "court": "Court 1",
-      "match": "Match 10",
-      "team1": "Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani",
-      "team2": "Nur Mohd Azriyn Ayub Azriyn / Tan Wee Kiong",
-      "seed": "[6]",
-      "time": "20.20 WIB",
-      "localTime": "20.20 WIB"
+      "team1": "China",
+      "team2": "Thailand",
+      "time": "09.30 WIB",
+      "localTime": "09.30 WIB"
+    },
+    {
+      "code": "WT",
+      "discipline": "Women's Team",
+      "round": "QF",
+      "court": "Court 2",
+      "team1": "India",
+      "team2": "Japan",
+      "time": "09.30 WIB",
+      "localTime": "09.30 WIB"
+    },
+    {
+      "code": "WT",
+      "discipline": "Women's Team",
+      "round": "QF",
+      "court": "Court 3",
+      "team1": "Chinese Taipei",
+      "team2": "Indonesia",
+      "time": "09.40 WIB",
+      "localTime": "09.40 WIB"
+    },
+    {
+      "code": "WT",
+      "discipline": "Women's Team",
+      "round": "QF",
+      "court": "Court 4",
+      "team1": "Malaysia",
+      "team2": "Korea",
+      "time": "09.40 WIB",
+      "localTime": "09.40 WIB"
+    },
+    {
+      "code": "MT",
+      "discipline": "Men's Team",
+      "round": "QF",
+      "court": "Court 1",
+      "team1": "Indonesia",
+      "team2": "Malaysia",
+      "time": "15.00 WIB",
+      "localTime": "15.00 WIB"
+    },
+    {
+      "code": "MT",
+      "discipline": "Men's Team",
+      "round": "QF",
+      "court": "Court 2",
+      "team1": "India",
+      "team2": "Japan",
+      "time": "15.00 WIB",
+      "localTime": "15.00 WIB"
+    },
+    {
+      "code": "MT",
+      "discipline": "Men's Team",
+      "round": "QF",
+      "court": "Court 3",
+      "team1": "Korea",
+      "team2": "China",
+      "time": "15.00 WIB",
+      "localTime": "15.00 WIB"
+    },
+    {
+      "code": "MT",
+      "discipline": "Men's Team",
+      "round": "QF",
+      "court": "Court 4",
+      "team1": "Chinese Taipei",
+      "team2": "Thailand",
+      "time": "15.00 WIB",
+      "localTime": "15.00 WIB"
     }
   ]
 }
