@@ -14,8 +14,8 @@
     }
 
     const BADMINTON_STREAM_URLS = {
-        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/968cb190-3f28-49a5-ab21-5ea444b2a242/HLS_ENC/index.m3u8",
-        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/f9f64e70-798f-4631-aaa1-873a943b1068/HLS_ENC/index.m3u8",
+        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/332b71b2-71e4-4ee6-b755-1539513e9fd6/HLS_ENC/index.m3u8",
+        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/14d93b2e-a94f-4ae3-a198-703f2fc12bfe/HLS_ENC/index.m3u8",
         court3: "",
         court4: "",
         court1alt: "",
