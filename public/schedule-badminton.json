@@ -4,82 +4,42 @@
     {
       "code": "WT",
       "discipline": "Women's Team",
-      "round": "QF",
-      "court": "Court 1",
-      "team1": "China",
-      "team2": "Thailand",
-      "time": "09.30 WIB",
-      "localTime": "09.30 WIB"
-    },
-    {
-      "code": "WT",
-      "discipline": "Women's Team",
-      "round": "QF",
-      "court": "Court 2",
-      "team1": "India",
-      "team2": "Japan",
-      "time": "09.30 WIB",
-      "localTime": "09.30 WIB"
-    },
-    {
-      "code": "WT",
-      "discipline": "Women's Team",
-      "round": "QF",
-      "court": "Court 3",
-      "team1": "Chinese Taipei",
-      "team2": "Indonesia",
-      "time": "09.40 WIB",
-      "localTime": "09.40 WIB"
-    },
-    {
-      "code": "WT",
-      "discipline": "Women's Team",
-      "round": "QF",
-      "court": "Court 4",
-      "team1": "Malaysia",
-      "team2": "Korea",
-      "time": "09.40 WIB",
-      "localTime": "09.40 WIB"
-    },
-    {
-      "code": "MT",
-      "discipline": "Men's Team",
-      "round": "QF",
+      "round": "SF",
       "court": "Court 1",
       "team1": "Indonesia",
-      "team2": "Malaysia",
-      "time": "15.00 WIB",
-      "localTime": "15.00 WIB"
+      "team2": "China",
+      "time": "07.30 WIB",
+      "localTime": "09.30 JST"
     },
     {
-      "code": "MT",
-      "discipline": "Men's Team",
-      "round": "QF",
+      "code": "WT",
+      "discipline": "Women's Team",
+      "round": "SF",
       "court": "Court 2",
       "team1": "India",
-      "team2": "Japan",
-      "time": "15.00 WIB",
-      "localTime": "15.00 WIB"
+      "team2": "Korea",
+      "time": "07.30 WIB",
+      "localTime": "09.30 JST"
     },
     {
       "code": "MT",
       "discipline": "Men's Team",
-      "round": "QF",
-      "court": "Court 3",
-      "team1": "Korea",
-      "team2": "China",
-      "time": "15.00 WIB",
-      "localTime": "15.00 WIB"
-    },
-    {
-      "code": "MT",
-      "discipline": "Men's Team",
-      "round": "QF",
-      "court": "Court 4",
-      "team1": "Chinese Taipei",
+      "round": "SF",
+      "court": "Court 1",
+      "team1": "Indonesia",
       "team2": "Thailand",
-      "time": "15.00 WIB",
-      "localTime": "15.00 WIB"
+      "time": "13.00 WIB",
+      "localTime": "15.00 JST"
+    },
+    {
+      "code": "MT",
+      "discipline": "Men's Team",
+      "round": "SF",
+      "court": "Court 2",
+      "team1": "India",
+      "team2": "China",
+      "time": "13.00 WIB",
+      "localTime": "15.00 JST"
     }
   ]
 }
