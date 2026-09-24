@@ -4,39 +4,19 @@
     {
       "code": "WT",
       "discipline": "Women's Team",
-      "round": "SF",
+      "round": "Final",
       "court": "Court 1",
-      "team1": "Indonesia",
-      "team2": "China",
-      "time": "07.30 WIB",
-      "localTime": "09.30 JST"
-    },
-    {
-      "code": "WT",
-      "discipline": "Women's Team",
-      "round": "SF",
-      "court": "Court 2",
-      "team1": "India",
-      "team2": "Korea",
+      "team1": "China",
+      "team2": "Jepang",
       "time": "07.30 WIB",
       "localTime": "09.30 JST"
     },
     {
       "code": "MT",
       "discipline": "Men's Team",
-      "round": "SF",
+      "round": "Final",
       "court": "Court 1",
       "team1": "Indonesia",
-      "team2": "Thailand",
-      "time": "13.00 WIB",
-      "localTime": "15.00 JST"
-    },
-    {
-      "code": "MT",
-      "discipline": "Men's Team",
-      "round": "SF",
-      "court": "Court 2",
-      "team1": "India",
       "team2": "China",
       "time": "13.00 WIB",
       "localTime": "15.00 JST"
