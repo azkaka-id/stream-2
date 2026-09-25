@@ -22,7 +22,7 @@
         court2alt: "https://live2.domainkqt.cc/live/channel15.m3u8",
         court3alt: "",
         court4alt: "",
-        court1hd: "",
+        court1hd: "https://juxrd.hundxvision.co.uk/main/secure/4ca4f985c481b48e8e2c62b30a11c6b55fb2f3ffdfa3945c159fc17855dc025c/1790352046/sonysportsnetwork-in.m3u8",
         court2hd: "",
         court3hd: "",
         court4hd: ""
