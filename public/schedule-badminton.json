@@ -2,24 +2,70 @@
   "title": "Friday, 4 September 2026 (WIB)",
   "matches": [
     {
-      "code": "WT",
-      "discipline": "Women's Team",
-      "round": "Final",
-      "court": "Court 1",
-      "team1": "China",
-      "team2": "Jepang",
-      "time": "07.30 WIB",
-      "localTime": "09.30 JST"
-    },
-    {
-      "code": "MT",
-      "discipline": "Men's Team",
-      "round": "Final",
-      "court": "Court 1",
-      "team1": "Indonesia",
-      "team2": "China",
-      "time": "14.00 WIB",
-      "localTime": "16.00 JST"
-    }
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
+    "court": "Court 1",
+    "match": "Match 1",
+    "team1": "🇮🇩 Amri Syahnawi / Nita Violina Marwah",
+    "team2": "🇰🇿 Makhsut Tajibullayev / Nargiza Rakhmetullayeva",
+    "seed": "-",
+    "time": "07.30 WIB",
+    "localTime": "09.30 JST"
+  },
+  {
+    "code": "🏸 XD",
+    "discipline": "Ganda Campuran",
+    "court": "Court 4",
+    "match": "Match 1",
+    "team1": "🇮🇩 Nikolaus Joaquin / Siti Fadia Silva Ramadhanti",
+    "team2": "🇲🇻 Hussein Shaheed / Fathimath Nabaaha Abdul Razzaq",
+    "seed": "-",
+    "time": "07.40 WIB",
+    "localTime": "09.40 JST"
+  },
+  {
+    "code": "🏸 WD",
+    "discipline": "Ganda Putri",
+    "court": "Court 1",
+    "match": "Match 9",
+    "team1": "🇮🇩 Rachel Allessya Rose / Febi Setianingrum",
+    "team2": "🇲🇾 Pearly Tan / Muralitharan Thinaah",
+    "seed": "-",
+    "time": "15.00 WIB",
+    "localTime": "17.00 JST"
+  },
+  {
+    "code": "🏸 WD",
+    "discipline": "Ganda Putri",
+    "court": "Court 3",
+    "match": "Match 9",
+    "team1": "🇮🇩 Febriana Dwipuji Kusuma / Meilysa Trias Puspitasari",
+    "team2": "🇮🇳 Kavipriya Selvam / Simran Singhi",
+    "seed": "-",
+    "time": "15.40 WIB",
+    "localTime": "17.40 JST"
+  },
+  {
+    "code": "🏸 MD",
+    "discipline": "Ganda Putra",
+    "court": "Court 4",
+    "match": "Match 11",
+    "team1": "🇲🇴 Leong Iok Chong / Vong Kok Weng",
+    "team2": "🇮🇩 Leo Rolly Carnando / Daniel Marthin",
+    "seed": "-",
+    "time": "16.10 WIB",
+    "localTime": "18.10 JST"
+  },
+  {
+    "code": "🏸 MD",
+    "discipline": "Ganda Putra",
+    "court": "Court 1",
+    "match": "Match 14",
+    "team1": "🇮🇳 Hariharan Amsakarunan / Mr. Arjun",
+    "team2": "🇮🇩 Fajar Alfian / Muhammad Shohibul Fikri",
+    "seed": "(2)",
+    "time": "17.30 WIB",
+    "localTime": "19.30 JST"
+  }
   ]
 }
