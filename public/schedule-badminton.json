@@ -1,71 +1,60 @@
 {
-  "title": "Friday, 25 September 2026 (WIB)",
+  "title": "Friday, 26 September 2026 (WIB)",
   "matches": [
     {
-    "code": "🏸 XD",
-    "discipline": "Ganda Campuran",
+    "code": "🏸 WS",
+    "discipline": "Tunggal Putri",
     "court": "Court 1",
-    "match": "Match 1",
-    "team1": "🇮🇩 Amri Syahnawi / Nita Violina Marwah",
-    "team2": "🇰🇿 Makhsut Tajibullayev / Nargiza Rakhmetullayeva",
+    "match": "Match 2",
+    "team1": "🇻🇳 Nguyen Thuy Linh",
+    "team2": "🇮🇩 Thalita Ramadhani Wiryawan",
     "seed": "-",
-    "time": "07.30 WIB",
-    "localTime": "09.30 JST"
+    "time": "08.00 WIB",
+    "localTime": "10.00 JST"
   },
   {
-    "code": "🏸 XD",
-    "discipline": "Ganda Campuran",
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
+    "court": "Court 2",
+    "match": "Match 8",
+    "team1": "🇯🇵 Kenta Nishimoto",
+    "team2": "🇮🇩 Alwi Farhan",
+    "seed": "(6)",
+    "time": "11.00 WIB",
+    "localTime": "13.00 JST"
+  },
+  {
+    "code": "🏸 MS",
+    "discipline": "Tunggal Putra",
     "court": "Court 4",
     "match": "Match 1",
-    "team1": "🇮🇩 Nikolaus Joaquin / Siti Fadia Silva Ramadhanti",
-    "team2": "🇲🇻 Hussein Shaheed / Fathimath Nabaaha Abdul Razzaq",
-    "seed": "-",
+    "team1": "🇮🇩 Jonatan Christie",
+    "team2": "🇹🇯 Dzhumaboi Saidov",
+    "seed": "(1)",
     "time": "07.40 WIB",
     "localTime": "09.40 JST"
   },
   {
-    "code": "🏸 WD",
-    "discipline": "Ganda Putri",
-    "court": "Court 1",
-    "match": "Match 9",
-    "team1": "🇮🇩 Rachel Allessya Rose / Febi Setianingrum",
-    "team2": "🇲🇾 Pearly Tan / Muralitharan Thinaah",
-    "seed": "-",
-    "time": "15.00 WIB",
-    "localTime": "17.00 JST"
-  },
-  {
-    "code": "🏸 WD",
-    "discipline": "Ganda Putri",
-    "court": "Court 3",
-    "match": "Match 9",
-    "team1": "🇮🇩 Febriana Dwipuji Kusuma / Meilysa Trias Puspitasari",
-    "team2": "🇮🇳 Kavipriya Selvam / Simran Singhi",
-    "seed": "-",
-    "time": "15.40 WIB",
-    "localTime": "17.40 JST"
-  },
-  {
-    "code": "🏸 MD",
-    "discipline": "Ganda Putra",
+    "code": "🏸 WS",
+    "discipline": "Tunggal Putri",
     "court": "Court 4",
-    "match": "Match 11",
-    "team1": "🇲🇴 Leong Iok Chong / Vong Kok Weng",
-    "team2": "🇮🇩 Leo Rolly Carnando / Daniel Marthin",
-    "seed": "-",
-    "time": "16.10 WIB",
-    "localTime": "18.10 JST"
+    "match": "Match 2",
+    "team1": "🇵🇰 Mahoor Shahzad",
+    "team2": "🇮🇩 Putri Kusuma Wardani",
+    "seed": "(6)",
+    "time": "08.10 WIB",
+    "localTime": "10.10 JST"
   },
   {
-    "code": "🏸 MD",
-    "discipline": "Ganda Putra",
-    "court": "Court 1",
-    "match": "Match 14",
-    "team1": "🇮🇳 Hariharan Amsakarunan / Mr. Arjun",
-    "team2": "🇮🇩 Fajar Alfian / Muhammad Shohibul Fikri",
+    "code": "🏸 WD",
+    "discipline": "Ganda Putri",
+    "court": "Court 2",
+    "match": "Match 12",
+    "team1": "🇮🇩 Febriana Dwipuji Kusuma / Meilysa Trias Puspitasari",
+    "team2": "🇰🇷 Baek Ha Na / Lee So Hee",
     "seed": "(2)",
-    "time": "17.30 WIB",
-    "localTime": "19.30 JST"
+    "time": "13.30 WIB",
+    "localTime": "15.30 JST"
   }
   ]
 }
