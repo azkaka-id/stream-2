@@ -10,12 +10,12 @@
 
     // Masukkan tautan .mpd atau .m3u8 Anda di sini
     const BADMINTON_STREAM_URLS = {
-        court1: "https://cdnjktcyber05.transvision.co.id/riutx01-439abf566997b187117993103dfd8508/dash/TU5DVFY/manifest.mpd",
-        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/575d7dd8-062e-429d-8462-dc46b89e8848/HLS_ENC/index.m3u8",
+        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/b73d64f4-a528-4296-b051-5711e6a64f0e/HLS_ENC/index.m3u8",
+        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/b73d64f4-a528-4296-b051-5711e6a64f0e/HLS_ENC/index.m3u8",
         court3: "",
         court4: "",
-        court1alt: "https://live1.quickscoreboardz.com/live/channel60.m3u8?wsSecret=e08deb1e5c9ca3d3914bc13ac5282c65&wsABSTime=1790432330",
-        court2alt: "https://live1.quickscoreboardz.com/live/channel61.m3u8?wsSecret=b6cc77c9d9584e0e234d248163138cfa&wsABSTime=1790432571",
+        court1alt: "https://live1.quickscoreboardz.com/live/channel65.m3u8?wsSecret=050f9a0ad6ac4ae48cb7cf0b6d600a1b&wsABSTime=1790598696",
+        court2alt: "https://live1.quickscoreboardz.com/live/channel66.m3u8?wsSecret=83f2bc4a0173af139092fd6a40414277&wsABSTime=1790598744",
         court3alt: "",
         court4alt: "",
         court1hd: "",
