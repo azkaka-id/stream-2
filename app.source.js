@@ -18,10 +18,23 @@
         court2alt: "https://live1.quickscoreboardz.com/live/channel66.m3u8?wsSecret=83f2bc4a0173af139092fd6a40414277&wsABSTime=1790598744",
         court3alt: "",
         court4alt: "",
-        court1hd: "https://tglmp01.akamaized.net/out/v1/d43dbc5da1334ec088ed9eb5796eee7c/manifest.mpd",
+        court1hd: "https://ls-mp01.eo-edgefunctions7.com/out/v1/5fa3fdc8720b4317b14df756e81b78c1/manifest.mpd",
         court2hd: "",
         court3hd: "",
         court4hd: ""
+    };
+
+    // Isi dengan Player Library URL milik Anda dari dashboard JW Player.
+    // Untuk cloud-hosted, URL library sudah membawa lisensi player.
+    // Untuk self-hosted, isi juga JWPLAYER_LICENSE_KEY milik Anda.
+    const JWPLAYER_LIBRARY_URL = '//ssl.p.jwpcdn.com/player/v/8.21.0/jwplayer.js';
+    const JWPLAYER_LICENSE_KEY = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+    // Isi URL HD dan ClearKey resmi masing-masing court bila berbeda.
+    const JWPLAYER_HD_CONFIG = {
+        court1hd: { keyId: '6c9c38c2de3f41afa12f9872ad6c3903', key: 'd6f5a6750b32d2addec0c98fff14de9d' },
+        court2hd: { keyId: '', key: '' },
+        court3hd: { keyId: '', key: '' },
+        court4hd: { keyId: '', key: '' }
     };
 
     const STREAM_URLS_BY_THEME = {
@@ -31,12 +44,13 @@
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
-    const SCHEDULE_FILES = {
-        badminton: 'schedule-badminton.json'
-    };
+    // Tempel URL iframe dari halaman Publish di akun Cbox Anda.
+    const CBOX_EMBED_URL = 'https://www5.cbox.ws/box/?boxid=967352&boxtag=5YPSFc';
 
     let hls = null;
     let dashPlayer = null;
+    let jwPlayerInstance = null;
+    let jwPlayerLoadPromise = null;
 
     const hlsOptions = {
         maxMaxBufferLength: 30,
@@ -77,7 +91,7 @@
 
     function initThemeSwitcher() {
         syncCourtButtons();
-        loadSchedule();
+        loadCbox();
     }
 
     function isHdCourt(court) {
@@ -145,6 +159,52 @@
         });
     }
 
+    function hancurkanVideo() {
+        const video = document.getElementById('video');
+        setStatus('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
+        destroyPlayers();
+        if (video) {
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
+        }
+    }
+
+    function activateDevtoolProtection() {
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+        });
+        document.addEventListener('keydown', function (event) {
+            const key = String(event.key || '').toLowerCase();
+            const inspectShortcut = key === 'f12' ||
+                (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+                ((event.ctrlKey || event.metaKey) && key === 'u') ||
+                (event.metaKey && event.altKey && key === 'i');
+            if (inspectShortcut) {
+                event.preventDefault();
+                hancurkanVideo();
+            }
+        });
+
+        if (typeof window.DisableDevtool === 'function') {
+            window.DisableDevtool({
+                disableMenu: true,
+                clearLog: true,
+                url: 'about:blank',
+                ondevtoolopen: function (type, next) {
+                    hancurkanVideo();
+                    if (typeof next === 'function') {
+                        next();
+                    } else {
+                        window.location.replace('about:blank');
+                    }
+                }
+            });
+        }
+    }
+
+    activateDevtoolProtection();
+
     if (!isMobileDevice()) {
         document.addEventListener("DOMContentLoaded", function () {
             initThemeSwitcher();
@@ -193,83 +253,17 @@
         button.setAttribute('aria-expanded', String(isShown));
     }
 
-    function appendText(parent, text, className) {
-        const element = document.createElement('span');
-        element.className = className;
-        element.textContent = text || '';
-        parent.appendChild(element);
-        return element;
-    }
-
-    function createMatchItem(match) {
-        const item = document.createElement('li');
-        item.className = 'match-item';
-        const head = document.createElement('div');
-        head.className = 'match-head';
-        const category = document.createElement('div');
-        category.className = 'match-category';
-        appendText(category, match.code || ' ', 'match-code');
-        appendText(category, match.discipline || '-', 'match-discipline');
-        const court = document.createElement('div');
-        court.className = 'match-court';
-        court.textContent = [match.court, match.match].filter(Boolean).join('   ') || '-';
-        head.appendChild(category);
-        head.appendChild(court);
-        const teams = document.createElement('div');
-        teams.className = 'match-teams';
-        const team1 = document.createElement('div');
-        team1.className = 'team-row';
-        team1.textContent = match.team1 || '-';
-        const team2 = document.createElement('div');
-        team2.className = 'team-row';
-        appendText(team2, 'vs', 'vs-text');
-        team2.appendChild(document.createTextNode(' ' + (match.team2 || '-')));
-        if (match.seed) {
-            team2.appendChild(document.createTextNode(' '));
-            appendText(team2, match.seed, 'seed');
+    function loadCbox() {
+        const frame = document.getElementById('cboxFrame');
+        const placeholder = document.getElementById('cboxPlaceholder');
+        if (!frame || !placeholder || !CBOX_EMBED_URL.trim()) return;
+        if (!/^https:\/\//i.test(CBOX_EMBED_URL.trim())) {
+            placeholder.textContent = 'URL Cbox harus menggunakan HTTPS.';
+            return;
         }
-        teams.appendChild(team1);
-        teams.appendChild(team2);
-        const time = document.createElement('div');
-        time.className = 'match-time';
-        appendText(time, match.time || '-', 'time-main');
-        appendText(time, match.localTime || '', 'time-local');
-        item.appendChild(head);
-        item.appendChild(teams);
-        item.appendChild(time);
-        return item;
-    }
-
-    function showScheduleMessage(message) {
-        const matchList = document.getElementById('matchList');
-        matchList.textContent = '';
-        const item = document.createElement('li');
-        item.className = 'match-item match-empty';
-        item.textContent = message;
-        matchList.appendChild(item);
-    }
-
-    async function loadSchedule() {
-        const scheduleTitle = document.getElementById('scheduleTitle');
-        const matchList = document.getElementById('matchList');
-        const scheduleFile = SCHEDULE_FILES[getActiveTheme()] || SCHEDULE_FILES.badminton;
-        try {
-            const response = await fetch(scheduleFile, { cache: 'no-store' });
-            if (!response.ok) throw new Error('Jadwal belum tersedia');
-            const schedule = await response.json();
-            const matches = Array.isArray(schedule.matches) ? schedule.matches : [];
-            scheduleTitle.textContent = schedule.title || "Today's Matches (WIB)";
-            matchList.textContent = '';
-            if (!matches.length) {
-                showScheduleMessage('Belum ada jadwal pertandingan.');
-                return;
-            }
-            matches.forEach(function (match) {
-                matchList.appendChild(createMatchItem(match));
-            });
-        } catch (error) {
-            showScheduleMessage('Gagal memuat jadwal.');
-        }
+        frame.src = CBOX_EMBED_URL.trim();
+        frame.hidden = false;
+        placeholder.hidden = true;
     }
 
     async function getStreamUrl(court) {
@@ -281,6 +275,74 @@
         return streamUrl;
     }
 
+    function loadJwPlayerLibrary() {
+        if (typeof window.jwplayer === 'function') return Promise.resolve();
+        if (!JWPLAYER_LIBRARY_URL) {
+            return Promise.reject(new Error('ISI JWPLAYER_LIBRARY_URL MILIK ANDA DI public/app.js'));
+        }
+        if (!jwPlayerLoadPromise) {
+            jwPlayerLoadPromise = new Promise(function (resolve, reject) {
+                const script = document.createElement('script');
+                script.src = JWPLAYER_LIBRARY_URL;
+                script.async = true;
+                script.onload = function () {
+                    if (typeof window.jwplayer !== 'function') {
+                        reject(new Error('LIBRARY JW PLAYER TIDAK VALID'));
+                        return;
+                    }
+                    if (JWPLAYER_LICENSE_KEY) {
+                        window.jwplayer.key = JWPLAYER_LICENSE_KEY;
+                    }
+                    resolve();
+                };
+                script.onerror = function () {
+                    jwPlayerLoadPromise = null;
+                    reject(new Error('GAGAL MEMUAT LIBRARY JW PLAYER'));
+                };
+                document.head.appendChild(script);
+            });
+        }
+        return jwPlayerLoadPromise;
+    }
+
+    async function loadHdWithJwPlayer(court, videoSrc) {
+        const drmConfig = JWPLAYER_HD_CONFIG[court];
+        const source = {
+            file: videoSrc,
+            type: videoSrc.includes('.mpd') ? 'dash' : 'hls'
+        };
+        if (source.type === 'dash') {
+            if (!drmConfig || !drmConfig.keyId || !drmConfig.key) {
+                throw new Error('ISI KID DAN CLEARKEY RESMI UNTUK ' + court.toUpperCase() + ' DI public/app.js');
+            }
+            source.drm = {
+                clearkey: {
+                    keyId: drmConfig.keyId,
+                    key: drmConfig.key
+                }
+            };
+        }
+        await loadJwPlayerLibrary();
+        const jwContainer = document.getElementById('jwplayer-container');
+        jwContainer.hidden = false;
+        jwPlayerInstance = window.jwplayer('jwplayer-container').setup({
+            playlist: [{
+                sources: [source]
+            }],
+            width: '100%',
+            height: '100%',
+            aspectratio: '16:9',
+            autostart: true,
+            mute: true
+        });
+        jwPlayerInstance.on('ready', function () { setStatus(''); });
+        jwPlayerInstance.on('play', function () { setStatus(''); });
+        jwPlayerInstance.on('error', function (event) {
+            console.error('Detail Error JW Player:', event);
+            setStatus('GAGAL JW PLAYER: ' + (event.message || 'Error'));
+        });
+    }
+
     function destroyPlayers() {
         if (hls) {
             hls.destroy();
@@ -290,6 +352,10 @@
             dashPlayer.reset();
             dashPlayer = null;
         }
+        if (jwPlayerInstance) {
+            jwPlayerInstance.remove();
+            jwPlayerInstance = null;
+        }
     }
 
     async function loadVideo(court) {
@@ -298,6 +364,9 @@
         setStatus('MEMUAT');
 
         destroyPlayers();
+        const jwContainer = document.getElementById('jwplayer-container');
+        jwContainer.hidden = true;
+        video.hidden = false;
         video.removeAttribute('src');
         video.load();
 
@@ -308,15 +377,20 @@
             const videoSrc = await getStreamUrl(court);
             const isDash = videoSrc.includes('.mpd');
 
+            if (isHdCourt(court)) {
+                video.hidden = true;
+                await loadHdWithJwPlayer(court, videoSrc);
+                return;
+            }
+
             if (isDash) {
     if (typeof dashjs !== 'undefined' && dashjs.supportsMediaSource()) {
         dashPlayer = dashjs.MediaPlayer().create();
 
-        // ClearKey mengharapkan KID dan key dalam format base64url, bukan hex.
         dashPlayer.setProtectionData({
             "org.w3.clearkey": {
                 "clearkeys": {
-                    "f33acf338ec946fd921a85f870636399": "a6c1a2e81fe941a9e2efd2bcad0d1532"
+                    "8zrPM47JRv2SGoX4cGNjmQ": "psGi6B_pQani79K8rQ0VMg"
                 }
             }
         });
@@ -393,50 +467,6 @@
         loadVideo(pendingCourt);
         return true;
     }
-
-    // ============================================
-    // MODUL BLOKIR & PEMUTUS ALIRAN VIDEO (ANTI-INSPECT)
-    // ============================================
-    function hancurkanVideo() {
-        const video = document.getElementById('video');
-        setStatus('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
-        destroyPlayers();
-        if (video) {
-            video.pause();
-            video.removeAttribute('src');
-            video.load();
-        }
-    }
-
-    setInterval(function () {
-        const start = new Date().getTime();
-        debugger;
-        const end = new Date().getTime();
-        if (end - start > 100) {
-            hancurkanVideo();
-        }
-    }, 1000);
-
-    window.addEventListener('resize', function () {
-        const threshold = 160;
-        if (window.outerWidth - window.innerWidth > threshold ||
-            window.outerHeight - window.innerHeight > threshold) {
-            hancurkanVideo();
-        }
-    });
-
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
-    document.addEventListener('keydown', function (e) {
-        if (
-            e.key === 'F12' ||
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
-            (e.ctrlKey && e.key === 'U')
-        ) {
-            e.preventDefault();
-            hancurkanVideo();
-        }
-    });
 
     // Inisialisasi Event Listener
     initThemeSwitcher();
