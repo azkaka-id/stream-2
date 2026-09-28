@@ -18,7 +18,7 @@
         court2alt: "https://live1.quickscoreboardz.com/live/channel66.m3u8?wsSecret=83f2bc4a0173af139092fd6a40414277&wsABSTime=1790598744",
         court3alt: "",
         court4alt: "",
-        court1hd: "",
+        court1hd: "https://tglmp01.akamaized.net/out/v1/d43dbc5da1334ec088ed9eb5796eee7c/manifest.mpd",
         court2hd: "",
         court3hd: "",
         court4hd: ""
