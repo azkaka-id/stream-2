@@ -7,6 +7,7 @@
     <title>ShuttleFlash Live - Asian Games 2026</title>
     <script defer src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script defer src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,6 +22,7 @@
         <section class="player-section">
             <div class="video-wrapper">
                 <video id="video" controls autoplay playsinline muted></video>
+                <div id="jwplayer-container" hidden></div>
                 <div id="status">MEMUAT</div>
             </div>
             <div class="support-panel" aria-label="Dukung ShuttleFlash melalui Saweria">
@@ -147,10 +149,16 @@
                 </div>
             </div>
             <div class="panel">
-                <div class="panel-title" id="scheduleTitle">Today's Matches (WIB)</div>
-                <ul class="match-list" id="matchList">
-                    <li class="match-item match-empty">Memuat jadwal...</li>
-                </ul>
+                <div class="panel-title">Live Chat</div>
+                <p class="cbox-placeholder" id="cboxPlaceholder">Masukkan URL embed Cbox Anda di public/app.js.</p>
+                <iframe
+                    class="cbox-frame"
+                    id="cboxFrame"
+                    title="Cbox Live Chat"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="autoplay"
+                    hidden></iframe>
             </div>
         </aside>
     </main>

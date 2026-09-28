@@ -316,7 +316,7 @@
         dashPlayer.setProtectionData({
             "org.w3.clearkey": {
                 "clearkeys": {
-                    "b_ucU68oT9WQIX7eHrp2Xg": "Sr8f0m6MRaW2uuYM9v_CuQ"
+                    "f33acf338ec946fd921a85f870636399": "a6c1a2e81fe941a9e2efd2bcad0d1532"
                 }
             }
         });
