@@ -3,23 +3,19 @@
     // Fungsi untuk mendeteksi apakah pengguna menggunakan perangkat Mobile (Android/iOS)
     function isMobileDevice() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-        // Deteksi perangkat iOS (iPhone, iPad, iPod) atau Android
         const isIOS = /android|iphone|ipad|ipod/i.test(ua.toLowerCase());
-
-        // Deteksi tambahan untuk iPadOS (karena terkadang terbaca sebagai Mac desktop)
         const isMacTablet = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-
         return isIOS || isMacTablet;
     }
 
+    // Masukkan tautan .mpd atau .m3u8 Anda di sini
     const BADMINTON_STREAM_URLS = {
-        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/49032a6f-ecc6-4c06-8f19-a0bc0adfb912/HLS_ENC/index.m3u8",
-        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/575d7dd8-062e-429d-8462-dc46b89e8848/HLS_ENC/index.m3u8",
+        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/b73d64f4-a528-4296-b051-5711e6a64f0e/HLS_ENC/index.m3u8",
+        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/dba6af30-ebdd-4a92-a3b8-b8303d926188/HLS_ENC/index.m3u8",
         court3: "",
         court4: "",
-        court1alt: "https://live1.quickscoreboardz.com/live/channel60.m3u8?wsSecret=e08deb1e5c9ca3d3914bc13ac5282c65&wsABSTime=1790432330",
-        court2alt: "https://live1.quickscoreboardz.com/live/channel61.m3u8?wsSecret=b6cc77c9d9584e0e234d248163138cfa&wsABSTime=1790432571",
+        court1alt: "https://live1.quickscoreboardz.com/live/channel65.m3u8?wsSecret=050f9a0ad6ac4ae48cb7cf0b6d600a1b&wsABSTime=1790598696",
+        court2alt: "https://live1.quickscoreboardz.com/live/channel66.m3u8?wsSecret=83f2bc4a0173af139092fd6a40414277&wsABSTime=1790598744",
         court3alt: "",
         court4alt: "",
         court1hd: "",
@@ -27,9 +23,11 @@
         court3hd: "",
         court4hd: ""
     };
+
     const STREAM_URLS_BY_THEME = {
         badminton: BADMINTON_STREAM_URLS
     };
+
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
@@ -37,7 +35,9 @@
         badminton: 'schedule-badminton.json'
     };
 
-    let hls;
+    let hls = null;
+    let dashPlayer = null;
+
     const hlsOptions = {
         maxMaxBufferLength: 30,
         manifestLoadingMaxRetry: 100,
@@ -47,7 +47,8 @@
     };
 
     function setStatus(message) {
-        document.getElementById('status').textContent = message || '';
+        const statusEl = document.getElementById('status');
+        if (statusEl) statusEl.textContent = message || '';
     }
 
     function getSessionValue(key) {
@@ -122,10 +123,7 @@
             const court = button.dataset.court;
             const courtName = button.querySelector('.court-name');
             const courtMeta = button.querySelector('.court-meta');
-            const courtNumber = getCourtNumber(court);
-
             button.hidden = !isVisibleCourtForTheme(court);
-
             if (courtName && !courtName.dataset.defaultText) {
                 courtName.dataset.defaultText = courtName.textContent.trim();
             }
@@ -135,7 +133,6 @@
             if (!button.dataset.defaultLabel) {
                 button.dataset.defaultLabel = button.getAttribute('aria-label') || '';
             }
-
             if (courtName && courtName.dataset.defaultText) {
                 courtName.textContent = courtName.dataset.defaultText;
             }
@@ -148,7 +145,6 @@
         });
     }
 
-    // Jika BUKAN perangkat mobile, tombol court tetap disesuaikan tetapi video tidak dimuat.
     if (!isMobileDevice()) {
         document.addEventListener("DOMContentLoaded", function () {
             initThemeSwitcher();
@@ -285,34 +281,67 @@
         return streamUrl;
     }
 
-    async function loadVideo(court) {
-        const video = document.getElementById('video');
-        setActiveButton(court);
-        setStatus('MEMUAT');
+    function destroyPlayers() {
         if (hls) {
             hls.destroy();
             hls = null;
         }
+        if (dashPlayer) {
+            dashPlayer.reset();
+            dashPlayer = null;
+        }
+    }
+
+    async function loadVideo(court) {
+        const video = document.getElementById('video');
+        setActiveButton(court);
+        setStatus('MEMUAT');
+
+        destroyPlayers();
         video.removeAttribute('src');
         video.load();
+
         video.onplaying = function () { setStatus(''); };
         video.oncanplay = function () { setStatus(''); };
 
         try {
             const videoSrc = await getStreamUrl(court);
-            if (Hls.isSupported()) {
+            const isDash = videoSrc.includes('.mpd');
+
+            if (isDash) {
+    if (typeof dashjs !== 'undefined' && dashjs.supportsMediaSource()) {
+        dashPlayer = dashjs.MediaPlayer().create();
+
+        // ClearKey mengharapkan KID dan key dalam format base64url, bukan hex.
+        dashPlayer.setProtectionData({
+            "org.w3.clearkey": {
+                "clearkeys": {
+                    "b_ucU68oT9WQIX7eHrp2Xg": "Sr8f0m6MRaW2uuYM9v_CuQ"
+                }
+            }
+        });
+
+        dashPlayer.initialize(video, videoSrc, true);
+
+        dashPlayer.on(dashjs.MediaPlayer.events.ERROR, function (e) {
+            console.error("Detail Error Dash:", e);
+            setStatus('GAGAL DASH: ' + ((e.error && e.error.message) ? e.error.message : 'Error'));
+        });
+    } else {
+        setStatus('BROWSER TIDAK MENDUKUNG DASH (.MPD)');
+    }
+}
+            // 2. Dukungan M3U8 (HLS)
+            else if (Hls.isSupported()) {
                 hls = new Hls(hlsOptions);
                 hls.loadSource(videoSrc);
                 hls.attachMedia(video);
-
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
                     setStatus('');
-                    video.play().catch(function (e) { console.clear(); });
+                    video.play().catch(function () { console.clear(); });
                 });
-
                 hls.on(Hls.Events.LEVEL_LOADED, function () { setStatus(''); });
                 hls.on(Hls.Events.FRAG_LOADED, function () { setStatus(''); });
-
                 hls.on(Hls.Events.ERROR, function (event, data) {
                     if (!data.fatal) return;
                     if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
@@ -330,14 +359,16 @@
                     hls.destroy();
                     setStatus('GAGAL MEMUAT STREAM');
                 });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            }
+            // 3. Native HLS (Safari iOS / macOS)
+            else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src = videoSrc;
                 video.addEventListener('loadedmetadata', function () {
                     setStatus('');
-                    video.play().catch(function (e) { console.clear(); });
+                    video.play().catch(function () { console.clear(); });
                 }, { once: true });
             } else {
-                setStatus('BROWSER TIDAK MENDUKUNG HLS');
+                setStatus('BROWSER TIDAK MENDUKUNG FORMAT INI');
             }
         } catch (error) {
             setStatus(error.message);
@@ -369,16 +400,14 @@
     function hancurkanVideo() {
         const video = document.getElementById('video');
         setStatus('AKSES DITOLAK: PROTEKSI DIHENTIKAN');
-        if (hls) {
-            hls.destroy();
-            hls = null;
+        destroyPlayers();
+        if (video) {
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
         }
-        video.pause();
-        video.removeAttribute('src');
-        video.load();
     }
 
-    // Proteksi 1: Deteksi loop dengan debugger. Jika DevTools terbuka, waktu eksekusi melambat
     setInterval(function () {
         const start = new Date().getTime();
         debugger;
@@ -388,7 +417,6 @@
         }
     }, 1000);
 
-    // Proteksi 2: Deteksi perubahan resolusi viewport drastis akibat dok DevTools terlepas
     window.addEventListener('resize', function () {
         const threshold = 160;
         if (window.outerWidth - window.innerWidth > threshold ||
@@ -397,10 +425,8 @@
         }
     });
 
-    // Proteksi 3: Blokir klik kanan secara langsung
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Proteksi 4: Blokir kombinasi tombol keyboard pemicu DevTools (F12, Ctrl+Shift+I, dll)
     document.addEventListener('keydown', function (e) {
         if (
             e.key === 'F12' ||
@@ -412,20 +438,18 @@
         }
     });
 
-    // Inisialisasi Event Listener Klien
+    // Inisialisasi Event Listener
     initThemeSwitcher();
     document.getElementById('btnSaweria').addEventListener('click', function () {
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
-
     document.querySelectorAll('.court-btn').forEach(btn => {
         btn.addEventListener('click', function () {
             selectCourt(this.dataset.court);
         });
     });
 
-    // Load awal program utama
     syncCourtButtons();
     window.addEventListener('pageshow', resumePendingHdCourt);
     if (!resumePendingHdCourt()) {
