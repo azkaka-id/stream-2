@@ -308,20 +308,29 @@
             const videoSrc = await getStreamUrl(court);
             const isDash = videoSrc.includes('.mpd');
 
-            // 1. Dukungan MPD (MPEG-DASH)
             if (isDash) {
-                if (typeof dashjs !== 'undefined' && dashjs.supportsMediaSource()) {
-                    dashPlayer = dashjs.MediaPlayer().create();
-                    dashPlayer.initialize(video, videoSrc, true);
-                    dashPlayer.on(dashjs.MediaPlayer.events.ERROR, function (e) {
-                        console.error("Detail Error Dash:", e);
-                        const detail = (e.error && e.error.message) ? e.error.message : (e.event ? e.event.id : JSON.stringify(e));
-                        setStatus('GAGAL DASH: ' + detail);
-                    });
-                } else {
-                    setStatus('BROWSER TIDAK MENDUKUNG DASH (.MPD)');
+    if (typeof dashjs !== 'undefined' && dashjs.supportsMediaSource()) {
+        dashPlayer = dashjs.MediaPlayer().create();
+
+        // ClearKey mengharapkan KID dan key dalam format base64url, bukan hex.
+        dashPlayer.setProtectionData({
+            "org.w3.clearkey": {
+                "clearkeys": {
+                    "b_ucU68oT9WQIX7eHrp2Xg": "Sr8f0m6MRaW2uuYM9v_CuQ"
                 }
             }
+        });
+
+        dashPlayer.initialize(video, videoSrc, true);
+
+        dashPlayer.on(dashjs.MediaPlayer.events.ERROR, function (e) {
+            console.error("Detail Error Dash:", e);
+            setStatus('GAGAL DASH: ' + ((e.error && e.error.message) ? e.error.message : 'Error'));
+        });
+    } else {
+        setStatus('BROWSER TIDAK MENDUKUNG DASH (.MPD)');
+    }
+}
             // 2. Dukungan M3U8 (HLS)
             else if (Hls.isSupported()) {
                 hls = new Hls(hlsOptions);
