@@ -10,15 +10,15 @@
 
     // Masukkan tautan .mpd atau .m3u8 Anda di sini
     const BADMINTON_STREAM_URLS = {
-        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/b73d64f4-a528-4296-b051-5711e6a64f0e/HLS_ENC/index.m3u8",
-        court2: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/dba6af30-ebdd-4a92-a3b8-b8303d926188/HLS_ENC/index.m3u8",
+        court1: "https://cdn-vl-gcp-bornan-e-01.vos360.video/Content/LiveEvent/42ef9c34-2ae5-4b11-b6dc-f3a5378a582d/HLS_ENC/index.m3u8",
+        court2: "",
         court3: "",
         court4: "",
-        court1alt: "https://live1.quickscoreboardz.com/live/channel65.m3u8?wsSecret=050f9a0ad6ac4ae48cb7cf0b6d600a1b&wsABSTime=1790598696",
-        court2alt: "https://live1.quickscoreboardz.com/live/channel66.m3u8?wsSecret=83f2bc4a0173af139092fd6a40414277&wsABSTime=1790598744",
+        court1alt: "https://live1.quickscoreboardz.com/live/channel61.m3u8?wsSecret=c43eac440d751b11f68edad8ac7396d4&wsABSTime=1790690286",
+        court2alt: "",
         court3alt: "",
         court4alt: "",
-        court1hd: "https://ls-mp01.eo-edgefunctions7.com/out/v1/5fa3fdc8720b4317b14df756e81b78c1/manifest.mpd",
+        court1hd: "https://tglmp01.akamaized.net/out/v1/d43dbc5da1334ec088ed9eb5796eee7c/manifest.mpd",
         court2hd: "",
         court3hd: "",
         court4hd: ""
@@ -31,7 +31,7 @@
     const JWPLAYER_LICENSE_KEY = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
     // Isi URL HD dan ClearKey resmi masing-masing court bila berbeda.
     const JWPLAYER_HD_CONFIG = {
-        court1hd: { keyId: '6c9c38c2de3f41afa12f9872ad6c3903', key: 'd6f5a6750b32d2addec0c98fff14de9d' },
+        court1hd: { keyId: 'f33acf338ec946fd921a85f870636399', key: 'a6c1a2e81fe941a9e2efd2bcad0d1532' },
         court2hd: { keyId: '', key: '' },
         court3hd: { keyId: '', key: '' },
         court4hd: { keyId: '', key: '' }
