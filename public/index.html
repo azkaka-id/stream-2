@@ -7,16 +7,16 @@
     <title>ShuttleFlash Live - Asian Games 2026</title>
     <script defer src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script defer src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.9"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="topbar">
-        <div class="logo">ShuttleFlash</div>
-        <div class="event-title">
-            Asian Games 2026
-            <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+        <div class="logo">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="brand-name">SHUTTLE<span>FLASH</span><small>LIVE STREAMING</small></span>
         </div>
+        <button class="support-cta header-support" id="btnSaweria" type="button">♧ &nbsp; Support</button>
     </header>
     <main class="main-container">
         <section class="player-section">
@@ -25,33 +25,20 @@
                 <div id="jwplayer-container" hidden></div>
                 <div id="status">MEMUAT</div>
             </div>
-            <div class="support-panel" aria-label="Dukung ShuttleFlash melalui Saweria">
-                <a class="support-qr" href="assets/qris.jpg" target="_blank" rel="noopener" aria-label="Buka gambar QRIS ShuttleFlash">
-                    <img src="assets/qris.jpg" alt="QRIS ShuttleFlash untuk dukungan pembayaran">
-                </a>
-                <div class="support-copy">
-                    <h2>Support ShuttleFlash</h2>
-                    <p>Dukungan kalian membantu menjaga server live tetap stabil.</p>
-                </div>
-                <div class="support-actions">
-                    <button class="support-cta" id="btnSaweria"> 
-                        Support via Saweria
-                    </button>
-                    <button class="tutorial-cta" id="btnTutorial" type="button" aria-expanded="false" aria-controls="saweriaTutorial">
-                        Tutorial Sawer
-                    </button>
-                </div>
-                <div class="saweria-tutorial" id="saweriaTutorial" aria-hidden="true">
-                    <img src="assets/saweria.png" alt="Tata cara menyawer lewat Saweria">
-                </div>
-            </div>
+            <div class="info-strip"><strong class="clock-icon">◷</strong><div class="clock-copy"><b id="localTime">--:--</b><span id="localDate">Memuat tanggal…</span></div><div class="info-actions"><div class="donation-ticker" aria-label="Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan."><span>Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan.</span></div><button class="tutorial-cta" id="btnTutorial" type="button" aria-expanded="false" aria-controls="saweriaTutorial">Tutorial Sawer</button></div><div class="saweria-tutorial" id="saweriaTutorial" aria-hidden="true"><img src="assets/saweria.png" alt="Tata cara menyawer lewat Saweria"></div></div>
         </section>
         <aside class="sidebar">
-            <div class="panel">
-                <div class="panel-title">Select Court</div>
-                <div class="court-list">
+            <nav class="side-tabs" aria-label="Live navigation">
+                <button class="side-tab active" data-view="events">▦ &nbsp; Live Event</button>
+                <button class="side-tab" data-view="tv">▣ &nbsp; Live TV</button>
+                <button class="side-tab" data-view="chat">▤ &nbsp; Chat</button>
+            </nav>
+            <div class="panel event-panel" id="eventsView">
+                <section class="event-card">
+                    <button class="event-banner" type="button" aria-expanded="true" aria-controls="badmintonCourts" data-expand-target="badmintonCourts"><span class="event-logo">🏅<small>AICHI-NAGO<br>2026</small></span><span><b>ASIAN GAMES 2026</b><small>Badminton</small></span><span class="event-shuttle">◈</span><span class="event-chevron">⌃</span></button>
+                    <div class="court-list" id="badmintonCourts">
                     <button class="court-btn" data-court="court1" aria-label="Pilih Court 1" hidden>
-                        <span class="court-number">1</span>
+                        <span class="court-number">C1</span>
                         <span class="court-info">
                             <span class="court-name">Court 1</span>
                             <span class="court-meta">Live feed</span>
@@ -59,7 +46,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-alt" data-court="court1alt" aria-label="Pilih Court 1 ALT" hidden>
-                        <span class="court-number">1</span>
+                        <span class="court-number">C1</span>
                         <span class="court-info">
                             <span class="court-name">Court 1 <span class="quality-badge alt-badge">ALT</span></span>
                             <span class="court-meta">Alternative feed</span>
@@ -67,7 +54,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-hd" data-court="court1hd" aria-label="Pilih Court 1 HD" hidden>
-                        <span class="court-number">1</span>
+                        <span class="court-number">C1</span>
                         <span class="court-info">
                             <span class="court-name">Court 1 <span class="quality-badge">HD</span></span>
                             <span class="court-meta">HD feed</span>
@@ -75,7 +62,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn" data-court="court2" aria-label="Pilih Court 2" hidden>
-                        <span class="court-number">2</span>
+                        <span class="court-number">C2</span>
                         <span class="court-info">
                             <span class="court-name">Court 2</span>
                             <span class="court-meta">Live feed</span>
@@ -83,7 +70,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-alt" data-court="court2alt" aria-label="Pilih Court 2 ALT" hidden>
-                        <span class="court-number">2</span>
+                        <span class="court-number">C2</span>
                         <span class="court-info">
                             <span class="court-name">Court 2 <span class="quality-badge alt-badge">ALT</span></span>
                             <span class="court-meta">Alternative feed</span>
@@ -91,7 +78,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-hd" data-court="court2hd" aria-label="Pilih Court 2 HD" hidden>
-                        <span class="court-number">2</span>
+                        <span class="court-number">C2</span>
                         <span class="court-info">
                             <span class="court-name">Court 2 <span class="quality-badge">HD</span></span>
                             <span class="court-meta">HD feed</span>
@@ -99,7 +86,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn" data-court="court3" aria-label="Pilih Court 3" hidden>
-                        <span class="court-number">3</span>
+                        <span class="court-number">C3</span>
                         <span class="court-info">
                             <span class="court-name">Court 3</span>
                             <span class="court-meta">Live feed</span>
@@ -107,7 +94,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-alt" data-court="court3alt" aria-label="Pilih Court 3 ALT" hidden>
-                        <span class="court-number">3</span>
+                        <span class="court-number">C3</span>
                         <span class="court-info">
                             <span class="court-name">Court 3 <span class="quality-badge alt-badge">ALT</span></span>
                             <span class="court-meta">Alternative feed</span>
@@ -115,7 +102,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-hd" data-court="court3hd" aria-label="Pilih Court 3 HD" hidden>
-                        <span class="court-number">3</span>
+                        <span class="court-number">C3</span>
                         <span class="court-info">
                             <span class="court-name">Court 3 <span class="quality-badge">HD</span></span>
                             <span class="court-meta">HD feed</span>
@@ -123,7 +110,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn" data-court="court4" aria-label="Pilih Court 4" hidden>
-                        <span class="court-number">4</span>
+                        <span class="court-number">C4</span>
                         <span class="court-info">
                             <span class="court-name">Court 4</span>
                             <span class="court-meta">Live feed</span>
@@ -131,7 +118,7 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-alt" data-court="court4alt" aria-label="Pilih Court 4 ALT" hidden>
-                        <span class="court-number">4</span>
+                        <span class="court-number">C4</span>
                         <span class="court-info">
                             <span class="court-name">Court 4 <span class="quality-badge alt-badge">ALT</span></span>
                             <span class="court-meta">Alternative feed</span>
@@ -139,16 +126,17 @@
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
                     <button class="court-btn court-btn-hd" data-court="court4hd" aria-label="Pilih Court 4 HD" hidden>
-                        <span class="court-number">4</span>
+                        <span class="court-number">C4</span>
                         <span class="court-info">
                             <span class="court-name">Court 4 <span class="quality-badge">HD</span></span>
                             <span class="court-meta">HD feed</span>
                         </span>
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
-                </div>
+                    </div>
+                </section>
             </div>
-            <div class="panel">
+            <div class="panel" id="chatView" hidden>
                 <div class="panel-title">Live Chat</div>
                 <p class="cbox-placeholder" id="cboxPlaceholder">Masukkan URL embed Cbox Anda di public/app.js.</p>
                 <iframe
@@ -159,6 +147,14 @@
                     referrerpolicy="strict-origin-when-cross-origin"
                     allow="autoplay"
                     hidden></iframe>
+            </div>
+            <div class="panel tv-view utility-panel" id="tvView" hidden>
+                <div class="playlist-tools">
+                    <div class="playlist-intro"><span>▣</span><div><strong>Live TV</strong><small>Siaran langsung ShuttleFlash</small></div></div>
+                    <p id="tvPlaylistStatus" class="playlist-message" aria-live="polite">Memuat daftar channel…</p>
+                    <div id="tvChannelList" class="playlist-channels" aria-label="Daftar channel"></div>
+                    <p id="tvPlayerStatus" class="playlist-message" aria-live="polite"></p>
+                </div>
             </div>
         </aside>
     </main>
@@ -180,5 +176,127 @@
     </div>
 
     <script defer src="app.js"></script>
+    <script defer src="live-tv.js"></script>
+    <script>
+        (function restrictLiveTvToMobile() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+            var handheld = /android|iphone|ipad|ipod/i.test(ua.toLowerCase()) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            if (handheld) return;
+            document.addEventListener('click', function (event) {
+                var channelButton = event.target.closest('.playlist-channel');
+                if (!channelButton) return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                var status = document.getElementById('tvPlayerStatus');
+                if (status) status.textContent = 'Live TV hanya dapat diputar di perangkat Android dan iOS.';
+            }, true);
+            document.addEventListener('DOMContentLoaded', function () {
+                var list = document.getElementById('tvChannelList');
+                var listStatus = document.getElementById('tvPlaylistStatus');
+                var playerStatus = document.getElementById('tvPlayerStatus');
+                if (list) list.replaceChildren();
+                if (listStatus) listStatus.textContent = 'Live TV hanya dapat diputar di perangkat Android dan iOS.';
+                if (playerStatus) playerStatus.textContent = '';
+            }, { once: true });
+        }());
+        document.querySelectorAll('.side-tab').forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                document.querySelectorAll('.side-tab').forEach(function (item) { item.classList.toggle('active', item === tab); });
+                document.getElementById('eventsView').hidden = tab.dataset.view !== 'events';
+                document.getElementById('tvView').hidden = tab.dataset.view !== 'tv';
+                document.getElementById('chatView').hidden = tab.dataset.view !== 'chat';
+            });
+        });
+        document.querySelectorAll('.event-banner[data-expand-target]').forEach(function (toggle) {
+            toggle.addEventListener('click', function () {
+                var panel = document.getElementById(toggle.dataset.expandTarget);
+                var expanded = toggle.getAttribute('aria-expanded') !== 'true';
+                toggle.setAttribute('aria-expanded', String(expanded));
+                panel.hidden = !expanded;
+                toggle.querySelector('.event-chevron').style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+        (function fitPlayerToStream() {
+            var frame = document.querySelector('.video-wrapper');
+            var mainVideo = document.getElementById('video');
+            var jwContainer = document.getElementById('jwplayer-container');
+            var boundJwPlayer = null;
+            var activeMode = 'event';
+            var observedVideos = new WeakSet();
+            function applyStreamRatio(width, height, jwApi) {
+                width = Number(width);
+                height = Number(height);
+                if (!(width > 0 && height > 0)) return;
+                if (activeMode === 'tv') {
+                    width = 16;
+                    height = 9;
+                }
+                frame.style.aspectRatio = width + ' / ' + height;
+                if (jwApi && typeof jwApi.setConfig === 'function') {
+                    try {
+                        jwApi.setConfig({ aspectratio: width + ':' + height, stretching: 'uniform' });
+                    } catch (error) { /* The outer frame still follows the stream dimensions. */ }
+                }
+            }
+            function syncMainVideoRatio() {
+                if (activeMode === 'event' && mainVideo.videoWidth > 0 && mainVideo.videoHeight > 0) {
+                    applyStreamRatio(mainVideo.videoWidth, mainVideo.videoHeight);
+                }
+            }
+            function observeJwVideo(media) {
+                if (observedVideos.has(media)) return;
+                observedVideos.add(media);
+                function syncJwVideoRatio() {
+                    if (activeMode === 'tv' && media.videoWidth > 0 && media.videoHeight > 0) {
+                        applyStreamRatio(media.videoWidth, media.videoHeight, window.jwplayer('jwplayer-container'));
+                    }
+                }
+                media.addEventListener('loadedmetadata', syncJwVideoRatio);
+                media.addEventListener('resize', syncJwVideoRatio);
+                syncJwVideoRatio();
+            }
+            mainVideo.addEventListener('loadedmetadata', syncMainVideoRatio);
+            mainVideo.addEventListener('resize', syncMainVideoRatio);
+            function findPlayerVideo() {
+                if (jwContainer) jwContainer.querySelectorAll('video').forEach(observeJwVideo);
+                if (jwContainer && typeof window.jwplayer === 'function') {
+                    try {
+                        var jwApi = window.jwplayer('jwplayer-container');
+                        if (jwApi && jwApi !== boundJwPlayer && typeof jwApi.on === 'function') {
+                            jwApi.on('meta', function (metadata) {
+                                if (metadata && metadata.width > 0 && metadata.height > 0) {
+                                    applyStreamRatio(metadata.width, metadata.height, jwApi);
+                                }
+                            });
+                            boundJwPlayer = jwApi;
+                        }
+                    } catch (error) { /* Player instance may not exist yet. */ }
+                }
+            }
+            findPlayerVideo();
+            if (jwContainer && window.MutationObserver) {
+                new MutationObserver(findPlayerVideo).observe(jwContainer, { childList: true, subtree: true });
+            }
+            document.addEventListener('click', function (event) {
+                if (event.target.closest('.court-btn')) {
+                    activeMode = 'event';
+                    frame.style.removeProperty('aspect-ratio');
+                    syncMainVideoRatio();
+                    boundJwPlayer = null;
+                } else if (event.target.closest('.playlist-channel')) {
+                    activeMode = 'tv';
+                    frame.style.aspectRatio = '16 / 9';
+                    boundJwPlayer = null;
+                }
+            });
+        }());
+        (function updateClock() {
+            var now = new Date();
+            document.getElementById('localTime').textContent = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jakarta' });
+            document.getElementById('localDate').textContent = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' });
+            window.setTimeout(updateClock, 60000);
+        }());
+    </script>
 </body>
 </html>
