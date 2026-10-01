@@ -1293,3 +1293,15 @@ body {
     .info-actions { flex: 1 0 100%; }
     .donation-ticker { flex-basis: 0; }
 }
+
+/* Event cards stay evenly spaced while their stream lists are collapsed. */
+.event-card { margin-bottom: 0; }
+.event-card + .event-card { margin-top: 16px; }
+.event-card .court-list[hidden] { display: none !important; }
+.event-card .court-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.event-card .court-list .court-btn { min-height: 100px; }
+.football-court .court-number::before { content: "⚽"; font-size: 20px; }
+@media (max-width: 600px) {
+    .event-card + .event-card { margin-top: 16px; }
+    .event-card .court-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

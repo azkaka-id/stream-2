@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>ShuttleFlash Live - Asian Games 2026</title>
+    <title>ShuttleFlash - Live Streaming</title>
     <script defer src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script defer src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.9"></script>
@@ -35,8 +35,8 @@
             </nav>
             <div class="panel event-panel" id="eventsView">
                 <section class="event-card">
-                    <button class="event-banner" type="button" aria-expanded="true" aria-controls="badmintonCourts" data-expand-target="badmintonCourts"><span class="event-logo">🏅<small>AICHI-NAGO<br>2026</small></span><span><b>ASIAN GAMES 2026</b><small>Badminton</small></span><span class="event-shuttle">◈</span><span class="event-chevron">⌃</span></button>
-                    <div class="court-list" id="badmintonCourts">
+                    <button class="event-banner" type="button" aria-expanded="false" aria-controls="badmintonCourts" data-expand-target="badmintonCourts" data-theme="badminton"><span class="event-logo">🏅<small>AICHI-NAGO<br>2026</small></span><span><b>ASIAN GAMES 2026</b><small>Badminton</small></span><span class="event-shuttle">◈</span><span class="event-chevron" style="transform:rotate(180deg)">⌃</span></button>
+                    <div class="court-list" id="badmintonCourts" hidden>
                     <button class="court-btn" data-court="court1" aria-label="Pilih Court 1" hidden>
                         <span class="court-number">C1</span>
                         <span class="court-info">
@@ -133,6 +133,29 @@
                         </span>
                         <span class="court-status" aria-hidden="true"></span>
                     </button>
+                    </div>
+                </section>
+                <section class="event-card">
+                    <button class="event-banner" type="button" aria-expanded="false" aria-controls="fifaAseanCup2026Matches" data-expand-target="fifaAseanCup2026Matches" data-theme="fifaAseanCup2026"><span class="event-logo">⚽<small>ASEAN<br>2026</small></span><span><b>FIFA ASEAN CUP 2026</b><small>Football</small></span><span class="event-shuttle">◈</span><span class="event-chevron" style="transform:rotate(180deg)">⌃</span></button>
+                    <div class="court-list" id="fifaAseanCup2026Matches" hidden>
+                        <button class="court-btn football-court" data-court="footballS1" aria-label="Pilih siaran FIFA ASEAN CUP S1">
+                            <span class="court-number">S1</span>
+                            <span class="court-info">
+                                <span class="court-name">Stream 1</span>
+                                <span class="court-meta">Football</span>
+                            </span>
+                            <span class="court-status" aria-hidden="true"></span>
+                        </button>
+                        <button class="court-btn football-court" data-court="footballS2" aria-label="Pilih siaran FIFA ASEAN CUP S2">
+                            <span class="court-number">S2</span>
+                            <span class="court-info"><span class="court-name">Stream 2</span><span class="court-meta">Football</span></span>
+                            <span class="court-status" aria-hidden="true"></span>
+                        </button>
+                        <button class="court-btn football-court" data-court="footballS3" aria-label="Pilih siaran FIFA ASEAN CUP S3">
+                            <span class="court-number">S3</span>
+                            <span class="court-info"><span class="court-name">Stream 3</span><span class="court-meta">Football</span></span>
+                            <span class="court-status" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </section>
             </div>

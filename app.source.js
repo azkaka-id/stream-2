@@ -24,9 +24,19 @@
         court4hd: ""
     };
 
-    const STREAM_URLS_BY_THEME = {
-        badminton: BADMINTON_STREAM_URLS
+    // Tambahkan URL pertandingan sepak bola di sini saat link siaran tersedia.
+    const FIFA_ASEAN_CUP_2026_STREAM_URLS = {
+        footballS1: "",
+        footballS2: "",
+        footballS3: ""
     };
+
+    const STREAM_URLS_BY_THEME = {
+        badminton: BADMINTON_STREAM_URLS,
+        fifaAseanCup2026: FIFA_ASEAN_CUP_2026_STREAM_URLS
+    };
+
+    let activeTheme = 'badminton';
 
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
@@ -107,26 +117,34 @@
     }
 
     function getActiveTheme() {
-        return 'badminton';
+        return activeTheme;
     }
 
     function getActiveStreamUrls() {
         return STREAM_URLS_BY_THEME[getActiveTheme()] || BADMINTON_STREAM_URLS;
     }
 
+    function getThemeForCourt(court) {
+        return Object.prototype.hasOwnProperty.call(FIFA_ASEAN_CUP_2026_STREAM_URLS, court)
+            ? 'fifaAseanCup2026'
+            : 'badminton';
+    }
+
     function hasStreamUrl(court) {
-        const streamUrls = getActiveStreamUrls();
+        const streamUrls = STREAM_URLS_BY_THEME[getThemeForCourt(court)] || BADMINTON_STREAM_URLS;
         return typeof streamUrls[court] === 'string' && streamUrls[court].trim() !== '';
     }
 
     function isVisibleCourtForTheme(court) {
-        return hasStreamUrl(court);
+        return getThemeForCourt(court) === 'fifaAseanCup2026'
+            ? Object.prototype.hasOwnProperty.call(FIFA_ASEAN_CUP_2026_STREAM_URLS, court)
+            : hasStreamUrl(court);
     }
 
     function getFirstAvailableCourt() {
         const firstButton = Array.from(document.querySelectorAll('.court-btn'))
             .find(function (button) {
-                return isVisibleCourtForTheme(button.dataset.court);
+                return getThemeForCourt(button.dataset.court) === activeTheme && hasStreamUrl(button.dataset.court);
             });
         return firstButton ? firstButton.dataset.court : null;
     }
@@ -386,6 +404,7 @@
         if (!pendingCourt || !hasStreamUrl(pendingCourt)) {
             return false;
         }
+        activeTheme = getThemeForCourt(pendingCourt);
         removeSessionValue(HD_PENDING_COURT_KEY);
         unlockHdCourt(pendingCourt);
         loadVideo(pendingCourt);
@@ -398,6 +417,11 @@
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
+    document.querySelectorAll('.event-banner[data-theme]').forEach(function (banner) {
+        banner.addEventListener('click', function () {
+            activeTheme = banner.dataset.theme;
+        });
+    });
     window.addEventListener('shuttleflash:prepare-tv', function () {
         setActiveButton('');
         setStatus('');
@@ -414,6 +438,7 @@
     });
     document.querySelectorAll('.court-btn').forEach(btn => {
         btn.addEventListener('click', function () {
+            activeTheme = getThemeForCourt(this.dataset.court);
             window.dispatchEvent(new CustomEvent('shuttleflash:stop-tv'));
             selectCourt(this.dataset.court);
         });
