@@ -26,8 +26,8 @@
 
     // Tambahkan URL pertandingan sepak bola di sini saat link siaran tersedia.
     const FIFA_ASEAN_CUP_2026_STREAM_URLS = {
-        footballS1: "",
-        footballS2: "",
+        footballS1: "https://pul-tenm.gkykp.com/live/hd-en-1-4639764.m3u8?txSecret=16ca87f0afd24344ea40bf99c3636193&txTime=6ABFA170",
+        footballS2: "https://live.vivo155.com/live/hd-en-1-4639764.m3u8?txSecret=f5721be072992c9579f838081914c37d&txTime=6ABE652F",
         footballS3: ""
     };
 
