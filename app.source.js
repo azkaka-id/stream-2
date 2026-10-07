@@ -8,41 +8,93 @@
         return isIOS || isMacTablet;
     }
 
-    // Court HD harus menggunakan URL HLS (.m3u8), sama seperti court biasa/ALT.
-    const BADMINTON_STREAM_URLS = {
-        court1: "",
-        court2: "",
-        court3: "",
-        court4: "",
-        court1alt: "",
-        court2alt: "",
-        court3alt: "",
-        court4alt: "",
-        court1hd: "",
-        court2hd: "",
-        court3hd: "",
-        court4hd: ""
-    };
-
-    // Tambahkan URL pertandingan sepak bola di sini saat link siaran tersedia.
-    const FIFA_ASEAN_CUP_2026_STREAM_URLS = {
-        footballS1: "https://pul-tenm.gkykp.com/live/hd-en-1-4639764.m3u8?txSecret=16ca87f0afd24344ea40bf99c3636193&txTime=6ABFA170",
-        footballS2: "https://live.vivo155.com/live/hd-en-1-4639764.m3u8?txSecret=f5721be072992c9579f838081914c37d&txTime=6ABE652F",
-        footballS3: ""
-    };
-
     const STREAM_URLS_BY_THEME = {
-        badminton: BADMINTON_STREAM_URLS,
-        fifaAseanCup2026: FIFA_ASEAN_CUP_2026_STREAM_URLS
-    };
-
-    let activeTheme = 'badminton';
+    "badminton": {
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4340224941766061_AiSD.m3u8?txSecret=11af910994e57a9da691aa9afd064caa&txTime=6AC71540",
+        "court1alt": "https://tfzx0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel61.m3u8?wsSession=959aea2de434a748a125f425-179136475614200&wsIPSercert=4b014132516106f9e28900591dde8aae&wsBindIP=2&wsserid=1168235948327528126",
+        "court1hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8218393&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=A983C431BA9E3CA80E067F3AA017AC85&ups_client_netip=153.60.128.112&ups_ts=1791364897&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8218393_8139306&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Bc16f063b9a31d1bcfc2009563116ad51&cug=10&t=f8015f7d5e39fd",
+        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4340225050469061_AiSD.m3u8?txSecret=b3a778b6581ecaee459e8765cc68a76a&txTime=6AC71540",
+        "court2alt": "https://tfzx0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel62.m3u8?wsSession=959aea2de434a748a125f425-179136479276613&wsIPSercert=4b014132516106f9e28900591dde8aae&wsBindIP=2&wsserid=1168235948327528126",
+        "court2hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8218394&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=B0BF96A72EBA9B5B8B51CDCB1B083B0C&ups_client_netip=153.60.128.112&ups_ts=1791364952&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8218394_8139307&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=Ba067e36306a8187a6f889e7be9065bdd&cug=10&t=61841506afef55",
+        "court3": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4340225242330061_AiSD.m3u8?txSecret=426e28bb75d8f2ef9af9269edf26b319&txTime=6AC71540",
+        "court3alt": "https://tfzx0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel63.m3u8?wsSession=959aea2de434a748a125f425-179136481030759&wsIPSercert=4b014132516106f9e28900591dde8aae&wsBindIP=2&wsserid=1168235948327528126",
+        "court3hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court3HB_sjb5m.m3u8?title=8218395&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court3HB&ccode=live05030101&expire=21600&psid=45CE80BC0B6550D186048746A8891A19&ups_client_netip=153.60.128.112&ups_ts=1791365000&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8218395_8139308&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B4233f2c82fe6ac15815affe6ce5f509d&cug=10&t=4381e9b225c36a",
+        "court4": "",
+        "court4alt": "",
+        "court4hd": ""
+    },
+    "fifaAseanCup2026": {
+        "footballS1": "",
+        "footballS2": "",
+        "footballS3": ""
+    }
+};
+    const THEME_BY_COURT = {};
+    let liveEvents = [];
+    let activeTheme = '';
 
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
+    const LIVE_EVENTS_URL = new URL('live-events.json', document.currentScript && document.currentScript.src ? document.currentScript.src : window.location.href);
     // Tempel URL iframe dari halaman Publish di akun Cbox Anda.
     const CBOX_EMBED_URL = 'https://www5.cbox.ws/box/?boxid=967352&boxtag=5YPSFc';
+
+    async function loadLiveEvents() {
+        const response = await fetch(LIVE_EVENTS_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error('HTTP ' + response.status + ' saat memuat live-events.json');
+        const data = await response.json();
+        if (!data || !Array.isArray(data.events)) throw new Error('Format live-events.json tidak valid');
+        liveEvents = data.events;
+        liveEvents.forEach(function (event) {
+            (event.streams || []).forEach(function (stream) {
+                if (stream.id) THEME_BY_COURT[stream.id] = event.id;
+            });
+        });
+        activeTheme = ((liveEvents.find(function (event) { return hasThemeStream(event.id); }) || liveEvents[0]) || {}).id || '';
+        renderLiveEvents();
+    }
+
+    function renderLiveEvents() {
+        const list = document.getElementById('liveEventsList');
+        if (!list) return;
+        list.replaceChildren();
+        liveEvents.forEach(function (event) {
+            const card = document.createElement('section');
+            card.className = 'event-card';
+            card.hidden = !hasThemeStream(event.id);
+            const panelId = 'event-streams-' + event.id;
+            const banner = document.createElement('button');
+            banner.type = 'button'; banner.className = 'event-banner';
+            banner.setAttribute('aria-expanded', 'false'); banner.setAttribute('aria-controls', panelId);
+            banner.dataset.expandTarget = panelId; banner.dataset.theme = event.id;
+            const logo = document.createElement('span'); logo.className = 'event-logo';
+            logo.append(document.createTextNode(event.icon || '🏟️'));
+            const smallLogo = document.createElement('small');
+            smallLogo.textContent = (event.logoText || '').replace(/\\n/g, '\n');
+            logo.append(smallLogo);
+            const heading = document.createElement('span');
+            const title = document.createElement('b'); title.textContent = event.title || event.id;
+            const category = document.createElement('small'); category.textContent = event.category || '';
+            heading.append(title, category);
+            const ornament = document.createElement('span'); ornament.className = 'event-shuttle'; ornament.textContent = '◈';
+            const chevron = document.createElement('span'); chevron.className = 'event-chevron'; chevron.style.transform = 'rotate(180deg)'; chevron.textContent = '⌃';
+            banner.append(logo, heading, ornament, chevron);
+            const panel = document.createElement('div'); panel.className = 'court-list'; panel.id = panelId; panel.hidden = true;
+            (event.streams || []).forEach(function (stream) {
+                const button = document.createElement('button'); button.type = 'button'; button.className = 'court-btn'; button.dataset.court = stream.id;
+                button.setAttribute('aria-label', 'Pilih siaran ' + (event.title || event.id) + ' ' + (stream.name || stream.number || stream.id));
+                const number = document.createElement('span'); number.className = 'court-number'; number.textContent = stream.number || 'LIVE';
+                const info = document.createElement('span'); info.className = 'court-info';
+                const name = document.createElement('span'); name.className = 'court-name'; name.textContent = stream.name || stream.number || stream.id;
+                const detail = document.createElement('span'); detail.className = 'court-meta'; detail.textContent = stream.detail || event.category || 'Live feed';
+                info.append(name, detail);
+                const status = document.createElement('span'); status.className = 'court-status'; status.setAttribute('aria-hidden', 'true');
+                button.append(number, info, status); panel.append(button);
+            });
+            card.append(banner, panel); list.append(card);
+        });
+    }
 
     let hls = null;
     let dashPlayer = null;
@@ -121,24 +173,27 @@
     }
 
     function getActiveStreamUrls() {
-        return STREAM_URLS_BY_THEME[getActiveTheme()] || BADMINTON_STREAM_URLS;
+        return STREAM_URLS_BY_THEME[getActiveTheme()] || {};
     }
 
     function getThemeForCourt(court) {
-        return Object.prototype.hasOwnProperty.call(FIFA_ASEAN_CUP_2026_STREAM_URLS, court)
-            ? 'fifaAseanCup2026'
-            : 'badminton';
+        return THEME_BY_COURT[court] || '';
     }
 
     function hasStreamUrl(court) {
-        const streamUrls = STREAM_URLS_BY_THEME[getThemeForCourt(court)] || BADMINTON_STREAM_URLS;
+        const streamUrls = STREAM_URLS_BY_THEME[getThemeForCourt(court)] || {};
         return typeof streamUrls[court] === 'string' && streamUrls[court].trim() !== '';
     }
 
     function isVisibleCourtForTheme(court) {
-        return getThemeForCourt(court) === 'fifaAseanCup2026'
-            ? Object.prototype.hasOwnProperty.call(FIFA_ASEAN_CUP_2026_STREAM_URLS, court)
-            : hasStreamUrl(court);
+        return hasStreamUrl(court);
+    }
+
+    function hasThemeStream(theme) {
+        const streamUrls = STREAM_URLS_BY_THEME[theme] || {};
+        return Object.keys(streamUrls).some(function (court) {
+            return typeof streamUrls[court] === 'string' && streamUrls[court].trim() !== '';
+        });
     }
 
     function getFirstAvailableCourt() {
@@ -150,6 +205,10 @@
     }
 
     function syncCourtButtons() {
+        document.querySelectorAll('.event-banner[data-theme]').forEach(function (banner) {
+            const card = banner.closest('.event-card');
+            if (card) card.hidden = !hasThemeStream(banner.dataset.theme);
+        });
         document.querySelectorAll('.court-btn').forEach(function (button) {
             const court = button.dataset.court;
             const courtName = button.querySelector('.court-name');
@@ -412,15 +471,19 @@
     }
 
     // Inisialisasi Event Listener
-    initThemeSwitcher();
     document.getElementById('btnSaweria').addEventListener('click', function () {
         window.open('https://saweria.co/Shuttleflash', '_blank', 'noopener');
     });
     document.getElementById('btnTutorial').addEventListener('click', toggleSaweriaTutorial);
-    document.querySelectorAll('.event-banner[data-theme]').forEach(function (banner) {
-        banner.addEventListener('click', function () {
-            activeTheme = banner.dataset.theme;
-        });
+    document.getElementById('liveEventsList').addEventListener('click', function (event) {
+        const banner = event.target.closest('.event-banner[data-theme]');
+        if (!banner) return;
+        activeTheme = banner.dataset.theme;
+        const panel = document.getElementById(banner.dataset.expandTarget);
+        const expanded = banner.getAttribute('aria-expanded') !== 'true';
+        banner.setAttribute('aria-expanded', String(expanded));
+        panel.hidden = !expanded;
+        banner.querySelector('.event-chevron').style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
     });
     window.addEventListener('shuttleflash:prepare-tv', function () {
         setActiveButton('');
@@ -436,22 +499,24 @@
             video.load();
         }
     });
-    document.querySelectorAll('.court-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            activeTheme = getThemeForCourt(this.dataset.court);
-            window.dispatchEvent(new CustomEvent('shuttleflash:stop-tv'));
-            selectCourt(this.dataset.court);
-        });
+    document.getElementById('liveEventsList').addEventListener('click', function (event) {
+        const btn = event.target.closest('.court-btn');
+        if (!btn) return;
+        activeTheme = getThemeForCourt(btn.dataset.court);
+        window.dispatchEvent(new CustomEvent('shuttleflash:stop-tv'));
+        selectCourt(btn.dataset.court);
     });
 
-    syncCourtButtons();
     window.addEventListener('pageshow', resumePendingHdCourt);
-    if (!resumePendingHdCourt()) {
-        const firstCourt = getFirstAvailableCourt();
-        if (firstCourt) {
-            loadVideo(firstCourt);
-        } else {
-            setStatus('STREAM BELUM TERSEDIA');
+    loadLiveEvents().then(function () {
+        initThemeSwitcher();
+        if (!resumePendingHdCourt()) {
+            const firstCourt = getFirstAvailableCourt();
+            if (firstCourt) loadVideo(firstCourt);
+            else setStatus('STREAM BELUM TERSEDIA');
         }
-    }
+    }).catch(function (error) {
+        console.error('Gagal memuat konfigurasi live event:', error);
+        setStatus('GAGAL MEMUAT LIVE EVENT (' + error.message + ')');
+    });
 })();

@@ -1,0 +1,112 @@
+{
+  "events": [
+    {
+      "id": "badminton",
+      "title": "ARCTIC OPEN 2026",
+      "category": "Badminton",
+      "icon": "🏸",
+      "logoText": "ARCTIC OPEN\\n2026",
+      "streams": [
+        {
+          "id": "court1",
+          "number": "C1",
+          "name": "Court 1",
+          "detail": "Live feed"
+        },
+        {
+          "id": "court1alt",
+          "number": "C1",
+          "name": "Court 1 ALT",
+          "detail": "Alternative feed"
+        },
+        {
+          "id": "court1hd",
+          "number": "C1",
+          "name": "Court 1 HD",
+          "detail": "HD feed"
+        },
+        {
+          "id": "court2",
+          "number": "C2",
+          "name": "Court 2",
+          "detail": "Live feed"
+        },
+        {
+          "id": "court2alt",
+          "number": "C2",
+          "name": "Court 2 ALT",
+          "detail": "Alternative feed"
+        },
+        {
+          "id": "court2hd",
+          "number": "C2",
+          "name": "Court 2 HD",
+          "detail": "HD feed"
+        },
+        {
+          "id": "court3",
+          "number": "C3",
+          "name": "Court 3",
+          "detail": "Live feed"
+        },
+        {
+          "id": "court3alt",
+          "number": "C3",
+          "name": "Court 3 ALT",
+          "detail": "Alternative feed"
+        },
+        {
+          "id": "court3hd",
+          "number": "C3",
+          "name": "Court 3 HD",
+          "detail": "HD feed"
+        },
+        {
+          "id": "court4",
+          "number": "C4",
+          "name": "Court 4",
+          "detail": "Live feed"
+        },
+        {
+          "id": "court4alt",
+          "number": "C4",
+          "name": "Court 4 ALT",
+          "detail": "Alternative feed"
+        },
+        {
+          "id": "court4hd",
+          "number": "C4",
+          "name": "Court 4 HD",
+          "detail": "HD feed"
+        }
+      ]
+    },
+    {
+      "id": "fifaAseanCup2026",
+      "title": "FIFA ASEAN CUP 2026",
+      "category": "Football",
+      "icon": "⚽",
+      "logoText": "ASEAN\\n2026",
+      "streams": [
+        {
+          "id": "footballS1",
+          "number": "S1",
+          "name": "Stream 1",
+          "detail": "Football"
+        },
+        {
+          "id": "footballS2",
+          "number": "S2",
+          "name": "Stream 2",
+          "detail": "Football"
+        },
+        {
+          "id": "footballS3",
+          "number": "S3",
+          "name": "Stream 3",
+          "detail": "Football"
+        }
+      ]
+    }
+  ]
+}
