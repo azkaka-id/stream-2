@@ -135,6 +135,47 @@
         return { kid: kid, key: key };
     }
 
+    function isIosDevice() {
+        const ua = navigator.userAgent || '';
+        const ipadOs = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+        return /iphone|ipad|ipod/i.test(ua) || ipadOs;
+    }
+
+    function getWidevineConfig(channel) {
+        const type = channel.kodi['inputstream.adaptive.license_type'] || '';
+        if (!/widevine|com\.widevine\.alpha/i.test(type)) return null;
+        const licenseUrl = (channel.kodi['inputstream.adaptive.license_key'] || '').trim();
+        let parsedUrl;
+        try {
+            parsedUrl = new URL(licenseUrl);
+        } catch (error) {
+            throw new Error('URL license Widevine tidak valid. Gunakan URL license server resmi dari penyedia.');
+        }
+        if (parsedUrl.protocol !== 'https:') {
+            throw new Error('License server Widevine harus menggunakan HTTPS.');
+        }
+        if (isIosDevice()) {
+            throw new Error('Widevine tidak didukung di iOS. Minta stream dan konfigurasi FairPlay dari penyedia.');
+        }
+        const config = { url: parsedUrl.href };
+        if (Array.isArray(channel.drmHeaders) && channel.drmHeaders.length) {
+            config.headers = channel.drmHeaders;
+        }
+        return config;
+    }
+
+    function getJwErrorDetail(event) {
+        const details = [];
+        if (event && event.code) details.push('kode ' + event.code);
+        if (event && event.message) details.push(String(event.message));
+        const sourceError = event && event.sourceError;
+        if (sourceError && sourceError.code) details.push('sumber ' + sourceError.code);
+        if (sourceError && sourceError.message) details.push(String(sourceError.message));
+        return details.join(' — ')
+            .replace(/https?:\/\/[^\s"']+/gi, '[URL disamarkan]')
+            .slice(0, 300);
+    }
+
     function isDashChannel(url, channel) {
         const manifestType = (channel.kodi['inputstream.adaptive.manifest_type'] || '').trim().toLowerCase();
         return /\.mpd(?:$|[?#])/i.test(url.href) || ['mpd', 'dash', 'application/dash+xml'].includes(manifestType) || Boolean(channel.kodi['inputstream.adaptive.license_type']);
@@ -167,8 +208,13 @@
 
     async function playWithJw(url, channel, preserveStatus, attempt) {
         const clearkey = getClearKey(channel);
-        if (/clearkey/i.test(channel.kodi['inputstream.adaptive.license_type'] || '') && !clearkey) {
+        const licenseType = channel.kodi['inputstream.adaptive.license_type'] || '';
+        const widevine = getWidevineConfig(channel);
+        if (/clearkey/i.test(licenseType) && !clearkey) {
             throw new Error('Format ClearKey tidak valid. Periksa KID dan KEY resmi dari penyedia.');
+        }
+        if (licenseType && !clearkey && !widevine) {
+            throw new Error('Jenis DRM belum didukung: ' + licenseType);
         }
         await loadJwPlayer();
         if (attempt !== playbackAttempt) return;
@@ -179,6 +225,7 @@
         if (isDashChannel(url, channel)) source.type = 'dash';
         else if (/\.m3u8(?:$|[?#])/i.test(url.href)) source.type = 'hls';
         if (clearkey) source.drm = { clearkey: { keyId: clearkey.kid, key: clearkey.key } };
+        if (widevine) source.drm = Object.assign(source.drm || {}, { widevine: widevine });
         jwPlayer = window.jwplayer('jwplayer-container').setup({
             playlist: [{ sources: [source] }],
             width: '100%',
@@ -202,18 +249,23 @@
                 }
             }
         });
-        jwPlayer.on('error', function (event) {
+        function showJwFailure(event) {
             if (attempt !== playbackAttempt) return;
-            const detail = event && (event.message || event.code) ? String(event.message || event.code) : '';
+            const detail = getJwErrorDetail(event);
+            const sourceCode = event && event.sourceError ? Number(event.sourceError.code) : 0;
             const status = detail.match(/\b(401|403|404|5\d\d)\b/);
-            if (status) {
-                playerStatus.textContent = 'Provider menolak atau tidak menemukan stream (HTTP ' + status[1] + '). Periksa izin dan URL resmi.';
+            if (Number(event && event.code) === 241011 || sourceCode === 1002) {
+                playerStatus.textContent = 'Browser diblokir saat meminta stream atau license lintas domain (CORS). Server penyedia harus mengizinkan domain situs ini untuk manifest, segmen, dan license Widevine.';
+            } else if (status) {
+                playerStatus.textContent = 'Provider menolak atau tidak menemukan stream (HTTP ' + status[1] + '). ' + detail;
             } else if (/drm|license|key/i.test(detail)) {
-                playerStatus.textContent = 'JW Player gagal memperoleh atau memakai DRM/license. Periksa dukungan browser dan konfigurasi resmi provider.';
+                playerStatus.textContent = 'JW Player gagal memperoleh atau memakai DRM/license. ' + detail;
             } else {
-                playerStatus.textContent = 'JW Player gagal memutar channel. Periksa format, CORS, codec, dan DevTools → Network/Console; browser mungkin menyembunyikan penyebab server menolak playback.';
+                playerStatus.textContent = 'JW Player gagal memutar channel' + (detail ? ' (' + detail + ')' : '. Periksa Network/Console untuk detail CORS, codec, atau respons server.');
             }
-        });
+        }
+        jwPlayer.on('error', showJwFailure);
+        jwPlayer.on('setupError', showJwFailure);
     }
 
     function stopPlayback() {
@@ -311,7 +363,8 @@
             logo: channel.logo || '',
             url: channel.url.trim(),
             options: channel.options || {},
-            kodi: channel.kodi || {}
+            kodi: channel.kodi || {},
+            drmHeaders: channel.drmHeaders || []
         };
     }));
 }());
