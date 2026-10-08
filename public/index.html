@@ -25,7 +25,7 @@
                 <div id="jwplayer-container" hidden></div>
                 <div id="status">MEMUAT</div>
             </div>
-            <div class="info-strip"><strong class="clock-icon">◷</strong><div class="clock-copy"><b id="localTime">--:--</b><span id="localDate">Memuat tanggal…</span></div><div class="info-actions"><div class="donation-ticker" aria-label="Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan."><span>Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan.</span></div><button class="tutorial-cta" id="btnTutorial" type="button" aria-expanded="false" aria-controls="saweriaTutorial">Tutorial Sawer</button></div><div class="saweria-tutorial" id="saweriaTutorial" aria-hidden="true"><img src="assets/saweria.png" alt="Tata cara menyawer lewat Saweria"></div></div>
+            <div class="info-strip"><strong class="clock-icon">◷</strong><div class="clock-copy"><b id="localTime">--:--</b><span id="localDate">Memuat tanggal…</span></div><div class="info-actions"><div class="donation-ticker" aria-label="Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan."><span>Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan.</span></div><button class="tutorial-cta" id="btnTutorial" type="button" aria-expanded="false" aria-controls="saweriaTutorial">Dukung</button></div><dialog class="saweria-tutorial" id="saweriaTutorial" aria-hidden="true"><button class="qris-close" type="button" aria-label="Tutup QRIS">×</button><img src="assets/qris.jpeg" alt="QRIS ShuttleFlash untuk berdonasi"></dialog></div>
         </section>
         <aside class="sidebar">
             <nav class="side-tabs" aria-label="Live navigation">
@@ -78,6 +78,25 @@
     <script defer src="app.js"></script>
     <script defer src="live-tv.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var supportButton = document.getElementById('btnTutorial');
+            var qrisDialog = document.getElementById('saweriaTutorial');
+            var closeButton = qrisDialog.querySelector('.qris-close');
+            supportButton.addEventListener('click', function () {
+                if (qrisDialog.classList.contains('show') && !qrisDialog.open) qrisDialog.showModal();
+                else if (!qrisDialog.classList.contains('show') && qrisDialog.open) qrisDialog.close();
+            });
+            closeButton.addEventListener('click', function () { qrisDialog.close(); });
+            qrisDialog.addEventListener('click', function (event) {
+                if (event.target === qrisDialog) qrisDialog.close();
+            });
+            qrisDialog.addEventListener('close', function () {
+                if (!qrisDialog.classList.contains('show')) return;
+                qrisDialog.classList.remove('show');
+                qrisDialog.setAttribute('aria-hidden', 'true');
+                supportButton.setAttribute('aria-expanded', 'false');
+            });
+        });
         (function restrictLiveTvToMobile() {
             var ua = navigator.userAgent || navigator.vendor || window.opera || '';
             var handheld = /android|iphone|ipad|ipod/i.test(ua.toLowerCase()) ||

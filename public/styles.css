@@ -1367,6 +1367,43 @@ body {
     .event-card .court-list .court-btn { gap: 6px; padding: 8px 7px; }
 }
 
+/* QRIS modal opened by the support button. */
+.saweria-tutorial {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    width: min(92vw, 480px);
+    max-width: none;
+    max-height: 92vh;
+    margin: auto;
+    padding: 12px;
+    overflow: auto;
+    border: 1px solid rgba(147, 165, 255, .4);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+}
+.saweria-tutorial.show { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.saweria-tutorial::backdrop { background: rgba(2, 6, 20, .78); backdrop-filter: blur(5px); }
+.saweria-tutorial img { width: 100%; max-height: calc(92vh - 24px); object-fit: contain; }
+.qris-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    float: right;
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(12, 20, 45, .86);
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
 /* Keep the event panel directly below the player on phone layouts. */
 @media (max-width: 960px) {
     .main-container { flex: 0 0 auto; }
