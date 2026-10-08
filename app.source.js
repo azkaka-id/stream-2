@@ -24,8 +24,8 @@
         "court4hd": ""
     },
     "fifaAseanCup2026": {
-        "footballS1": "",
-        "footballS2": "",
+        "footballS1": "https://kltratvplay.elutuna.workers.dev/p/persib/rctiplus.m3u8?ch=rcti",
+        "footballS2": "https://pull.streamviewk7x.click/livesp/sd-6Mwea3yRzZiZdHGb62_autosp.m3u8?txSecret=486ac71c12e3851d3637ce2ce467c288&txTime=6AC8D740",
         "footballS3": ""
     }
 };
