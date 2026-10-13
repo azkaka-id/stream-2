@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "ARCTIC OPEN 2026",
+      "title": "DENMARK OPEN 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "ARCTIC OPEN\\n2026",
+      "logoText": "DENMARK OPEN\\n2026",
       "streams": [
         {
           "id": "court1",
