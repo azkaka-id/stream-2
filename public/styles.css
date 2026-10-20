@@ -1257,6 +1257,8 @@ body {
 #badmintonCourts[hidden] { display: none !important; }
 .event-chevron { display: inline-block; transition: transform .2s ease; }
 .info-actions { display: flex; align-items: center; flex: 1 1 0; min-width: 0; gap: 10px; }
+.court-qris { display: flex; justify-content: center; margin: 12px auto 0; padding: 10px; width: min(100%, 360px); border: 1px solid #243d9a; border-radius: 12px; background: #fff; }
+.court-qris img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: contain; }
 .donation-ticker { flex: 1 1 auto; min-width: 0; overflow: hidden; color: #e4d8ff; font-size: 13px; font-weight: 600; white-space: nowrap; }
 .donation-ticker span { display: inline-block; padding-left: 100%; animation: donation-scroll 18s linear infinite; }
 .donation-ticker:hover span { animation-play-state: paused; }
@@ -1286,6 +1288,8 @@ body {
     .info-actions { flex: 1 1 0; gap: 7px; }
     .donation-ticker { font-size: 11px; }
     .info-actions .tutorial-cta { width: auto; min-width: 92px; min-height: 40px; padding: 0 8px; font-size: 11px; }
+    .court-qris { width: 100%; max-width: 340px; margin-top: 10px; padding: 8px; border-radius: 10px; }
+    .court-qris img { width: 100%; height: 58vh; height: 58svh; max-height: 440px; }
 }
 @media (max-width: 360px) {
     .brand-name { font-size: 21px; }

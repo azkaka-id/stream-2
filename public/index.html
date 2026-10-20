@@ -26,6 +26,7 @@
                 <div id="status">MEMUAT</div>
             </div>
             <div class="info-strip"><strong class="clock-icon">◷</strong><div class="clock-copy"><b id="localTime">--:--</b><span id="localDate">Memuat tanggal…</span></div><div class="info-actions"><div class="donation-ticker" aria-label="Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan."><span>Dukung ShuttleFlash dengan donasi Anda. Dukungan Anda membantu menjaga siaran tetap lancar dan menemani lebih banyak pertandingan.</span></div><button class="tutorial-cta" id="btnTutorial" type="button" aria-expanded="false" aria-controls="saweriaTutorial">Dukung</button></div><dialog class="saweria-tutorial" id="saweriaTutorial" aria-hidden="true"><button class="qris-close" type="button" aria-label="Tutup QRIS">×</button><img src="assets/qris.jpeg" alt="QRIS ShuttleFlash untuk berdonasi"></dialog></div>
+            <div class="court-qris" id="courtQris" hidden><img src="assets/qris.jpeg" alt="QRIS ShuttleFlash untuk berdonasi"></div>
         </section>
         <aside class="sidebar">
             <nav class="side-tabs" aria-label="Live navigation">
@@ -126,6 +127,15 @@
                 document.getElementById('tvView').hidden = tab.dataset.view !== 'tv';
                 document.getElementById('chatView').hidden = tab.dataset.view !== 'chat';
             });
+        });
+        document.getElementById('liveEventsList').addEventListener('click', function (event) {
+            var court = event.target.closest('.court-btn');
+            if (!court) return;
+            var eventCard = court.closest('.event-card');
+            var title = eventCard && eventCard.querySelector('.event-banner');
+            var category = title && (title.dataset.theme || title.textContent || '');
+            var isSupportedSport = /badminton|football|footbal/i.test(category) || /football|footbal/i.test(court.dataset.court || '');
+            document.getElementById('courtQris').hidden = !isSupportedSport;
         });
         document.querySelectorAll('.event-banner[data-expand-target]').forEach(function (toggle) {
             toggle.addEventListener('click', function () {
