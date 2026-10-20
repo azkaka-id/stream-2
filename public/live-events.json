@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "DENMARK OPEN 2026",
+      "title": "FRENCH OPEN 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "DENMARK OPEN\\n2026",
+      "logoText": "FRENCH OPEN\\n2026",
       "streams": [
         {
           "id": "court1",
