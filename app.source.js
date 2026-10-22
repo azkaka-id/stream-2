@@ -24,9 +24,9 @@
         "court4hd": ""
     },
     "fifaAseanCup2026": {
-        "footballS1": "",
-        "footballS2": "",
-        "footballS3": ""
+        "footballS1": "https://pull.streamviewk7x.click/livesp/sd-6MxiKav3vNEE1VV6av_autosp.m3u8?txSecret=4b9c5786c302092e2d56951168353854&txTime=6ADB4C40",
+        "footballS2": "https://live2.jorvakstreamcache.com/live/channel16.m3u8",
+        "footballS3": "https://pul-tenm.gkykp.com/live/sd-1-4614388.m3u8?txSecret=6ba121d87c0d9d219839b2fc7c992e1c&txTime=6ADB4DA8"
     }
 };
     const THEME_BY_COURT = {};
