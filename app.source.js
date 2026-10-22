@@ -10,18 +10,18 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568055370061_AiSD.m3u8?txSecret=8e827bc85e76f0331f9310c8bf1d02e5&txTime=6AD98A40",
-        "court1alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel60.m3u8",
-        "court1hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568055370061_AiHD.m3u8?txSecret=dd1e5cde3ae42205aab786e845f7820e&txTime=6AD98A40",
-        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568182292061_AiSD.m3u8?txSecret=04e5ee69ee9f5f1504c55e888a1bb0db&txTime=6AD98A40",
-        "court2alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel61.m3u8",
-        "court2hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568182292061_AiHD.m3u8?txSecret=efbe72cb09a2230ac14f1252c7dec0c0&txTime=6AD98A40",
-        "court3": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568314341061_AiHD.m3u8?txSecret=21e5b1931637702f4cf28ee2927f1229&txTime=6AD98A40",
-        "court3alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel62.m3u8",
-        "court3hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4350568314341061_AiHD.m3u8?txSecret=21e5b1931637702f4cf28ee2927f1229&txTime=6AD98A40",
-        "court4": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350617837938061_AiSD.m3u8?txSecret=1b7e605baddb60d83c10e6a5ee0e4737&txTime=6AD98A40",
-        "court4alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel63.m3u8",
-        "court4hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4350617837938061_AiHD.m3u8?txSecret=bf6092b5dbd6ae5d6a724254dab24ab4&txTime=6AD98A40"
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350596312324061_AiSD.m3u8?txSecret=6720378ba149623ab336ba683b3cdff1&txTime=6ADADBC0",
+        "court1alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel61.m3u8",
+        "court1hd": "",
+        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350596461038061_AiSD.m3u8?txSecret=3dcc38c69a6307cb87ab164a2099571d&txTime=6ADADBC0",
+        "court2alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel62.m3u8",
+        "court2hd": "",
+        "court3": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350600480198061_AiSD.m3u8?txSecret=bf3eb5f1f5219e9679a33cd77434fa30&txTime=6ADADBC0",
+        "court3alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel63.m3u8",
+        "court3hd": "",
+        "court4": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350617228104061_AiSD.m3u8?txSecret=2c175156d31c80153537c00175934a01&txTime=6ADADBC0",
+        "court4alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel64.m3u8",
+        "court4hd": ""
     },
     "fifaAseanCup2026": {
         "footballS1": "",
