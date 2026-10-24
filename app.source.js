@@ -10,12 +10,12 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350619866621061_AiSD.m3u8?txSecret=c25e28e0e5a28f0f7a898ae9cadf8201&txTime=6ADC2D40",
-        "court1alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel61.m3u8",
-        "court1hd": "https://live2.eu-north-1b.cf.dmcdn.net/sec2(4uo1Qr5Vzugy57rvzhuTERB07U4Qf-dLnJjZfc0khg9h_ljCdO4MUFBUafUwQ3lcCIHLjx0dXa2zag6WdFYfXXXcdQxcZixBUgIQ4AMqA-5j3_4RV9r7q7lGjvt067DM)/cloud/3/x6hczsw/d/live-480@60.m3u8",
-        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350620057224061_AiSD.m3u8?txSecret=f6c3f3970e14f3ea73f56fede84b19a0&txTime=6ADC2D40",
-        "court2alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel62.m3u8",
-        "court2hd": "https://live2.eu-north-1a.cf.dmcdn.net/sec2(0hUOfc00XigSCcJzODlQWqdwjyDTVZC4EZetjeySoTykz3tXmwQAVn9iyvUvFGhICDydk4yzwihQNOLcAeZfQo_4NSotvh2otIVmPnA0FdoxBTLFzqwB2lwOM0yi4vQv)/cloud/3/x6hd012/d/live-480@60.m3u8",
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350622549065061_AiSD.m3u8?txSecret=f20b40544aacef3157b0736c99ebd0c2&txTime=6ADD7EC0",
+        "court1alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel68.m3u8",
+        "court1hd": "https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4350622549065061_AiHD.m3u8?txSecret=e850c6a46cb823bb54bd0a3617f5a52d&txTime=6ADD7EC0",
+        "court2": "",
+        "court2alt": "",
+        "court2hd": "",
         "court3": "",
         "court3alt": "",
         "court3hd": "",
