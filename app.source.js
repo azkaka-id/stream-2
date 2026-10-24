@@ -10,9 +10,9 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350622549065061_AiSD.m3u8?txSecret=f20b40544aacef3157b0736c99ebd0c2&txTime=6ADD7EC0",
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4350623250137061_AiSD.m3u8?txSecret=e9fcaa7aa5759f06f48b89eeb2c20c0c&txTime=6ADD7EC0",
         "court1alt": "https://tfyi0grauqmtofaauqmt1gy3145djq31unmutqiwsg45ucpzzr3mnp7ozr3d4.100ycdn.com/live1.quickscoreboardz.com/live/channel68.m3u8",
-        "court1hd": "https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4350622549065061_AiHD.m3u8?txSecret=e850c6a46cb823bb54bd0a3617f5a52d&txTime=6ADD7EC0",
+        "court1hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4350623250137061_AiHD.m3u8?txSecret=2047bcc0424707c73f2a51017831f34a&txTime=6ADD7EC0",
         "court2": "",
         "court2alt": "",
         "court2hd": "",
