@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "FRENCH OPEN 2026",
+      "title": "HYLO OPEN 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "FRENCH OPEN\\n2026",
+      "logoText": "HYLO OPEN\\n2026",
       "streams": [
         {
           "id": "court1",
