@@ -327,141 +327,223 @@ video {
 }
 /* Court Selection */
 .court-list {
-    display: flex;
-    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 10px;
 }
 .court-btn {
     position: relative;
-    display: grid;
-    grid-template-columns: 38px 1fr auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 3px;
     width: 100%;
-    min-height: 62px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 100px;
+    padding: 8px 6px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(160deg, #071631, #03102a);
     color: var(--text-main);
-    padding: 10px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
-    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
 }
 .court-btn[hidden] {
     display: none !important;
 }
-.court-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(115, 217, 255, 0.14), rgba(40, 209, 124, 0.08));
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-.court-number,
-.court-info,
-.court-status {
+
+/* Court Number & Icon */
+.court-number {
     position: relative;
     z-index: 1;
-}
-.court-number {
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    display: grid;
-    place-items: center;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
     font-size: 15px;
     font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    border: none;
+    background: none;
 }
+.court-number::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 22px;
+    margin: 0 auto 3px;
+    background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%23f7f9ff' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.football-court .court-number::before {
+    content: "⚽";
+    background: none;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+/* Court Info & Detail Badge (SD, ALT, HD) */
 .court-info {
+    position: relative;
+    z-index: 1;
     display: flex;
-    min-width: 0;
     flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 .court-name {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    min-width: 0;
-    font-size: 15px;
-    line-height: 1.2;
-}
-.quality-badge {
-    flex: 0 0 auto;
-    padding: 2px 6px;
-    border-radius: 6px;
-    background-color: rgba(115, 217, 255, 0.16);
-    border: 1px solid rgba(115, 217, 255, 0.36);
-    color: var(--ticker-blue);
-    font-size: 10px;
-    font-weight: 900;
-    line-height: 1.1;
-}
-.alt-badge {
-    background-color: rgba(255, 191, 105, 0.16);
-    border-color: rgba(255, 191, 105, 0.4);
-    color: #ffbf69;
+    display: none;
 }
 .court-meta {
-    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0;
+    font-weight: 800;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
-}
-.court-btn-hd {
-    border-color: rgba(115, 217, 255, 0.22);
-}
-.court-btn-hd::before {
-    background: linear-gradient(135deg, rgba(115, 217, 255, 0.18), rgba(40, 209, 124, 0.07));
-}
-.court-btn-alt {
-    border-color: rgba(255, 191, 105, 0.22);
-}
-.court-btn-alt::before {
-    background: linear-gradient(135deg, rgba(255, 191, 105, 0.17), rgba(40, 209, 124, 0.07));
+    line-height: 1.1;
+    padding: 2.5px 10px;
+    border-radius: 6px;
+    margin-top: 4px;
+    transition: all 0.2s ease;
 }
 .court-status {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #5d5d5d;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
+    display: none;
 }
-.court-btn:hover {
-    transform: translateY(-1px);
-    background-color: var(--hover-bg);
-    border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+
+/* Variant 1: Court Biasa (SD - Emerald Green) */
+.court-btn-main {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: linear-gradient(165deg, rgba(6, 32, 22, 0.9) 0%, rgba(3, 14, 28, 0.96) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(34, 197, 94, 0.18);
 }
-.court-btn:hover::before,
-.court-btn.active::before {
-    opacity: 1;
+.court-btn-main .court-number::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%234ade80' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
 }
-.court-btn.active {
-    background: linear-gradient(135deg, rgba(40, 209, 124, 0.24), rgba(255, 255, 255, 0.055));
-    border-color: rgba(40, 209, 124, 0.72);
-    box-shadow: 0 0 0 1px rgba(40, 209, 124, 0.12), 0 14px 28px rgba(40, 209, 124, 0.1);
+.court-btn-main .court-meta {
+    background: rgba(34, 197, 94, 0.16);
+    border: 1px solid rgba(34, 197, 94, 0.45);
+    color: #4ade80;
 }
-.court-btn.active .court-number {
-    background-color: var(--court-green);
-    border-color: var(--court-green);
-    color: #06180f;
+.court-btn-main:hover {
+    border-color: rgba(34, 197, 94, 0.75);
+    background: linear-gradient(165deg, rgba(10, 48, 34, 0.95) 0%, rgba(4, 20, 38, 0.98) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(34, 197, 94, 0.24);
 }
-.court-btn.active .court-meta {
-    color: #baf8d7;
+.court-btn-main.active {
+    border-color: #22c55e;
+    background: linear-gradient(165deg, rgba(16, 185, 129, 0.3) 0%, rgba(4, 26, 20, 0.98) 100%);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.42), inset 0 0 14px rgba(34, 197, 94, 0.24);
 }
-.court-btn.active .court-status {
-    background-color: var(--court-green);
-    box-shadow: 0 0 0 4px var(--court-green-soft), 0 0 14px rgba(40, 209, 124, 0.75);
+.court-btn-main.active .court-number {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+}
+.court-btn-main.active .court-meta {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #031c10;
+    font-weight: 900;
+}
+
+/* Variant 2: Court ALT (Solar Amber) */
+.court-btn-alt {
+    border-color: rgba(245, 158, 11, 0.32);
+    background: linear-gradient(165deg, rgba(38, 24, 6, 0.9) 0%, rgba(18, 12, 28, 0.96) 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(245, 158, 11, 0.18);
+}
+.court-btn-alt .court-number::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%23fbbf24' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
+}
+.court-btn-alt .court-meta {
+    background: rgba(245, 158, 11, 0.16);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+}
+.court-btn-alt:hover {
+    border-color: rgba(245, 158, 11, 0.75);
+    background: linear-gradient(165deg, rgba(54, 34, 8, 0.95) 0%, rgba(26, 16, 38, 0.98) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(245, 158, 11, 0.24);
+}
+.court-btn-alt.active {
+    border-color: #f59e0b;
+    background: linear-gradient(165deg, rgba(245, 158, 11, 0.28) 0%, rgba(32, 18, 4, 0.98) 100%);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.42), inset 0 0 14px rgba(245, 158, 11, 0.24);
+}
+.court-btn-alt.active .court-number {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+.court-btn-alt.active .court-meta {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #1e1002;
+    font-weight: 900;
+}
+
+/* Variant 3: Court HD (Cyber Cyan & Violet) */
+.court-btn-hd {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: linear-gradient(165deg, rgba(14, 28, 64, 0.92) 0%, rgba(26, 10, 52, 0.96) 100%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(56, 189, 248, 0.24);
+}
+.court-btn-hd::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    transform: skewX(-22deg);
+    transition: none;
+    pointer-events: none;
+}
+.court-btn-hd:hover::before {
+    left: 160%;
+    transition: left 0.75s ease-in-out;
+}
+.court-btn-hd .court-number::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%2338bdf8' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
+}
+.court-btn-hd .court-meta {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(168, 85, 247, 0.28));
+    border: 1px solid rgba(56, 189, 248, 0.6);
+    color: #7dd3fc;
+}
+.court-btn-hd:hover {
+    border-color: rgba(56, 189, 248, 0.85);
+    background: linear-gradient(165deg, rgba(18, 42, 90, 0.95) 0%, rgba(38, 14, 76, 0.98) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.32);
+}
+.court-btn-hd.active {
+    border-color: #38bdf8;
+    background: linear-gradient(165deg, rgba(56, 189, 248, 0.28) 0%, rgba(126, 34, 206, 0.35) 100%);
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.48), inset 0 0 16px rgba(168, 85, 247, 0.28);
+}
+.court-btn-hd.active .court-number {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.75);
+}
+.court-btn-hd.active .court-meta {
+    background: linear-gradient(135deg, #38bdf8, #a855f7);
+    border-color: #38bdf8;
+    color: #030d22;
+    font-weight: 900;
 }
 /* Matches Schedule */
 .match-list {
@@ -588,7 +670,7 @@ video {
     }
     .court-list {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .support-panel {
         grid-template-columns: auto minmax(0, 1fr);
@@ -626,7 +708,7 @@ video {
         margin-left: auto;
     }
     .court-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .support-panel {
         grid-template-columns: 1fr;
@@ -676,7 +758,7 @@ body { min-height: 100vh; }
 .event-shuttle { color: #5944ec; font-size: 67px; opacity: .75; }
 .event-chevron { font-size: 28px; }
 .event-panel .panel-title { margin: 0 0 13px; padding: 0 4px; border: 0; font-size: 16px; }
-.court-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.court-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .court-btn { min-height: 100px; }
 .info-strip { display: flex; align-items: center; gap: 14px; min-height: 86px; margin-top: 19px; padding: 12px 17px; border: 1px solid #183b91; border-radius: 12px; background: linear-gradient(100deg, #071536, #030b24); }
 .clock-icon { display: grid; flex: 0 0 56px; place-items: center; height: 56px; border-radius: 11px; background: linear-gradient(140deg, #6416d5, #3510a4); font-size: 35px; }
@@ -708,7 +790,7 @@ body { min-height: 100vh; }
     .event-banner > span:nth-child(2) { font-size: 14px; }
     .event-banner > span:nth-child(2) small { font-size: 13px; }
     .event-shuttle { font-size: 38px; }
-    .court-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .court-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .clock-copy { flex-basis: 85px; }
     .news-copy { flex-basis: 100%; white-space: normal; }
     .info-strip .tutorial-cta { flex: 1; }
@@ -778,16 +860,14 @@ body {
     background: linear-gradient(112deg, #061735, #03102a);
 }
 .event-card + .event-card { border-top-color: #143b69; }
-.court-btn, .event-court-placeholder {
+.event-court-placeholder {
     border-color: #123d70;
     background: linear-gradient(110deg, #061a38, #03112b);
 }
-.court-btn::before { background: linear-gradient(110deg, rgba(11, 45, 92, .72), rgba(7, 27, 61, .15)); }
-.court-btn.active { border-color: #0788ff; background: linear-gradient(110deg, #0b2d5c, #071b3d); box-shadow: 0 0 16px rgba(7, 136, 255, .14); }
 .info-strip { border-color: #143b9c; background: linear-gradient(110deg, #05132e, #06112d); }
 .clock-icon { background: linear-gradient(135deg, #6932ef, #a12cff); }
 .news-icon, .news-copy i { color: #a66aff; }
-.header-support:hover, .court-btn:hover { border-color: #2385ff; }
+.header-support:hover { border-color: #2385ff; }
 .event-panel::-webkit-scrollbar-thumb { background: #17416e; }
 
 /* Sidebar tab and event-card layout adapted from style1.css watch-tabs/sidebar-panel */
@@ -862,18 +942,12 @@ body {
     transform: rotate(-20deg);
 }
 .event-chevron { margin-left: auto; z-index: 1; }
-.event-card .court-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    padding: 25px 3px 2px;
-}
-.court-btn, .event-court-placeholder {
+.event-court-placeholder {
     min-height: 100px;
     border-color: #253d91;
     border-radius: 14px;
     background: linear-gradient(160deg, #071631, #03102a);
 }
-.court-btn.active { border-color: #5763d9; box-shadow: inset 0 0 18px #1b237a; }
 #chatView { display: flex; flex-direction: column; min-height: 0; margin-top: 16px; padding: 9px; }
 #chatView .panel-title { height: 55px; flex: 0 0 55px; margin: 0; }
 #chatView .cbox-frame { height: auto; min-height: 390px; flex: 1; }
@@ -894,19 +968,11 @@ body {
     .event-banner > span:nth-child(2) b { font-size: 13px; }
     .event-banner > span:nth-child(2) small { font-size: 12px; }
     .event-shuttle { right: 35px; font-size: 47px; }
-    .event-card .court-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding-top: 15px; }
-    .court-btn, .event-court-placeholder { min-height: 78px; }
+    .event-court-placeholder { min-height: 78px; }
 }
 .event-card { margin-bottom: 24px; }
 .event-card + .event-card { margin-top: 57px; }
 .event-card .event-banner { min-height: 106px; }
-.court-number::before {
-    content: "";
-    width: 31px;
-    height: 26px;
-    margin: 0 auto 1px;
-    background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%23f7f9ff' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9M18 12h.1'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
-}
 .logo {
     display: flex;
     align-items: center;
@@ -957,17 +1023,8 @@ body {
     .brand-name { font-size: 26px; }
 }
 .event-court-placeholder .court-number::before { margin-bottom: 1px; }
-.court-info { display: none; }
-.court-number { font-size: 15px; line-height: 1.2; }
 @media (max-width: 600px) {
     .event-card + .event-card { margin-top: 35px; }
-}
-.court-number::before {
-    content: "";
-    width: 31px;
-    height: 26px;
-    margin: 0 auto 1px;
-    background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%23f7f9ff' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
 }
 
 /* style1.css wordmark adapted for the live header */
@@ -1090,49 +1147,7 @@ body {
     letter-spacing: 0;
     text-transform: none;
 }
-.court-list {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-}
-.court-btn {
-    display: flex;
-    min-height: 92px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 7px;
-    padding: 10px 6px;
-    border: 1px solid #1b3d91;
-    border-radius: 13px;
-    background: linear-gradient(150deg, #07132f, #030a20);
-    text-align: center;
-}
-.court-btn::before { background: linear-gradient(140deg, rgba(100, 37, 228, .45), transparent); }
-.court-number {
-    width: auto;
-    height: auto;
-    border: 0;
-    background: none;
-    color: #f8f8ff;
-    font-size: 19px;
-}
-.court-number::before {
-    content: "▣";
-    display: block;
-    margin-bottom: 2px;
-    font-size: 22px;
-    line-height: 1;
-}
-.court-info { align-items: center; }
-.court-name { font-size: 16px; }
-.court-meta, .court-status { display: none; }
-.court-btn.active {
-    transform: none;
-    border-color: #a452ff;
-    background: linear-gradient(145deg, rgba(90, 29, 210, .62), #081335);
-    box-shadow: 0 0 18px rgba(120, 49, 255, .18);
-}
-.court-btn.active .court-number { color: #fff; }
+
 .cbox-frame { height: 360px; }
 .support-panel {
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -1173,7 +1188,6 @@ body {
 @media (max-width: 960px) {
     .main-container { flex-direction: column; }
     .sidebar { width: 100%; min-width: 0; }
-    .court-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .support-panel { grid-template-columns: minmax(0, 1fr) auto; }
     .support-actions { grid-column: auto; }
 }
@@ -1184,22 +1198,10 @@ body {
     .logo::after { font-size: 20px; }
     .main-container { padding: 12px; gap: 14px; }
     .video-wrapper { aspect-ratio: 16 / 10; }
-    .court-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .support-panel { grid-template-columns: 1fr; text-align: center; }
     .support-actions { grid-column: 1; flex-direction: row; }
     .support-cta, .tutorial-cta { width: 100%; }
     .support-marquee { margin: 0 12px 12px; }
-}
-
-/* Keep court glyphs and labels aligned with style1.css stream-choice tiles. */
-.court-info { display: none; }
-.court-number { font-size: 15px; line-height: 1.2; }
-.court-number::before {
-    content: "";
-    width: 31px;
-    height: 26px;
-    margin: 0 auto 1px;
-    background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28' fill='none' stroke='%23f7f9ff' stroke-width='2'%3E%3Crect x='1.5' y='2' width='33' height='24' rx='1'/%3E%3Cpath d='M18 2v24M7 2v7a4 4 0 0 0 0 8v9M29 2v7a4 4 0 0 1 0 8v9'/%3E%3Ccircle cx='18' cy='14' r='3.2'/%3E%3C/svg%3E");
 }
 
 /* Final brand overrides: style1.css wordmark with a compact LIVE STREAMING tag. */
@@ -1359,30 +1361,55 @@ body {
         padding: 10px 0 2px;
     }
     .event-card .court-list .court-btn {
-        grid-template-columns: 30px minmax(0, 1fr);
-        min-width: 0;
         min-height: 68px;
-        gap: 8px;
-        padding: 9px;
+        padding: 6px 4px 5px;
         border-radius: 11px;
-        text-align: left;
     }
-    .event-card .court-number {
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        font-size: 12px;
+    .court-number {
+        font-size: 13px;
+        margin: 0;
     }
-    .event-card .court-number::before { width: 20px; height: 16px; }
-    .event-card .court-name { overflow: hidden; font-size: 12px; text-overflow: ellipsis; }
-    .event-card .court-meta { font-size: 9px; line-height: 1.2; }
-    .event-card .court-status { display: none; }
+    .court-number::before {
+        width: 20px;
+        height: 15px;
+        margin-bottom: 2px;
+    }
+    .football-court .court-number::before {
+        font-size: 15px;
+    }
+    .court-meta {
+        font-size: 8.5px;
+        letter-spacing: 0.4px;
+        padding: 2px 7px;
+        margin-top: 3px;
+        border-radius: 5px;
+    }
+    .court-status {
+        display: none;
+    }
 }
 @media (max-width: 360px) {
     .main-container { padding: 8px; }
     .event-panel { padding: 8px; }
     .event-card .court-list { gap: 6px; }
-    .event-card .court-list .court-btn { gap: 6px; padding: 8px 7px; }
+    .event-card .court-list .court-btn {
+        min-height: 68px;
+        padding: 5px 3px 4px;
+    }
+    .court-number {
+        font-size: 12px;
+    }
+    .court-number::before {
+        width: 18px;
+        height: 14px;
+    }
+    .court-meta {
+        font-size: 7.5px;
+        letter-spacing: 0.3px;
+        padding: 1.5px 5px;
+        margin-top: 2px;
+        border-radius: 4px;
+    }
 }
 
 /* QRIS modal opened by the support button. */

@@ -82,17 +82,50 @@
             const ornament = document.createElement('span'); ornament.className = 'event-shuttle'; ornament.textContent = '◈';
             const chevron = document.createElement('span'); chevron.className = 'event-chevron'; chevron.style.transform = 'rotate(180deg)'; chevron.textContent = '⌃';
             banner.append(logo, heading, ornament, chevron);
-            const panel = document.createElement('div'); panel.className = 'court-list'; panel.id = panelId; panel.hidden = true;
+            const isFootball = (event.category || '').toLowerCase() === 'football' || event.id === 'fifaAseanCup2026';
+            const panel = document.createElement('div');
+            panel.className = 'court-list' + (isFootball ? ' football-court' : '');
+            panel.id = panelId;
+            panel.hidden = true;
             (event.streams || []).forEach(function (stream) {
-                const button = document.createElement('button'); button.type = 'button'; button.className = 'court-btn'; button.dataset.court = stream.id;
+                const isHd = isHdCourt(stream.id);
+                const isAlt = isAltCourt(stream.id);
+                const courtType = isHd ? 'hd' : (isAlt ? 'alt' : 'main');
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'court-btn court-btn-' + courtType;
+                button.dataset.court = stream.id;
+                button.dataset.courtType = courtType;
                 button.setAttribute('aria-label', 'Pilih siaran ' + (event.title || event.id) + ' ' + (stream.name || stream.number || stream.id));
-                const number = document.createElement('span'); number.className = 'court-number'; number.textContent = stream.number || 'LIVE';
-                const info = document.createElement('span'); info.className = 'court-info';
-                const name = document.createElement('span'); name.className = 'court-name'; name.textContent = stream.name || stream.number || stream.id;
-                const detail = document.createElement('span'); detail.className = 'court-meta'; detail.textContent = stream.detail || event.category || 'Live feed';
+
+                const number = document.createElement('span');
+                number.className = 'court-number';
+                number.textContent = stream.number || 'LIVE';
+
+                const info = document.createElement('span');
+                info.className = 'court-info';
+                const name = document.createElement('span');
+                name.className = 'court-name';
+                name.textContent = stream.name || stream.number || stream.id;
+
+                const detail = document.createElement('span');
+                detail.className = 'court-meta meta-' + courtType;
+                if (isHd) {
+                    detail.textContent = 'HD';
+                } else if (isAlt) {
+                    detail.textContent = 'ALT';
+                } else {
+                    detail.textContent = isFootball ? (stream.detail || 'LIVE') : 'SD';
+                }
+
                 info.append(name, detail);
-                const status = document.createElement('span'); status.className = 'court-status'; status.setAttribute('aria-hidden', 'true');
-                button.append(number, info, status); panel.append(button);
+                const status = document.createElement('span');
+                status.className = 'court-status';
+                status.setAttribute('aria-hidden', 'true');
+
+                button.append(number, info, status);
+                panel.append(button);
             });
             card.append(banner, panel); list.append(card);
         });
