@@ -10,18 +10,18 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://d302.soft4game.com/o1/stream256/playlist.m3u8",
-        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050786501.m3u8",
-        "court1hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8219686&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=95A53F764FBD6D4ECE3DF66821E81ADD&ups_client_netip=202.125.82.230&ups_ts=1793540647&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8219686_8140417&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B42ecf1a4f44ce0c7652cd0b171433ef8&cug=10&t=217d25a00e73158",
-        "court2": "",
-        "court2alt": "",
-        "court2hd": "",
-        "court3": "",
-        "court3alt": "",
-        "court3hd": "",
-        "court4": "",
-        "court4alt": "",
-        "court4hd": ""
+        "court1": "https://mobilelive-test.ysp.cctv.cn/ysp/2050856001_hd.m3u8",
+        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050856001.m3u8",
+        "court1hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8220143&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=F196BB66003473FEDA706BFFC6F12DEE&ups_client_netip=36.75.155.150&ups_ts=1793688786&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8220143_8140741&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B7e9be3265fbf76f2a2dbe964e2f19770&cug=10&t=f4b1ed37ad0d51c",
+        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050856101.m3u8",
+        "court2alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050856101_hd.m3u8",
+        "court2hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court2HB_sjb5m.m3u8?title=8220144&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court2HB&ccode=live05030101&expire=21600&psid=1B6C3CC53D2D42FAB98A3342D5B89B48&ups_client_netip=36.75.155.150&ups_ts=1793689052&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8220144_8140742&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B7f46421b15624b790c67d59893bca896&cug=10&t=ff871406f711c76",
+        "court3": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050856201.m3u8",
+        "court3alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050856201_hd.m3u8",
+        "court3hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court3HB_sjb5m.m3u8?title=8220145&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court3HB&ccode=live05030101&expire=21600&psid=F4D642556C78E52BE96D908CC772556E&ups_client_netip=36.75.155.150&ups_ts=1793689103&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8220145_8140743&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B43aeee51ea615dd01f2757d724e4e419&cug=10&t=f3d2f1a15bee9ef",
+        "court4": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050856301.m3u8",
+        "court4alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050856301.m3u8",
+        "court4hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court4HB_sjb5m.m3u8?title=8220146&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court4HB&ccode=live05030101&expire=21600&psid=86BD38C812D6B1BFF7CDDF7BE7659D4A&ups_client_netip=36.75.155.150&ups_ts=1793689139&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8220146_8140744&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B97e9c7607d7af262c877772e64feec30&cug=10&t=ffa35ff514e1116"
     },
     "fifaAseanCup2026": {
         "footballS1": "",

@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "HYLO OPEN 2026",
+      "title": "VICTOR KOREA OPEN 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "HYLO OPEN\\n2026",
+      "logoText": "KOREA OPEN\\n2026",
       "streams": [
         {
           "id": "court1",
