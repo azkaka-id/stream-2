@@ -36,6 +36,8 @@
     const SAWERIA_URL = 'https://saweria.co/Shuttleflash';
     const HD_PENDING_COURT_KEY = 'shuttleflash_pending_hd_court';
     const HD_UNLOCK_PREFIX = 'shuttleflash_hd_unlocked_';
+    let hasResumedCourt = false;
+    let currentLoadedCourt = '';
     const LIVE_EVENTS_URL = new URL('live-events.json', document.currentScript && document.currentScript.src ? document.currentScript.src : window.location.href);
     // Tempel URL iframe dari halaman Publish di akun Cbox Anda.
     const CBOX_EMBED_URL = 'https://www5.cbox.ws/box/?boxid=967352&boxtag=5YPSFc';
@@ -94,6 +96,9 @@
             });
             card.append(banner, panel); list.append(card);
         });
+        if (currentLoadedCourt) {
+            expandEventPanelForCourt(currentLoadedCourt);
+        }
     }
 
     let hls = null;
@@ -150,6 +155,36 @@
         }
     }
 
+    function getStoredPendingHdCourt() {
+        try {
+            const localVal = localStorage.getItem(HD_PENDING_COURT_KEY);
+            if (localVal) return localVal.trim();
+        } catch (error) {}
+        try {
+            const sessionVal = sessionStorage.getItem(HD_PENDING_COURT_KEY);
+            if (sessionVal) return sessionVal.trim();
+        } catch (error) {}
+        return null;
+    }
+
+    function setStoredPendingHdCourt(court) {
+        try {
+            localStorage.setItem(HD_PENDING_COURT_KEY, court);
+        } catch (error) {}
+        try {
+            sessionStorage.setItem(HD_PENDING_COURT_KEY, court);
+        } catch (error) {}
+    }
+
+    function clearStoredPendingHdCourt() {
+        try {
+            localStorage.removeItem(HD_PENDING_COURT_KEY);
+        } catch (error) {}
+        try {
+            sessionStorage.removeItem(HD_PENDING_COURT_KEY);
+        } catch (error) {}
+    }
+
     function initThemeSwitcher() {
         syncCourtButtons();
         loadCbox();
@@ -177,7 +212,13 @@
     }
 
     function getThemeForCourt(court) {
-        return THEME_BY_COURT[court] || '';
+        if (THEME_BY_COURT[court]) return THEME_BY_COURT[court];
+        for (const theme in STREAM_URLS_BY_THEME) {
+            if (STREAM_URLS_BY_THEME[theme] && typeof STREAM_URLS_BY_THEME[theme][court] === 'string' && STREAM_URLS_BY_THEME[theme][court].trim() !== '') {
+                return theme;
+            }
+        }
+        return '';
     }
 
     function hasStreamUrl(court) {
@@ -299,17 +340,34 @@
     }
 
     function isHdUnlocked(court) {
-        return getSessionValue(getHdUnlockKey(court)) === '1';
+        return false;
     }
 
     function unlockHdCourt(court) {
-        setSessionValue(getHdUnlockKey(court), '1');
+        // Tidak menyimpan status unlock agar setiap klik court HD selalu mengarah ke Saweria
     }
 
     function redirectToSaweriaBeforeHd(court) {
-        setSessionValue(HD_PENDING_COURT_KEY, court);
+        setStoredPendingHdCourt(court);
         setStatus('LOADING');
         window.location.href = SAWERIA_URL;
+    }
+
+    function expandEventPanelForCourt(court) {
+        if (!court) return;
+        const theme = getThemeForCourt(court);
+        if (!theme) return;
+        const banner = document.querySelector('.event-banner[data-theme="' + theme + '"]');
+        if (!banner) return;
+        const panelId = banner.dataset.expandTarget;
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) {
+            panel.hidden = false;
+            banner.setAttribute('aria-expanded', 'true');
+            const chevron = banner.querySelector('.event-chevron');
+            if (chevron) chevron.style.transform = 'rotate(0deg)';
+        }
+        setActiveButton(court);
     }
 
     function setActiveButton(court) {
@@ -360,6 +418,7 @@
     }
 
     async function loadVideo(court) {
+        currentLoadedCourt = court;
         const video = document.getElementById('video');
         const videoWrapper = video.closest('.video-wrapper');
         if (videoWrapper) videoWrapper.style.removeProperty('aspect-ratio');
@@ -451,7 +510,7 @@
     }
 
     function selectCourt(court) {
-        if (isHdCourt(court) && !isHdUnlocked(court)) {
+        if (isHdCourt(court)) {
             redirectToSaweriaBeforeHd(court);
             return;
         }
@@ -459,13 +518,14 @@
     }
 
     function resumePendingHdCourt() {
-        const pendingCourt = getSessionValue(HD_PENDING_COURT_KEY);
+        const pendingCourt = getStoredPendingHdCourt();
         if (!pendingCourt || !hasStreamUrl(pendingCourt)) {
             return false;
         }
+        hasResumedCourt = true;
+        clearStoredPendingHdCourt();
         activeTheme = getThemeForCourt(pendingCourt);
-        removeSessionValue(HD_PENDING_COURT_KEY);
-        unlockHdCourt(pendingCourt);
+        expandEventPanelForCourt(pendingCourt);
         loadVideo(pendingCourt);
         return true;
     }
@@ -507,9 +567,20 @@
         selectCourt(btn.dataset.court);
     });
 
-    window.addEventListener('pageshow', resumePendingHdCourt);
+    window.addEventListener('pageshow', function () {
+        if (getStoredPendingHdCourt()) {
+            resumePendingHdCourt();
+        }
+    });
+    resumePendingHdCourt();
     loadLiveEvents().then(function () {
         initThemeSwitcher();
+        if (hasResumedCourt) {
+            if (currentLoadedCourt) {
+                expandEventPanelForCourt(currentLoadedCourt);
+            }
+            return;
+        }
         if (!resumePendingHdCourt()) {
             const firstCourt = getFirstAvailableCourt();
             if (firstCourt) loadVideo(firstCourt);
