@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "VICTOR KOREA OPEN 2026",
+      "title": "KUMAMOTO JAPAN MASTER 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "KOREA OPEN\\n2026",
+      "logoText": "JAPAN MASTER\\n2026",
       "streams": [
         {
           "id": "court1",

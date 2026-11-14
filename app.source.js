@@ -10,15 +10,15 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763555191061_AiSD.m3u8?txSecret=f09469bef70f542ee79c3311f38760cf&txTime=6AECFC60",
-        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050857701.m3u8",
-        "court1hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763555191061_AiHD.m3u8?txSecret=d2ea87f16c4eb60011b4f965fc727740&txTime=6AECFC60",
-        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763765632061_AiSD.m3u8?txSecret=dc40c23373b39a638400309d30a83f75&txTime=6AECFC60",
-        "court2alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050857801_hd.m3u8",
-        "court2hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763765632061_AiHD.m3u8?txSecret=456d788ea79473ae9558c29da9040105&txTime=6AECFC60",
-        "court3": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763962576061_AiSD.m3u8?txSecret=6a4c70e08b7be97750fc6b4f55e66e3f&txTime=6AECFC60",
-        "court3alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050857901_hd.m3u8",
-        "court3hd": "https://2a6096f50ffc05c7c7766fbd1358fce6.v.smtcdns.net/play.cbalive.weibisai.com/live/4363763962576061_AiHD.m3u8?txSecret=45b7bcacaa8853e7ed294116508a5c18&txTime=6AECFC60",
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4369799164241061_AiSD.m3u8?txSecret=187f0fe356e58922bb5aef84ea87f538&txTime=6AF8D9E0",
+        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050903401.m3u8",
+        "court1hd": "https://576572429726c2abb81829f2b3d1d81c.v.smtcdns.net/play.cbalive.weibisai.com/live/4369799164241061_AiHD.m3u8?txSecret=8789d1b26230c39986188bd5b5ff99de&txTime=6AF8D9E0",
+        "court2": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4369798544184061_AiSD.m3u8?txSecret=f793e5e53d54e4d6a8127faf73f2353e&txTime=6AF78860",
+        "court2alt": "https://mobilelive-test.ysp.cctv.cn/ysp/2050904001_hd.m3u8",
+        "court2hd": "",
+        "court3": "",
+        "court3alt": "",
+        "court3hd": "",
         "court4": "",
         "court4alt": "",
         "court4hd": ""
