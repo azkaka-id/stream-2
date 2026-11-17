@@ -2,10 +2,10 @@
   "events": [
     {
       "id": "badminton",
-      "title": "KUMAMOTO JAPAN MASTER 2026",
+      "title": "HONGKONG OPEN 2026",
       "category": "Badminton",
       "icon": "🏸",
-      "logoText": "JAPAN MASTER\\n2026",
+      "logoText": "HONGKONG OPEN\\n2026",
       "streams": [
         {
           "id": "court1",
