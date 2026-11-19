@@ -24,9 +24,9 @@
         "court4hd": "https://0713546501eefc1afcb0b54d64dcb5b8.v.smtcdns.net/play.cbalive.weibisai.com/live/4380396176156061_AiSD.m3u8?txSecret=158f4b5571943fbb678af16d0e44b959&txTime=6AFFC5C0"
     },
     "fifaAseanCup2026": {
-        "footballS1": "",
-        "footballS2": "",
-        "footballS3": ""
+        "footballS1": "https://green-bush-d67f.elutuna.workers.dev/stream/hybrid-4516729-1/3cdb48417d0170580957/index.m3u8?matchId=4516729&sportType=1&streamId=955415&siteType=2001",
+        "footballS2": "https://play5.moon3g.com/live/113442952648_2656820155.m3u8?txSecret=fbd95367f19d8bf991ebb4f4fb9dbec7&txTime=6AFEF2D4&t=1795089604690",
+        "footballS3": "https://pul-tenm.gkykp.com/live/sd-1-4646617.m3u8?txSecret=ac76d737082d59e20271ea408cd0c9eb&txTime=6B0033E8"
     }
 };
     const THEME_BY_COURT = {};
