@@ -10,8 +10,8 @@
 
     const STREAM_URLS_BY_THEME = {
     "badminton": {
-        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4374823823403061_AiSD.m3u8?txSecret=edd0591ffbb12309a6526b049d0d6829&txTime=6B01B1F0",
-        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050966201.m3u8",
+        "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4374824567081061_AiSD.m3u8?txSecret=5d5e60b1aacbfd8b1b082a00b60effde&txTime=6B03BA40",
+        "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050965301.m3u8",
         "court1hd": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4374823823403061_AiSD.m3u8?txSecret=edd0591ffbb12309a6526b049d0d6829&txTime=6B01B1F0",
         "court2": "",
         "court2alt": "",
