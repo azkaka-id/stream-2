@@ -12,7 +12,7 @@
     "badminton": {
         "court1": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4374824567081061_AiSD.m3u8?txSecret=5d5e60b1aacbfd8b1b082a00b60effde&txTime=6B03BA40",
         "court1alt": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/quickmobilelive-play.ysp.cctv.cn/ysp/2050965301.m3u8",
-        "court1hd": "https://052d33b4b506ff051775da149c5848eb.v.smtcdns.net/play.cbalive.weibisai.com/live/4374823823403061_AiSD.m3u8?txSecret=edd0591ffbb12309a6526b049d0d6829&txTime=6B01B1F0",
+        "court1hd": "https://dmd-v-fifajs-native-major-hb.youku.com/67756D6080932713CFC02204E/03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa_jieshuo__YMQ-Court1HB_sjb5m.m3u8?title=8221061&ver=1.0.0&uid=0&log_type=log_type&aliyun_uuid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&cdnQuality=h265-abr&quality=2&multi_raw_stream=YMQ-Court1HB&ccode=live05030101&expire=21600&psid=B1B663A02098BF1DF85B314D2F9AEA2B&ups_client_netip=153.60.128.102&ups_ts=1795330470&ups_userid=0&utid=E%2F1MI4j7tCQCAZk8gHAV1jtJ&vid=8221061_8141514&fn=03000700005FC8D27A3229D2F2B8944FBAFF26-37D1-4CEC-99D0-BADBBFEA7560--fifa&vkey=B434926d501d0e701ae19fd55e89f3f1a&cug=10&t=b1f4345e8ae4a7",
         "court2": "",
         "court2alt": "",
         "court2hd": "",
